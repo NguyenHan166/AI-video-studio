@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "slug": "qua-tang-20-10-bay-lua-dao",
+  "topic": "Quà tặng 20/10 biến thành bẫy lừa đảo",
+  "template": "cyber-security-alert",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 2611,
+  "audioPath": "media/qua-tang-20-10-bay-lua-dao/voice.mp3",
+  "captions": [
+    {
+      "startMs": 0,
+      "endMs": 1160,
+      "text": "Ngày 20 tháng 10,"
+    },
+    {
+      "startMs": 1447,
+      "endMs": 3110,
+      "text": "bạn bất ngờ nhận được tin nhắn:"
+    },
+    {
+      "startMs": 3110,
+      "endMs": 5318,
+      "text": "Chúc mừng! Bạn có một phần quà đặc biệt đang chờ nhận."
+    },
+    {
+      "startMs": 6296,
+      "endMs": 8008,
+      "text": "Chỉ cần bấm vào đường link để xác nhận."
+    },
+    {
+      "startMs": 8480,
+      "endMs": 9090,
+      "text": "Nghe hấp dẫn,"
+    },
+    {
+      "startMs": 9378,
+      "endMs": 11527,
+      "text": "nhưng đây có thể là khởi đầu của một cái bẫy."
+    },
+    {
+      "startMs": 12528,
+      "endMs": 14203,
+      "text": "Lợi dụng dịp Ngày Phụ nữ Việt Nam,"
+    },
+    {
+      "startMs": 14455,
+      "endMs": 16769,
+      "text": "kẻ lừa đảo có thể lập fanpage giả mạo thương hiệu,"
+    },
+    {
+      "startMs": 17038,
+      "endMs": 19194,
+      "text": "tung ưu đãi lớn hoặc thông báo trúng quà tri ân."
+    },
+    {
+      "startMs": 20198,
+      "endMs": 21767,
+      "text": "Sau lời mời nhận quà miễn phí,"
+    },
+    {
+      "startMs": 21963,
+      "endMs": 23299,
+      "text": "chúng dẫn người dùng vào nhóm chat,"
+    },
+    {
+      "startMs": 23579,
+      "endMs": 26831,
+      "text": "gửi mã QR hoặc yêu cầu truy cập website không rõ nguồn gốc."
+    },
+    {
+      "startMs": 27804,
+      "endMs": 30109,
+      "text": "Một số đối tượng còn yêu cầu trả phí vận chuyển,"
+    },
+    {
+      "startMs": 30306,
+      "endMs": 32906,
+      "text": "đóng thuế hoặc làm nhiệm vụ để được nhận hoa hồng."
+    },
+    {
+      "startMs": 33898,
+      "endMs": 36539,
+      "text": "Ban đầu, khoản tiền nhỏ có thể khiến nạn nhân chủ quan."
+    },
+    {
+      "startMs": 36995,
+      "endMs": 39048,
+      "text": "Rồi những yêu cầu chuyển khoản tiếp theo xuất hiện."
+    },
+    {
+      "startMs": 40052,
+      "endMs": 42754,
+      "text": "Nguy hiểm hơn, trang giả mạo có thể dụ bạn nhập mật khẩu,"
+    },
+    {
+      "startMs": 43017,
+      "endMs": 44941,
+      "text": "thông tin ngân hàng hoặc mã xác thực OTP."
+    },
+    {
+      "startMs": 45942,
+      "endMs": 48969,
+      "text": "Hãy nhớ: Quà tặng thật không phải lý do để cung cấp mật khẩu,"
+    },
+    {
+      "startMs": 49227,
+      "endMs": 51212,
+      "text": "OTP hay chuyển tiền vào tài khoản lạ."
+    },
+    {
+      "startMs": 52207,
+      "endMs": 53487,
+      "text": "Trước một thông báo trúng thưởng,"
+    },
+    {
+      "startMs": 53681,
+      "endMs": 55678,
+      "text": "hãy kiểm tra chương trình trực tiếp trên website"
+    },
+    {
+      "startMs": 55678,
+      "endMs": 57363,
+      "text": "hoặc kênh chính thức của thương hiệu."
+    },
+    {
+      "startMs": 58332,
+      "endMs": 59370,
+      "text": "Đừng vội nhấp link lạ,"
+    },
+    {
+      "startMs": 59642,
+      "endMs": 61190,
+      "text": "quét mã QR không rõ nguồn gốc"
+    },
+    {
+      "startMs": 61190,
+      "endMs": 62999,
+      "text": "hay cài ứng dụng do người lạ gửi đến."
+    },
+    {
+      "startMs": 64010,
+      "endMs": 65814,
+      "text": "Nếu đã chuyển tiền hoặc lộ thông tin,"
+    },
+    {
+      "startMs": 66041,
+      "endMs": 67689,
+      "text": "hãy liên hệ ngân hàng qua kênh chính thức,"
+    },
+    {
+      "startMs": 67960,
+      "endMs": 70112,
+      "text": "đổi mật khẩu cần thiết và lưu lại bằng chứng."
+    },
+    {
+      "startMs": 71107,
+      "endMs": 72925,
+      "text": "Đồng thời, trình báo cơ quan Công an"
+    },
+    {
+      "startMs": 72925,
+      "endMs": 74776,
+      "text": "nơi gần nhất để được hướng dẫn xử lý."
+    },
+    {
+      "startMs": 76218,
+      "endMs": 78378,
+      "text": "Audio này được tổng hợp từ công nghệ AI"
+    },
+    {
+      "startMs": 78378,
+      "endMs": 80211,
+      "text": "của Vbee.vn."
+    },
+    {
+      "startMs": 80849,
+      "endMs": 83069,
+      "text": "Ngày 20 tháng 10 là dịp trao gửi yêu thương."
+    },
+    {
+      "startMs": 83531,
+      "endMs": 85140,
+      "text": "Đừng để một món quà ảo lấy đi tiền bạc"
+    },
+    {
+      "startMs": 85140,
+      "endMs": 86570,
+      "text": "và sự an toàn của bạn."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "cyber-hook",
+      "title": "BẪY QUÀ TẶNG 20/10 TRÊN MẠNG",
+      "subtitle": "Cảnh giác với tin nhắn trúng thưởng dịp Ngày Phụ nữ Việt Nam",
+      "statistic": "QUÀ MIỄN PHÍ HAY CÁI BẪY?",
+      "kicker": "AN NINH MẠNG · BÁO ĐỘNG ĐỎ",
+      "threatLevel": "NGUY HIỂM CAO ⚠️",
+      "caseCode": "#20-10-ALERT",
+      "startFrame": 0,
+      "durationFrames": 376
+    },
+    {
+      "id": "scene-02",
+      "type": "cyber-compare",
+      "title": "FANPAGE THẬT VÀ BẪY GIẢ MẠO",
+      "realDomain": "shop-chinh-hang.vn (Tích xanh, minh bạch)",
+      "fakeDomain": "shop-tri-an-20-10-free.xyz (Giả mạo)",
+      "kicker": "THỦ ĐOẠN 01: MẠO DANH NHÃN HÀNG",
+      "threatLevel": "TÌNH HUỐNG MINH HỌA",
+      "caseCode": "#20-10-ALERT",
+      "startFrame": 376,
+      "durationFrames": 230
+    },
+    {
+      "id": "scene-03",
+      "type": "cyber-fake-chat",
+      "title": "BẪY NHÓM CHAT & LÀM NHIỆM VỤ",
+      "fakeSender": "CSKH TRI ÂN 20/10 [MINH HỌA]",
+      "fakeMessage": "Chúc mừng bạn nhận quà 20/10! Quét mã QR hoặc vào link bên dưới, nộp 150.000đ phí bảo hiểm/làm nhiệm vụ 1 để nhận phần quà 2.000.000đ và tiền hoa hồng:",
+      "fakeLink": "http://nhan-qua-tri-an-2010.top/nhiemvu",
+      "footnote": "Cảnh báo: Dụ nộp phí vận chuyển / làm nhiệm vụ nhận hoa hồng là bẫy lừa đảo!",
+      "kicker": "THỦ ĐOẠN 02: DẪN DỤ VÀO BẪY",
+      "threatLevel": "BẪY PHÍ 0 ĐỒNG",
+      "caseCode": "#20-10-ALERT",
+      "startFrame": 606,
+      "durationFrames": 411
+    },
+    {
+      "id": "scene-04",
+      "type": "cyber-red-flags",
+      "title": "THÔNG TIN TUYỆT ĐỐI KHÔNG CHIA SẺ",
+      "items": [
+        "MỒI NHỬ TIỀN NHỎ (Cho rút tiền nhỏ ban đầu để dụ nạp tiền lớn hơn)",
+        "YÊU CẦU ĐÓNG PHÍ VẬN CHUYỂN, TIỀN THUẾ ĐỂ NHẬN QUÀ TẶNG 0 ĐỒNG",
+        "DỤ NHẬP THÔNG TIN TÀI KHOẢN, MẬT KHẨU VÀ MÃ XÁC THỰC OTP"
+      ],
+      "kicker": "CẢNH BÁO NGUY HIỂM: BẪY OTP",
+      "threatLevel": "KHÔNG ĐƯA OTP",
+      "caseCode": "#20-10-ALERT",
+      "startFrame": 1017,
+      "durationFrames": 549
+    },
+    {
+      "id": "scene-05",
+      "type": "cyber-shield-defense",
+      "title": "3 NGUYÊN TẮC BẢO VỆ MÌNH DỊP 20/10",
+      "defenseRules": [
+        {
+          "title": "KIỂM TRA KÊNH CHÍNH THỨC",
+          "desc": "Xác minh trực tiếp trên website hoặc fanpage chính chủ có tích xanh của thương hiệu.",
+          "icon": "🔍"
+        },
+        {
+          "title": "KHÔNG BẤM LINK LẠ & MÃ QR",
+          "desc": "Tuyệt đối không quét mã QR nhận quà hoặc nhấp vào đường link lạ từ tin nhắn rác.",
+          "icon": "🚫"
+        },
+        {
+          "title": "KHÔNG CÀI ỨNG DỤNG NGOÀI STORE",
+          "desc": "Không tải bất kỳ file .apk hoặc ứng dụng nào do người lạ gửi qua mạng xã hội.",
+          "icon": "🛡️"
+        }
+      ],
+      "kicker": "LÁ CHẮN BẢO MẬT: NGUYÊN TẮC VÀNG",
+      "threatLevel": "XÁC MINH NGUỒN",
+      "caseCode": "#20-10-ALERT",
+      "startFrame": 1566,
+      "durationFrames": 354
+    },
+    {
+      "id": "scene-06",
+      "type": "cyber-anatomy",
+      "title": "NẾU ĐÃ LỠ CHUYỂN TIỀN HOẶC LỘ OTP",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "LIÊN HỆ NGÂN HÀNG NGAY",
+          "desc": "Gọi hotline chính thức yêu cầu khóa thẻ và tạm ngưng tài khoản khẩn cấp.",
+          "icon": "📞"
+        },
+        {
+          "stepNumber": 2,
+          "title": "ĐỔI MẬT KHẨU CÁC DỊCH VỤ",
+          "desc": "Đổi mật khẩu Internet Banking, tài khoản email và các mạng xã hội liên quan.",
+          "icon": "🔑"
+        },
+        {
+          "stepNumber": 3,
+          "title": "LƯU LẠI TOÀN BỘ BẰNG CHỨNG",
+          "desc": "Chụp màn hình tin nhắn, số tài khoản nhận tiền và biên lai chuyển khoản.",
+          "icon": "📸"
+        },
+        {
+          "stepNumber": 4,
+          "title": "TRÌNH BÁO CƠ QUAN CÔNG AN",
+          "desc": "Đến Công an nơi gần nhất để được thụ lý và ngăn chặn dòng tiền tẩu tán.",
+          "icon": "⚖️"
+        }
+      ],
+      "kicker": "XỬ LÝ KHẨN CẤP KHI DÍNH BẪY",
+      "threatLevel": "HÀNH ĐỘNG NGAY",
+      "caseCode": "#20-10-ALERT",
+      "startFrame": 1920,
+      "durationFrames": 367
+    },
+    {
+      "id": "scene-07",
+      "type": "cyber-hotline",
+      "title": "20/10: AN TOÀN CHO BẠN VÀ GIA ĐÌNH",
+      "subtitle": "Đừng để món quà ảo lấy đi tiền bạc và sự an toàn của bạn",
+      "ctaText": "CHIA SẺ NGAY ĐỂ BẢO VỆ NGƯỜI THÂN DỊP 20/10!",
+      "kicker": "TỔNG ĐÀI TIẾP NHẬN PHẢN ÁNH",
+      "threatLevel": "LAN TỎA CẢNH BÁO",
+      "caseCode": "#20-10-ALERT",
+      "hotline": "156 (MIỄN CƯỚC)",
+      "startFrame": 2287,
+      "durationFrames": 324
+    }
+  ]
+}

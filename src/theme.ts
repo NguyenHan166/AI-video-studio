@@ -1,0 +1,16 @@
+export const THEME = {
+  paper: '#F7F5EE',
+  ink: '#1A3930',
+  brick: '#DE5138',
+  coral: '#DE5138',
+  muted: '#4A635A',
+  subtle: '#7E938B',
+  white: '#FFFFFF',
+  tagBg: '#FFFFFF',
+  tagBorder: 'rgba(26, 57, 48, 0.14)',
+  dashedBorder: '#3D6E62',
+  buttonBg: '#1C4D43',
+  topStripe: 'linear-gradient(90deg, #1A4D42 0%, #3D8274 50%, #DE5138 100%)',
+  fontDisplay: "'Playfair Display', Cambria, 'Times New Roman', serif",
+  fontBody: "'Plus Jakarta Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif",
+} as const;
