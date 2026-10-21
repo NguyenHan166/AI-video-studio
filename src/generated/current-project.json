@@ -1,324 +1,257 @@
 {
   "version": 1,
-  "slug": "qua-tang-20-10-bay-lua-dao",
-  "topic": "Quà tặng 20/10 biến thành bẫy lừa đảo",
+  "slug": "vcb-loyalty-scam-alert",
+  "topic": "Cảnh báo giả mạo điểm VCB Loyalty",
   "template": "cyber-security-alert",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 2611,
-  "audioPath": "media/qua-tang-20-10-bay-lua-dao/voice.mp3",
+  "durationInFrames": 2892,
+  "audioPath": null,
+  "audioSyncPolicy": "srt-authoritative",
   "captions": [
     {
       "startMs": 0,
-      "endMs": 1160,
-      "text": "Ngày 20 tháng 10,"
+      "endMs": 2500,
+      "text": "Tin nhắn báo điểm thưởng sắp hết hạn."
     },
     {
-      "startMs": 1447,
-      "endMs": 3110,
-      "text": "bạn bất ngờ nhận được tin nhắn:"
+      "startMs": 2500,
+      "endMs": 6000,
+      "text": "Quà có thật, thời hạn có thật; nhưng đường link gửi kèm thì sao?"
     },
     {
-      "startMs": 3110,
-      "endMs": 5318,
-      "text": "Chúc mừng! Bạn có một phần quà đặc biệt đang chờ nhận."
+      "startMs": 6000,
+      "endMs": 10200,
+      "text": "Ngày 13 tháng 10, Vietcombank cảnh báo về tin nhắn mạo danh này."
     },
     {
-      "startMs": 6296,
-      "endMs": 8008,
-      "text": "Chỉ cần bấm vào đường link để xác nhận."
+      "startMs": 10200,
+      "endMs": 14700,
+      "text": "Điểm tích lũy trong năm 2025 sẽ hết hạn vào ngày 31 tháng 10 năm 2026."
     },
     {
-      "startMs": 8480,
-      "endMs": 9090,
-      "text": "Nghe hấp dẫn,"
+      "startMs": 14700,
+      "endMs": 20600,
+      "text": "Thông báo điểm thưởng chỉ xuất hiện trên OTT của VCB Digibank, hoặc email từ miền info.vietcombank.com.vn."
     },
     {
-      "startMs": 9378,
-      "endMs": 11527,
-      "text": "nhưng đây có thể là khởi đầu của một cái bẫy."
+      "startMs": 20600,
+      "endMs": 24500,
+      "text": "Vietcombank khẳng định không gửi SMS hay email kèm đường link."
     },
     {
-      "startMs": 12528,
-      "endMs": 14203,
-      "text": "Lợi dụng dịp Ngày Phụ nữ Việt Nam,"
+      "startMs": 24500,
+      "endMs": 27000,
+      "text": "Kịch bản lừa đảo thường có ba bước."
     },
     {
-      "startMs": 14455,
-      "endMs": 16769,
-      "text": "kẻ lừa đảo có thể lập fanpage giả mạo thương hiệu,"
+      "startMs": 27000,
+      "endMs": 31400,
+      "text": "Một: mượn thông tin thật, gửi link đổi quà để dụ bạn bấm vào."
     },
     {
-      "startMs": 17038,
-      "endMs": 19194,
-      "text": "tung ưu đãi lớn hoặc thông báo trúng quà tri ân."
+      "startMs": 31400,
+      "endMs": 36600,
+      "text": "Hai: trang giả yêu cầu tên chủ thẻ, số thẻ, ngày hết hạn và mã CVV."
     },
     {
-      "startMs": 20198,
-      "endMs": 21767,
-      "text": "Sau lời mời nhận quà miễn phí,"
+      "startMs": 36600,
+      "endMs": 41900,
+      "text": "Nhập thêm mật khẩu, mã OTP, hoặc xác nhận giao dịch? Nguy cơ mất tiền tăng mạnh."
     },
     {
-      "startMs": 21963,
-      "endMs": 23299,
-      "text": "chúng dẫn người dùng vào nhóm chat,"
+      "startMs": 41900,
+      "endMs": 46500,
+      "text": "Ba: đếm ngược, dọa hủy điểm, ép bạn quyết định thật nhanh."
     },
     {
-      "startMs": 23579,
-      "endMs": 26831,
-      "text": "gửi mã QR hoặc yêu cầu truy cập website không rõ nguồn gốc."
+      "startMs": 46500,
+      "endMs": 52800,
+      "text": "Thông tin trùng khớp không chứng minh đường link là thật; kẻ gian có thể dùng dữ liệu công khai."
     },
     {
-      "startMs": 27804,
-      "endMs": 30109,
-      "text": "Một số đối tượng còn yêu cầu trả phí vận chuyển,"
+      "startMs": 52800,
+      "endMs": 57500,
+      "text": "Muốn kiểm tra, hãy tự mở ứng dụng VCB Digibank. Đừng đi theo link được gửi đến."
     },
     {
-      "startMs": 30306,
-      "endMs": 32906,
-      "text": "đóng thuế hoặc làm nhiệm vụ để được nhận hoa hồng."
+      "startMs": 57500,
+      "endMs": 64000,
+      "text": "Không cung cấp số thẻ, CVV, mật khẩu hay OTP; không xác nhận giao dịch theo hướng dẫn của người lạ."
     },
     {
-      "startMs": 33898,
-      "endMs": 36539,
-      "text": "Ban đầu, khoản tiền nhỏ có thể khiến nạn nhân chủ quan."
+      "startMs": 64000,
+      "endMs": 67800,
+      "text": "Lỡ mở link nhưng chưa nhập dữ liệu? Đóng trang ngay."
     },
     {
-      "startMs": 36995,
-      "endMs": 39048,
-      "text": "Rồi những yêu cầu chuyển khoản tiếp theo xuất hiện."
+      "startMs": 67800,
+      "endMs": 75100,
+      "text": "Đã nhập dữ liệu thẻ hoặc đăng nhập? Liên hệ ngân hàng qua kênh chính thức để khóa thẻ, bảo vệ tài khoản."
     },
     {
-      "startMs": 40052,
-      "endMs": 42754,
-      "text": "Nguy hiểm hơn, trang giả mạo có thể dụ bạn nhập mật khẩu,"
+      "startMs": 75100,
+      "endMs": 80500,
+      "text": "Đã cung cấp OTP hoặc phát hiện giao dịch lạ? Báo ngân hàng ngay."
     },
     {
-      "startMs": 43017,
-      "endMs": 44941,
-      "text": "thông tin ngân hàng hoặc mã xác thực OTP."
+      "startMs": 80500,
+      "endMs": 86800,
+      "text": "Lưu tin nhắn, đường link, ảnh chụp; trình báo công an nếu nghi bị chiếm đoạt."
     },
     {
-      "startMs": 45942,
-      "endMs": 48969,
-      "text": "Hãy nhớ: Quà tặng thật không phải lý do để cung cấp mật khẩu,"
+      "startMs": 86800,
+      "endMs": 91900,
+      "text": "Quy tắc nhớ nhanh: tự mở ứng dụng, tự xác minh, giữ kín mã bảo mật."
     },
     {
-      "startMs": 49227,
-      "endMs": 51212,
-      "text": "OTP hay chuyển tiền vào tài khoản lạ."
-    },
-    {
-      "startMs": 52207,
-      "endMs": 53487,
-      "text": "Trước một thông báo trúng thưởng,"
-    },
-    {
-      "startMs": 53681,
-      "endMs": 55678,
-      "text": "hãy kiểm tra chương trình trực tiếp trên website"
-    },
-    {
-      "startMs": 55678,
-      "endMs": 57363,
-      "text": "hoặc kênh chính thức của thương hiệu."
-    },
-    {
-      "startMs": 58332,
-      "endMs": 59370,
-      "text": "Đừng vội nhấp link lạ,"
-    },
-    {
-      "startMs": 59642,
-      "endMs": 61190,
-      "text": "quét mã QR không rõ nguồn gốc"
-    },
-    {
-      "startMs": 61190,
-      "endMs": 62999,
-      "text": "hay cài ứng dụng do người lạ gửi đến."
-    },
-    {
-      "startMs": 64010,
-      "endMs": 65814,
-      "text": "Nếu đã chuyển tiền hoặc lộ thông tin,"
-    },
-    {
-      "startMs": 66041,
-      "endMs": 67689,
-      "text": "hãy liên hệ ngân hàng qua kênh chính thức,"
-    },
-    {
-      "startMs": 67960,
-      "endMs": 70112,
-      "text": "đổi mật khẩu cần thiết và lưu lại bằng chứng."
-    },
-    {
-      "startMs": 71107,
-      "endMs": 72925,
-      "text": "Đồng thời, trình báo cơ quan Công an"
-    },
-    {
-      "startMs": 72925,
-      "endMs": 74776,
-      "text": "nơi gần nhất để được hướng dẫn xử lý."
-    },
-    {
-      "startMs": 76218,
-      "endMs": 78378,
-      "text": "Audio này được tổng hợp từ công nghệ AI"
-    },
-    {
-      "startMs": 78378,
-      "endMs": 80211,
-      "text": "của Vbee.vn."
-    },
-    {
-      "startMs": 80849,
-      "endMs": 83069,
-      "text": "Ngày 20 tháng 10 là dịp trao gửi yêu thương."
-    },
-    {
-      "startMs": 83531,
-      "endMs": 85140,
-      "text": "Đừng để một món quà ảo lấy đi tiền bạc"
-    },
-    {
-      "startMs": 85140,
-      "endMs": 86570,
-      "text": "và sự an toàn của bạn."
+      "startMs": 91900,
+      "endMs": 96400,
+      "text": "Một cú nhấp có thể mở cửa cho kẻ gian. Chia sẻ cảnh báo này với người thân."
     }
   ],
   "scenes": [
     {
-      "id": "scene-01",
+      "id": "scene-01-hook",
       "type": "cyber-hook",
-      "title": "BẪY QUÀ TẶNG 20/10 TRÊN MẠNG",
-      "subtitle": "Cảnh giác với tin nhắn trúng thưởng dịp Ngày Phụ nữ Việt Nam",
-      "statistic": "QUÀ MIỄN PHÍ HAY CÁI BẪY?",
-      "kicker": "AN NINH MẠNG · BÁO ĐỘNG ĐỎ",
-      "threatLevel": "NGUY HIỂM CAO ⚠️",
-      "caseCode": "#20-10-ALERT",
-      "startFrame": 0,
-      "durationFrames": 376
-    },
-    {
-      "id": "scene-02",
-      "type": "cyber-compare",
-      "title": "FANPAGE THẬT VÀ BẪY GIẢ MẠO",
-      "realDomain": "shop-chinh-hang.vn (Tích xanh, minh bạch)",
-      "fakeDomain": "shop-tri-an-20-10-free.xyz (Giả mạo)",
-      "kicker": "THỦ ĐOẠN 01: MẠO DANH NHÃN HÀNG",
-      "threatLevel": "TÌNH HUỐNG MINH HỌA",
-      "caseCode": "#20-10-ALERT",
-      "startFrame": 376,
-      "durationFrames": 230
-    },
-    {
-      "id": "scene-03",
-      "type": "cyber-fake-chat",
-      "title": "BẪY NHÓM CHAT & LÀM NHIỆM VỤ",
-      "fakeSender": "CSKH TRI ÂN 20/10 [MINH HỌA]",
-      "fakeMessage": "Chúc mừng bạn nhận quà 20/10! Quét mã QR hoặc vào link bên dưới, nộp 150.000đ phí bảo hiểm/làm nhiệm vụ 1 để nhận phần quà 2.000.000đ và tiền hoa hồng:",
-      "fakeLink": "http://nhan-qua-tri-an-2010.top/nhiemvu",
-      "footnote": "Cảnh báo: Dụ nộp phí vận chuyển / làm nhiệm vụ nhận hoa hồng là bẫy lừa đảo!",
-      "kicker": "THỦ ĐOẠN 02: DẪN DỤ VÀO BẪY",
-      "threatLevel": "BẪY PHÍ 0 ĐỒNG",
-      "caseCode": "#20-10-ALERT",
-      "startFrame": 606,
-      "durationFrames": 411
-    },
-    {
-      "id": "scene-04",
-      "type": "cyber-red-flags",
-      "title": "THÔNG TIN TUYỆT ĐỐI KHÔNG CHIA SẺ",
-      "items": [
-        "MỒI NHỬ TIỀN NHỎ (Cho rút tiền nhỏ ban đầu để dụ nạp tiền lớn hơn)",
-        "YÊU CẦU ĐÓNG PHÍ VẬN CHUYỂN, TIỀN THUẾ ĐỂ NHẬN QUÀ TẶNG 0 ĐỒNG",
-        "DỤ NHẬP THÔNG TIN TÀI KHOẢN, MẬT KHẨU VÀ MÃ XÁC THỰC OTP"
+      "title": "ĐIỂM THƯỞNG CÓ THẬT. LINK THÌ SAO?",
+      "subtitle": "Tin nhắn báo VCB Loyalty sắp hết hạn có thể bị mạo danh.",
+      "kicker": "CẢNH BÁO LỪA ĐẢO",
+      "threatLevel": "ALERT",
+      "quote": "Điểm sắp hết hạn — nhấn link để đổi quà",
+      "titleAccent": "TÌNH HUỐNG GIẢ LẬP · KHÔNG TRUY CẬP LINK",
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Minh họa khái niệm · không phải giao diện ngân hàng",
+      "images": [
+        "media/vcb-loyalty-scam-alert/illustration-link-trap.png"
       ],
-      "kicker": "CẢNH BÁO NGUY HIỂM: BẪY OTP",
-      "threatLevel": "KHÔNG ĐƯA OTP",
-      "caseCode": "#20-10-ALERT",
-      "startFrame": 1017,
-      "durationFrames": 549
+      "startFrame": 0,
+      "durationFrames": 306
     },
     {
-      "id": "scene-05",
+      "id": "scene-02-official-channels",
       "type": "cyber-shield-defense",
-      "title": "3 NGUYÊN TẮC BẢO VỆ MÌNH DỊP 20/10",
+      "title": "Hai kênh thông báo điểm thưởng",
+      "subtitle": "Ngày 13/10/2026, Vietcombank cảnh báo về tin nhắn mạo danh.",
+      "kicker": "KIỂM TRA NGUỒN GỬI",
+      "threatLevel": "WARNING",
       "defenseRules": [
         {
-          "title": "KIỂM TRA KÊNH CHÍNH THỨC",
-          "desc": "Xác minh trực tiếp trên website hoặc fanpage chính chủ có tích xanh của thương hiệu.",
-          "icon": "🔍"
+          "title": "OTT trong VCB Digibank",
+          "desc": "Tự mở ứng dụng để xem thông báo điểm thưởng."
         },
         {
-          "title": "KHÔNG BẤM LINK LẠ & MÃ QR",
-          "desc": "Tuyệt đối không quét mã QR nhận quà hoặc nhấp vào đường link lạ từ tin nhắn rác.",
-          "icon": "🚫"
-        },
-        {
-          "title": "KHÔNG CÀI ỨNG DỤNG NGOÀI STORE",
-          "desc": "Không tải bất kỳ file .apk hoặc ứng dụng nào do người lạ gửi qua mạng xã hội.",
-          "icon": "🛡️"
+          "title": "Email từ @info.vietcombank.com.vn",
+          "desc": "Vietcombank nói không gửi SMS hoặc email có chứa đường link."
         }
       ],
-      "kicker": "LÁ CHẮN BẢO MẬT: NGUYÊN TẮC VÀNG",
-      "threatLevel": "XÁC MINH NGUỒN",
-      "caseCode": "#20-10-ALERT",
-      "startFrame": 1566,
-      "durationFrames": 354
+      "startFrame": 306,
+      "durationFrames": 429
     },
     {
-      "id": "scene-06",
+      "id": "scene-03-scam-sequence",
       "type": "cyber-anatomy",
-      "title": "NẾU ĐÃ LỠ CHUYỂN TIỀN HOẶC LỘ OTP",
+      "title": "Ba bước biến điểm thưởng thành cái bẫy",
+      "subtitle": "Thông tin thật có thể khiến tin giả trông đáng tin.",
+      "kicker": "NHẬN DIỆN THỦ ĐOẠN",
+      "threatLevel": "HIGH",
       "steps": [
         {
           "stepNumber": 1,
-          "title": "LIÊN HỆ NGÂN HÀNG NGAY",
-          "desc": "Gọi hotline chính thức yêu cầu khóa thẻ và tạm ngưng tài khoản khẩn cấp.",
-          "icon": "📞"
+          "title": "Dụ bạn bấm link",
+          "desc": "Báo điểm sắp mất, mời đổi quà hoặc xác minh."
         },
         {
           "stepNumber": 2,
-          "title": "ĐỔI MẬT KHẨU CÁC DỊCH VỤ",
-          "desc": "Đổi mật khẩu Internet Banking, tài khoản email và các mạng xã hội liên quan.",
-          "icon": "🔑"
+          "title": "Thu thập dữ liệu thẻ",
+          "desc": "Có thể hỏi tên, số thẻ, ngày hết hạn, CVV rồi dụ nhập OTP."
         },
         {
           "stepNumber": 3,
-          "title": "LƯU LẠI TOÀN BỘ BẰNG CHỨNG",
-          "desc": "Chụp màn hình tin nhắn, số tài khoản nhận tiền và biên lai chuyển khoản.",
-          "icon": "📸"
-        },
-        {
-          "stepNumber": 4,
-          "title": "TRÌNH BÁO CƠ QUAN CÔNG AN",
-          "desc": "Đến Công an nơi gần nhất để được thụ lý và ngăn chặn dòng tiền tẩu tán.",
-          "icon": "⚖️"
+          "title": "Ép quyết định thật nhanh",
+          "desc": "Đếm ngược hoặc dọa hủy điểm để bạn mất cảnh giác."
         }
       ],
-      "kicker": "XỬ LÝ KHẨN CẤP KHI DÍNH BẪY",
-      "threatLevel": "HÀNH ĐỘNG NGAY",
-      "caseCode": "#20-10-ALERT",
-      "startFrame": 1920,
-      "durationFrames": 367
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Sơ đồ khái niệm · không mô tả một vụ việc cụ thể",
+      "images": [
+        "media/vcb-loyalty-scam-alert/illustration-scam-steps.png"
+      ],
+      "startFrame": 735,
+      "durationFrames": 849
     },
     {
-      "id": "scene-07",
+      "id": "scene-04-protect",
+      "type": "cyber-shield-defense",
+      "title": "Dừng lại. Tự mở ứng dụng.",
+      "subtitle": "Không để tin nhắn quyết định thay bạn.",
+      "kicker": "PHÒNG TRÁNH",
+      "threatLevel": "WARNING",
+      "defenseRules": [
+        {
+          "title": "Tự kiểm tra trong Digibank",
+          "desc": "Đừng mở đường link được gửi trong tin nhắn hoặc email."
+        },
+        {
+          "title": "Giữ kín dữ liệu bảo mật",
+          "desc": "Không đưa số thẻ, CVV, mật khẩu hay OTP cho người khác."
+        },
+        {
+          "title": "Không xác nhận giao dịch theo hướng dẫn lạ",
+          "desc": "Khi cần xác minh, chủ động liên hệ qua kênh chính thức."
+        }
+      ],
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Thao tác an toàn · hình minh họa, không phải ứng dụng thật",
+      "images": [
+        "media/vcb-loyalty-scam-alert/illustration-safe-check.png"
+      ],
+      "startFrame": 1584,
+      "durationFrames": 336
+    },
+    {
+      "id": "scene-05-if-clicked",
+      "type": "cyber-anatomy",
+      "title": "Nếu đã lỡ bấm hoặc nhập thông tin",
+      "subtitle": "Làm từng bước, càng sớm càng tốt.",
+      "kicker": "ỨNG PHÓ SỰ CỐ",
+      "threatLevel": "ALERT",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Chỉ mới mở link",
+          "desc": "Đóng trang và không nhập thêm dữ liệu."
+        },
+        {
+          "stepNumber": 2,
+          "title": "Đã nhập thẻ hoặc tài khoản",
+          "desc": "Liên hệ ngân hàng qua kênh chính thức để khóa thẻ, bảo vệ tài khoản."
+        },
+        {
+          "stepNumber": 3,
+          "title": "Đã nhập OTP hoặc có giao dịch lạ",
+          "desc": "Báo ngân hàng ngay; lưu tin nhắn, link, ảnh chụp và trình báo công an nếu nghi bị chiếm đoạt."
+        }
+      ],
+      "startFrame": 1920,
+      "durationFrames": 684
+    },
+    {
+      "id": "scene-06-close",
       "type": "cyber-hotline",
-      "title": "20/10: AN TOÀN CHO BẠN VÀ GIA ĐÌNH",
-      "subtitle": "Đừng để món quà ảo lấy đi tiền bạc và sự an toàn của bạn",
-      "ctaText": "CHIA SẺ NGAY ĐỂ BẢO VỆ NGƯỜI THÂN DỊP 20/10!",
-      "kicker": "TỔNG ĐÀI TIẾP NHẬN PHẢN ÁNH",
-      "threatLevel": "LAN TỎA CẢNH BÁO",
-      "caseCode": "#20-10-ALERT",
-      "hotline": "156 (MIỄN CƯỚC)",
-      "startFrame": 2287,
-      "durationFrames": 324
+      "title": "Tự mở · Tự xác minh · Giữ kín mã",
+      "subtitle": "Một cú nhấp có thể mở cửa cho kẻ gian.",
+      "kicker": "NHỚ ĐỂ BẢO VỆ MỌI NGƯỜI",
+      "threatLevel": "ALERT",
+      "ctaText": "Chia sẻ cảnh báo này với người thân.",
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Minh họa thao tác kiểm tra qua kênh chủ động",
+      "images": [
+        "media/vcb-loyalty-scam-alert/illustration-safe-check.png"
+      ],
+      "startFrame": 2604,
+      "durationFrames": 288
     }
   ]
 }

@@ -15,3 +15,15 @@
 - Remotion composition ID: `EditorialVideo`, frame size 1080x1920, 30fps.
 - If audio duration and SRT differ > 0.5s, report mismatch and choose an explicit policy rather than silently time-stretching the voice.
 - No credentials or secrets should be stored in source files.
+
+## Project structure
+
+- Shared composition, timing, caption, audio, and data contracts belong in `src/core/`.
+- Remotion bootstrap and composition registration belong in `src/app/`.
+- Each visual template owns `src/templates/<template-id>/Scene.tsx` and `theme.ts`.
+- Register template IDs, supported scene kinds, and bootstrap scene kinds in `src/templates/manifest.json`; register runtime components in `src/templates/registry.tsx`.
+- Store reusable input packages in `input/projects/<slug>/`; keep one-off uploads in `input/`.
+- Store reference videos and extracted frames in `references/<template-id>/`.
+- Store generated artifacts in `output/<slug>/`; retain older artifacts under `output/archive/`.
+- Keep `src/generated/current-project.json` as the active project loaded by Remotion. Do not write template-specific runtime logic into the shared composition.
+- After changing scenes or template code, run `npm run check`, render per-scene stills with `npm run render:stills`, and inspect every scene before rendering the final MP4.

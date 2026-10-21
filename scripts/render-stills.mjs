@@ -1,34 +1,45 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const frames = [
-  [120, 'preview-01-cover.png'],
-  [600, 'preview-02-timeline.png'],
-  [1050, 'preview-03-photo-story.png'],
-  [1450, 'preview-04-photo-stack.png'],
-  [1800, 'preview-05-photo-story-chualuong.png'],
-  [2040, 'preview-06-statistic.png'],
-  [2350, 'preview-07-ending.png'],
-];
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const projectPath = path.join(root, 'src', 'generated', 'current-project.json');
+if (!fs.existsSync(projectPath)) {
+  throw new Error(`Không tìm thấy project: ${projectPath}`);
+}
 
-for (const [frame, file] of frames) {
-  console.log(`Rendering frame ${frame} -> output/${file}...`);
-  const res = spawnSync(
-    'npx.cmd',
-    [
-      'remotion',
-      'still',
-      'src/index.ts',
-      'EditorialVideo',
-      `output/${file}`,
-      `--frame=${frame}`,
-      '--overwrite'
-    ],
-    { stdio: 'inherit', shell: true }
-  );
-  if (res.status !== 0) {
-    console.error(`Error rendering frame ${frame}`);
-    process.exit(1);
+const project = JSON.parse(fs.readFileSync(projectPath, 'utf8'));
+const slug = String(project.slug || 'video').replace(/[^a-zA-Z0-9_-]/g, '-');
+const previewDir = path.join(root, 'output', slug, 'previews');
+fs.mkdirSync(previewDir, { recursive: true });
+
+const command = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+for (const scene of project.scenes ?? []) {
+  const midpoint = scene.startFrame + Math.floor(scene.durationFrames / 2);
+  const frame = Math.max(0, Math.min(project.durationInFrames - 1, midpoint));
+  const outputPath = path.join(previewDir, `${scene.id}.png`);
+  const args = [
+    'remotion',
+    'still',
+    'src/index.ts',
+    'EditorialVideo',
+    outputPath,
+    `--frame=${frame}`,
+    '--overwrite',
+  ];
+
+  console.log(`Scene ${scene.id}: frame ${frame} -> ${path.relative(root, outputPath)}`);
+  const result = spawnSync(command, args, {
+    cwd: root,
+    stdio: 'inherit',
+    shell: process.platform === 'win32',
+  });
+
+  if (result.error) throw result.error;
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
   }
 }
 
-console.log('All stills rendered successfully!');
+console.log(`Đã tạo ${project.scenes?.length ?? 0} preview trong ${path.relative(root, previewDir)}.`);

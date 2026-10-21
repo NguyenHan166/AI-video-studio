@@ -1,126 +1,109 @@
-# Cyber Security & Scam Alert — Style Specification v1.0
+# Cyber Security Alert — Style Specification v3.0
 
-Tài liệu đặc tả phong cách thiết kế video chuyên biệt cho chủ đề **An ninh mạng, Cảnh báo lừa đảo công nghệ cao, Tin tức tội phạm mạng và Phòng chống lừa đảo trực tuyến**.
+Template dọc cho cảnh báo lừa đảo, kiến thức an ninh mạng, tin tức về tội phạm số và hướng dẫn tự bảo vệ. Hệ thống lấy cảm hứng từ ngôn ngữ đồ họa của video tham chiếu, nhưng nội dung, dữ kiện, nhân vật, hình ảnh và câu chuyện của tham chiếu không được dùng làm nội dung cho video mới.
 
----
+## 1. Phân tích video tham chiếu
 
-## 1. Ngôn ngữ thiết kế tổng quan (Design Language)
+- **Tệp:** `references/current-affairs-light/current-affairs-light.mp4`
+- **Thông số đã đo bằng ffprobe:** 1080×1920, 30 fps, dài 54.36 giây, video AV1 và âm thanh AAC.
+- **Cách lấy mẫu:** 11 khung hình cách nhau khoảng 5 giây, từ 0 đến 50 giây. Mốc cảnh dưới đây là ước lượng từ ảnh mẫu; chưa phân tích chính xác từng frame chuyển cảnh.
 
-- **Định dạng:** 1080 x 1920 (9:16 Portrait), 30 fps.
-- **Phong cách:** Cyber Threat Investigation / Digital Crime HUD — phong cách giao diện an ninh mạng tối màu, khẩn cấp, sắc nét, mô phỏng phòng điều hành giám sát an ninh mạng quốc gia kết hợp tái hiện bẫy lừa thực tế.
-- **Cảm xúc cốt lõi:** Kịp thời, báo động khẩn cấp, minh bạch, uy tín và bảo vệ người dùng.
-- **Không gian an toàn (Safe Areas):**
-  - **Trục ngang:** Lề trái/phải 75px (vùng an toàn 930px, chống che khuất bởi các nút tương tác Like/Share trên TikTok, Reels, Shorts).
-  - **Trục dọc - Đỉnh (Top safe):** >= 100px (thanh thông tin trạng thái khẩn cấp HUD Ticker).
-  - **Trục dọc - Đáy (Bottom safe):** >= 200px (phụ đề công nghệ neon và vùng thao tác ngón tay của người dùng).
+### Danh mục nhịp hình ảnh
 
----
+| Khoảng ước lượng | Dạng trình bày | Đặc điểm quan sát |
+| --- | --- | --- |
+| 0–10 giây | Mở đầu / mục lục | Masthead mảnh ở trên, nhãn chủ đề, các mục đánh số lệch trái, tiêu đề lớn và nhiều khoảng giấy trống. |
+| 10–20 giây | Thẻ bài viết + ảnh | Kicker nhỏ, tiêu đề đậm có cụm màu đỏ, mô tả ngắn, ảnh ngang đặt trong khung trắng có nhãn ảnh và dòng ghi nguồn. |
+| 20–30 giây | Thẻ dữ kiện | Cùng masthead và tiêu đề biên tập; một con số/điểm dữ kiện nằm trong thẻ màu giấy, nhấn bằng vạch đỏ. Nhiều khoảng âm quanh thẻ. |
+| 30–40 giây | Bài viết + postcard tiếp theo | Lặp bố cục tiêu đề, mô tả, ảnh và chú thích; ảnh thay đổi trong khi lưới, header và caption giữ ổn định. |
+| 40–54 giây | Tổng kết / CTA | Trang tóm tắt, danh sách đánh số, thẻ kêu gọi hành động và khoảng trống lớn để duy trì nhịp đọc. |
 
-## 2. Bảng màu & Ánh sáng Neon (Cyber Threat Palette)
+Các mốc cảnh là gần đúng vì video chỉ được lấy mẫu định kỳ. Nội dung chủ đề trong ảnh được cố ý mô tả chung ở đây, không chép lại lời dẫn, tiêu đề hay dữ kiện của video.
 
-### Màu nền & Không gian
-- **Đen không gian mạng (Deep Void Black):** `#080B11` — Nền đen thẫm tuyệt đối, tạo độ sâu vô cực và tôn vinh các chi tiết phát sáng neon.
-- **Thẻ giám sát mờ (Cyber Card Background):** `rgba(15, 23, 42, 0.85)` với hiệu ứng mờ kính (glassmorphism/blur), viền công nghệ mảnh.
-- **Lưới tọa độ số (Digital Tech Grid):** Lưới ô vuông mờ 48px x 48px `rgba(0, 242, 254, 0.035)` gợi cảm giác ma trận giám sát dữ liệu.
+## 2. Hệ thống thị giác
 
-### Bảng màu cảnh báo (Neon Threat Accents)
-- **Đỏ cảnh báo nguy hại (Hazard Laser Red):** `#FF2E55` (hoặc `#DC2626`)
-  - Ý nghĩa: Bẫy lừa đảo, thiệt hại tài chính, mã độc phishing, dấu hiệu lừa đảo, nút bấm khẩn cấp.
-  - Hiệu ứng phát sáng: `box-shadow: 0 0 30px rgba(255, 46, 85, 0.45)`.
-- **Xanh điện tử công nghệ (Cyber Cyan):** `#00F2FE`
-  - Ý nghĩa: Giao diện HUD, mã vụ án, viền quét radar, các thông số kỹ thuật và hệ thống xác minh.
-- **Xanh lục an toàn (Shield Emerald):** `#10B981`
-  - Ý nghĩa: Tên miền chính phủ chính thức, lá chắn bảo mật, các biện pháp phòng ngừa thành công.
-- **Vàng hổ phách cảnh giác (Warning Amber):** `#F59E0B`
-  - Ý nghĩa: Dấu hiệu khả nghi, lỗ hổng tâm lý, lưu ý quan trọng.
-- **Chữ trắng siêu tương phản (Pure High-Contrast White):** `#F8FAFC`.
+### Bố cục
 
----
+- Khung 9:16, 1080×1920, 30 fps.
+- Một masthead cố định ở đầu trang, đường kẻ mảnh, nhãn cảnh nhỏ và số trang dạng biên tập.
+- Nội dung chính bắt đầu khoảng 160 px từ mép trên; cột số trang hẹp ở bên trái tạo cảm giác mục lục/hồ sơ.
+- Lề nội dung tối thiểu 72 px; cột chính được lùi thêm để nhường chỗ cho rail. Giữ nội dung quan trọng xa mép phải để tránh vùng nút của nền tảng video.
+- Chừa vùng dưới cho phụ đề và thanh giao diện mạng xã hội. Tránh đặt dữ kiện cốt lõi ở chân trang.
+- Dùng khoảng trắng để phân nhịp; không lấp mọi vùng trống bằng họa tiết hoặc hiệu ứng.
 
-## 3. Hệ thống Typography
+### Màu sắc
 
-- **Phông tiêu đề & Số liệu (Headline Sans):**
-  - Font stack: `'Plus Jakarta Sans', 'Inter', system-ui, sans-serif`.
-  - Đặc tính: Sans-serif hình học hiện đại, nét đậm (`font-weight: 800 - 900`), độ tương phản cao, hỗ trợ dấu tiếng Việt chuẩn xác.
-  - Kích thước:
-    - Tiêu đề số tiền thiệt hại: 100px – 110px, phát sáng đỏ laser neon.
-    - Tiêu đề cảnh / Dòng cảnh báo: 60px – 72px.
-- **Phông kỹ thuật & Mã vụ án (Terminal Monospace):**
-  - Font stack: `'JetBrains Mono', 'Fira Code', Consolas, monospace`.
-  - Dùng cho: Đường link URL lừa đảo, mã định danh vụ án `#CYBER-ALERT`, số điện thoại hotline, tên miền chính thức, nhãn phân loại kỹ thuật.
-- **Phông phụ đề HUD (Cyber Subtitles):**
-  - Nằm trong hộp đen kính mờ `rgba(8, 11, 17, 0.75)` có viền cyan mảnh chống chói.
-  - Từ đang đọc (karaoke) nhảy sáng rực rỡ màu **Vàng dạ quang (Hazard Yellow) `#FDE047`** kèm hào quang neon (`text-shadow: 0 0 14px rgba(253, 224, 71, 0.8)`).
+Các giá trị là ước lượng thị giác từ video nén, không phải mã màu gốc được trích từ project nguồn.
 
----
+| Vai trò | Token | Màu |
+| --- | --- | --- |
+| Giấy nền ngà | `paper` | `#F3F0E6` |
+| Bề mặt sáng | `paperLight` | `#FBF9F2` |
+| Chữ chính | `ink` | `#252321` |
+| Chữ phụ | `inkSoft` | `#625E58` |
+| Đỏ gạch biên tập / cảnh báo | `brick` | `#AC3031` |
+| Viền giấy | `rule` | `#D8D1C4` |
+| Hướng dẫn an toàn | `safety` | `#526B55` |
 
-## 4. Đặc tả 8 kiểu Scene Chuyên biệt (Component Anatomy)
+Đỏ dùng cho dấu hiệu cảnh báo, số thứ tự và cụm cần chú ý; xanh sage dịu dùng cho hành động phòng vệ. Màu không thay thế kiểm chứng: một màu xanh không chứng minh website hoặc tổ chức là thật. Không dùng nền tối toàn màn hình, glow neon, lưới HUD dày hoặc nhấp nháy.
 
-### 1. `cyber-hook` (Báo động đỏ khẩn cấp)
-- **Mục đích:** Đập tan sự thờ ơ của người xem trong 2 giây đầu bằng mức độ thiệt hại nghiêm trọng.
-- **Cấu trúc:**
-  - Đèn tín hiệu khẩn cấp nhấp nháy đỏ (`● LIVE ALERT`).
-  - Dải ruy-băng cảnh báo: `⚠️ CẢNH BÁO LỪA ĐẢO CÔNG NGHỆ CAO`.
-  - Dòng giật tít số tiền thiệt hại hoặc thủ đoạn mới: e.g. `MẤT TRẮNG 2 TỶ ĐỒNG`.
-  - Khung hình bằng chứng / đối tượng lừa đảo kèm dấu mộc đỏ `[CẢNH BÁO ĐỎ]`.
+### Typography
 
-### 2. `cyber-fake-chat` (Tái hiện tin nhắn / SMS mạo danh)
-- **Mục đích:** Tái hiện chân thực 100% tin nhắn SMS, Zalo, Telegram mà nạn nhân nhận được để khán giả nhận diện ngay khi gặp ngoài đời.
-- **Cấu trúc:**
-  - Giao diện giả lập điện thoại thông minh viền neon đỏ.
-  - Tên người gửi Brandname giả mạo: `ACB_SMS_OTP`, `CÔNG AN TP HÀ NỘI`.
-  - Nội dung tin nhắn đe dọa / dẫn dụ.
-  - Hộp đường link độc hại nhấp nháy đỏ: `http://acb-xac-thuc-online.xyz/login`.
-  - Thẻ nhắc nhở bên dưới: *"Ngân hàng không bao giờ gửi link đăng nhập qua tin nhắn"*.
+- Tiêu đề là sans-serif đậm, nét gọn, khoảng cách chữ hơi khít; stack triển khai là Arial/Inter/system sans. Font chính xác của video tham chiếu không thể xác định từ các frame đã nén.
+- Cụm cuối của tiêu đề được nhấn đỏ gạch để tạo điểm nhìn giống cách tham chiếu tô màu từ khóa; câu chữ không bị đổi.
+- Tiêu đề scene khoảng 54–70 px tùy độ dài; thân bài 21–30 px; mã/URL dùng monospace 24–30 px.
+- Nhãn phân mục viết hoa, giãn chữ, màu đỏ hoặc xám; chỉ dùng cỡ nhỏ cho metadata, không dùng cỡ nhỏ cho cảnh báo, số tiền, hotline hay URL.
+- Giữ nguyên dấu tiếng Việt, không ép toàn bộ nội dung thành chữ hoa. Tiêu đề dài được xuống dòng, không co chữ đến mức khó đọc.
 
-### 3. `cyber-anatomy` (Bóc tách 4 bước thao túng)
-- **Mục đích:** Giải mã cơ chế dẫn dụ từ lúc tiếp cận đến lúc tài khoản về 0 đồng.
-- **Cấu trúc:**
-  - Cột mốc số 01 $\rightarrow$ 04 nối với nhau bằng trục dây mạng phát sáng.
-  - Bước 1: Tiếp cận mạo danh.
-  - Bước 2: Thao túng tâm lý (đe dọa, cô lập).
-  - Bước 3: Dẫn dụ cài app độc hại (file .apk).
-  - Bước 4: Chiếm quyền và vét sạch tài khoản ngân hàng.
+## 3. Ảnh kiểu postcard
 
-### 4. `cyber-red-flags` (Dấu hiệu đỏ nhận biết tức thì)
-- **Mục đích:** Đưa ra bộ nhận diện nhanh: chỉ cần xuất hiện 1 trong các dấu hiệu này là lừa đảo 100%.
-- **Cấu trúc:**
-  - 3 thẻ đen viền đỏ phát sáng có biểu tượng chữ ✕ màu đỏ rực.
-  - Nêu rõ 3 điều cấm: Đòi chuyển tiền vào tài khoản tạm giữ, ép cài app ngoài store, cấm dập máy/cấm kể cho người nhà.
+- Ảnh đặt trong matte trắng có mép đều, viền giấy mảnh, bóng đổ nhẹ, một nhãn tư liệu ở mép trên và nguồn ở dải chân ảnh khi project cung cấp.
+- Độ nghiêng tối đa rất nhỏ để tạo cảm giác thẻ ảnh được đặt trên giấy; không dùng hiệu ứng lật, xé giấy hoặc rung.
+- Crop ảnh sao cho giữ chủ thể và không che chi tiết thiết yếu. Nếu ảnh có text, kiểm tra nó còn đọc được sau khi thu nhỏ.
+- Chỉ hiển thị media của project được chọn. Không tự dùng keyframe của video tham chiếu làm tài sản sản xuất.
+- Không gắn nhãn “ảnh thật”, “bằng chứng” hoặc tên nguồn nếu project không khai báo. Hình mô phỏng phải có nhãn mô phỏng rõ ràng.
 
-### 5. `cyber-compare` (Đối chiếu Tên miền Thật vs Giả)
-- **Mục đích:** Hướng dẫn trực quan cách nhận biết bẫy tên miền giả mạo bằng mắt thường.
-- **Cấu trúc:**
-  - Khung Xanh Lục (Thật): Cổng chính phủ `dichvucong.gov.vn` (đuôi `.gov.vn`, HTTPS an toàn).
-  - Khung Đỏ (Giả): Bẫy lừa `dichvucong-gov-vn.xyz` (đuôi quốc tế lạ `.xyz, .top, .vip`).
+## 4. Chuyển động và nhịp dựng
 
-### 6. `cyber-loss-stat` (Con số thiệt hại quy mô lớn)
-- **Mục đích:** Đưa ra số liệu thống kê chấn động tạo tính thuyết phục và răn đe.
-- **Cấu trúc:**
-  - Số liệu khổng lồ: `16.000 TỶ` hoặc `85% NẠN NHÂN`.
-  - Chú thích đơn vị và dữ liệu từ Cục An toàn thông tin (Bộ TT&TT).
+- Chuyển cảnh theo beat nội dung, không theo từng cue SRT. Một scene có thể bao trùm nhiều cue.
+- Dùng fade/slide lên nhẹ khoảng 10–16 px, xuất hiện lần lượt giữa tiêu đề và thẻ. Spring có giảm chấn cao để không nảy mạnh.
+- Ảnh và thẻ gần như đứng yên; nếu có chuyển động máy thì chỉ dùng zoom/pan rất nhẹ. Không flash đỏ, glitch, shake, pulse liên tục hoặc chuyển động HUD làm người xem mất tập trung.
+- Giữ khung đồ họa ổn định qua các scene, thay đổi tiêu đề, ảnh, số liệu và nhãn để tạo nhịp.
 
-### 7. `cyber-shield-defense` (Lá chắn bảo vệ: Quy tắc 3 KHÔNG)
-- **Mục đích:** Trang bị giải pháp phòng thủ vững chắc cho khán giả.
-- **Cấu trúc:**
-  - 3 khối khiên bảo vệ màu Xanh Ngọc Emerald:
-    - 1. KHÔNG chuyển tiền theo lời đe dọa qua điện thoại.
-    - 2. KHÔNG cài đặt app ngoài kho CH Play / App Store.
-    - 3. KHÔNG cung cấp mã OTP/mật khẩu cho bất kỳ ai.
+## 5. Phụ đề
 
-### 8. `cyber-hotline` (Đường dây nóng & Kêu gọi chia sẻ)
-- **Mục đích:** Cung cấp đầu mối trình báo chính thức và khuyến khích chia sẻ để lan tỏa cộng đồng.
-- **Cấu trúc:**
-  - Tổng đài 156 (tiếp nhận tin nhắn rác & cuộc gọi lừa đảo).
-  - Cổng báo cáo trực tuyến: `canhbao.khonggianmang.vn`.
-  - Nút bấm kêu gọi: `CHIA SẺ NGAY ĐỂ BẢO VỆ NGƯỜI THÂN!` màu đỏ neon rực lửa.
+- Phụ đề căn giữa ở vùng thấp phía trên footer, chữ sans đậm màu mực tối, có viền sáng mềm để dễ đọc trên nền ảnh và giấy.
+- Cỡ chữ thay đổi theo độ dài cue; không thu nhỏ quá mức khi câu dài.
+- Chỉ tô từ đang đọc màu đỏ khi caption có `wordTimings` thật. SRT thông thường giữ nguyên cue và thời gian câu; không tự chia từ hoặc giả lập karaoke.
+- Caption timing lấy từ SRT. Không kéo giãn hoặc sửa giọng đọc để khớp trang trí hình ảnh.
 
----
+## 6. Thư viện scene của template
 
-## 5. Danh mục file của Template
+| Scene type | Bố cục dùng lại | Dữ liệu và giới hạn |
+| --- | --- | --- |
+| `cyber-hook` | Tiêu đề mở đầu, nhãn cảnh báo, tình huống/trích dẫn mô phỏng hoặc postcard tùy chọn. | Nội dung lấy từ project; câu giả lập phải có nhãn mô phỏng. Không tự thêm số liệu hay mức độ nguy hiểm. |
+| `cyber-fake-chat` | Thẻ hội thoại dạng điện thoại trên nền giấy, sender, bubble, URL mẫu và nhãn mô phỏng. | Dùng người gửi/link giả lập; ưu tiên miền `.invalid`/`.example`; không tạo QR hoặc link hoạt động. |
+| `cyber-anatomy` | Các bước đánh số theo thứ tự dọc, tiêu đề ngắn và mô tả. | Chỉ trình bày bước có trong project; không ép mọi vụ lừa đảo thành cùng một chuỗi. |
+| `cyber-red-flags` | Danh sách thẻ cảnh báo, số thứ tự đỏ và nội dung dễ quét. | Dấu hiệu giúp kiểm tra thêm, không được trình bày như bằng chứng chắc chắn nếu thiếu căn cứ. |
+| `cyber-compare` | Hai thẻ ví dụ xếp dọc, nhãn rõ, domain monospace, ghi chú kiểm chứng. | Không gọi domain là “chính chủ” nếu chưa có nguồn xác minh. Giá trị mặc định chỉ là miền ví dụ. |
+| `cyber-loss-stat` | Thẻ con số lớn, nhãn phạm vi, mô tả và nguồn. | Không có thống kê mặc định; thiếu số liệu thì chỉ giữ tiêu đề và không dựng con số. |
+| `cyber-shield-defense` | Checklist thẻ xanh sage, số thứ tự, việc làm cụ thể. | Lấy khuyến nghị từ project và nguồn của project; tránh cam kết bảo vệ tuyệt đối. |
+| `cyber-hotline` | Thẻ liên hệ và CTA cuối. | Chỉ hiện hotline/website khi project cung cấp. Không điền số liên hệ mặc định. |
 
-- Theme: [src/theme-cyber.ts](file:///d:/Apps/AI-Video-Studio/src/theme-cyber.ts)
-- Components: [src/scenes-cyber.tsx](file:///d:/Apps/AI-Video-Studio/src/scenes-cyber.tsx)
-- Master Video: [src/video.tsx](file:///d:/Apps/AI-Video-Studio/src/video.tsx)
-- Types: [src/types.ts](file:///d:/Apps/AI-Video-Studio/src/types.ts)
-- Verify Script: [scripts/verify-project.mjs](file:///d:/Apps/AI-Video-Studio/scripts/verify-project.mjs)
+Mỗi loại scene có thể nhận một `scene.images[0]` để thêm postcard sau phần nội dung. Ảnh vẫn là tùy chọn; template phải dùng được với nội dung chỉ có chữ. `scene.imageLabel` cho phép thay nhãn mặc định, ví dụ `MINH HỌA AI`, để phân biệt hình tạo sinh với ảnh tư liệu hoặc ảnh chụp giao diện.
+
+## 7. Ràng buộc nội dung và kiểm tra
+
+- SRT quyết định thời điểm thoại và phụ đề. Ghép nhiều cue thành nhịp nghĩa phù hợp; không coi một cue là một scene.
+- Giữ nguyên media đầu vào; dùng nguồn được cấp phép hoặc do người dùng cung cấp và ghi manifest nguồn/license.
+- Không suy diễn tính thật của tài khoản, website, thống kê, tổ chức hoặc đường dây nóng từ màu sắc hay nhãn trình bày.
+- Bản triển khai cố ý diễn giải phong cách thay vì dựng lại từng pixel; nhịp chuyển cảnh chính xác của nguồn chưa được đo frame-by-frame.
+- Các keyframe phân tích được giữ trong `references/cyber-security-alert/keyframes/`; video gốc nằm nguyên trong `references/current-affairs-light/`.
+
+## 8. Thành phần
+
+- Tokens: `src/templates/cyber-security-alert/theme.ts`
+- Thành phần dùng chung của template: `src/templates/cyber-security-alert/EditorialPrimitives.tsx`
+- Scene components và router: `src/templates/cyber-security-alert/Scene.tsx`
+- Registry và caption theme: `src/templates/registry.tsx`
+- Caption overlay dùng chung: `src/core/CaptionOverlay.tsx`

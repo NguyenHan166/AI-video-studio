@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "vintage-editorial",
+      "name": "Vintage Editorial",
+      "description": "Phóng sự tư liệu, lịch sử và địa danh.",
+      "sceneTypes": [
+        "cover",
+        "photo-story",
+        "photo-stack",
+        "timeline",
+        "comparison",
+        "statistic",
+        "ending"
+      ],
+      "bootstrapSceneTypes": [
+        "cover",
+        "photo-story",
+        "timeline",
+        "photo-stack",
+        "comparison",
+        "statistic",
+        "ending"
+      ]
+    },
+    {
+      "id": "illustrated-paper-textured",
+      "name": "Illustrated Paper Textured",
+      "description": "Giải thích trực quan theo phong cách vẽ tay trên giấy.",
+      "sceneTypes": [
+        "illustrated-hook",
+        "illustrated-progress",
+        "illustrated-compare",
+        "illustrated-features",
+        "illustrated-arrow-flow",
+        "illustrated-bar-chart",
+        "illustrated-decision-fork",
+        "illustrated-verdict"
+      ],
+      "bootstrapSceneTypes": [
+        "illustrated-hook",
+        "illustrated-progress",
+        "illustrated-compare",
+        "illustrated-features",
+        "illustrated-arrow-flow",
+        "illustrated-bar-chart",
+        "illustrated-decision-fork",
+        "illustrated-verdict"
+      ]
+    },
+    {
+      "id": "cyber-security-alert",
+      "name": "Cyber Security Alert",
+      "description": "Cảnh báo an ninh mạng và hướng dẫn phòng tránh lừa đảo.",
+      "sceneTypes": [
+        "cyber-hook",
+        "cyber-fake-chat",
+        "cyber-anatomy",
+        "cyber-red-flags",
+        "cyber-compare",
+        "cyber-loss-stat",
+        "cyber-shield-defense",
+        "cyber-hotline"
+      ],
+      "bootstrapSceneTypes": [
+        "cyber-hook",
+        "cyber-compare",
+        "cyber-fake-chat",
+        "cyber-red-flags",
+        "cyber-shield-defense",
+        "cyber-anatomy",
+        "cyber-hotline"
+      ]
+    }
+  ]
+}

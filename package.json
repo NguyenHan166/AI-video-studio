@@ -8,9 +8,10 @@
     "dev": "remotion studio src/index.ts",
     "prepare": "node scripts/prepare-project.mjs",
     "prepare:demo": "node scripts/prepare-project.mjs --topic \"Sa Pa trong ký ức\" --srt input/demo.srt --slug demo",
+    "templates": "node scripts/prepare-project.mjs --list-templates",
     "check": "tsc --noEmit && node scripts/verify-project.mjs",
     "render": "node scripts/render-current.mjs",
-    "still": "remotion still src/index.ts EditorialVideo output/preview.png --frame=75"
+    "render:stills": "node scripts/render-stills.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

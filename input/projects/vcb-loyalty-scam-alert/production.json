@@ -1,0 +1,141 @@
+{
+  "template": "cyber-security-alert",
+  "durationInFrames": 2892,
+  "estimatedDurationSeconds": 96.4,
+  "timingStatus": "estimated-until-voice-is-provided",
+  "scenePlan": [
+    {
+      "id": "scene-01-hook",
+      "type": "cyber-hook",
+      "title": "ĐIỂM THƯỞNG CÓ THẬT. LINK THÌ SAO?",
+      "subtitle": "Tin nhắn báo VCB Loyalty sắp hết hạn có thể bị mạo danh.",
+      "kicker": "CẢNH BÁO LỪA ĐẢO",
+      "threatLevel": "ALERT",
+      "quote": "Điểm sắp hết hạn — nhấn link để đổi quà",
+      "titleAccent": "TÌNH HUỐNG GIẢ LẬP · KHÔNG TRUY CẬP LINK",
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Minh họa khái niệm · không phải giao diện ngân hàng",
+      "images": ["media/vcb-loyalty-scam-alert/illustration-link-trap.png"],
+      "startFrame": 0,
+      "durationFrames": 306
+    },
+    {
+      "id": "scene-02-official-channels",
+      "type": "cyber-shield-defense",
+      "title": "Hai kênh thông báo điểm thưởng",
+      "subtitle": "Ngày 13/10/2026, Vietcombank cảnh báo về tin nhắn mạo danh.",
+      "kicker": "KIỂM TRA NGUỒN GỬI",
+      "threatLevel": "WARNING",
+      "defenseRules": [
+        {
+          "title": "OTT trong VCB Digibank",
+          "desc": "Tự mở ứng dụng để xem thông báo điểm thưởng."
+        },
+        {
+          "title": "Email từ @info.vietcombank.com.vn",
+          "desc": "Vietcombank nói không gửi SMS hoặc email có chứa đường link."
+        }
+      ],
+      "startFrame": 306,
+      "durationFrames": 429
+    },
+    {
+      "id": "scene-03-scam-sequence",
+      "type": "cyber-anatomy",
+      "title": "Ba bước biến điểm thưởng thành cái bẫy",
+      "subtitle": "Thông tin thật có thể khiến tin giả trông đáng tin.",
+      "kicker": "NHẬN DIỆN THỦ ĐOẠN",
+      "threatLevel": "HIGH",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Dụ bạn bấm link",
+          "desc": "Báo điểm sắp mất, mời đổi quà hoặc xác minh."
+        },
+        {
+          "stepNumber": 2,
+          "title": "Thu thập dữ liệu thẻ",
+          "desc": "Có thể hỏi tên, số thẻ, ngày hết hạn, CVV rồi dụ nhập OTP."
+        },
+        {
+          "stepNumber": 3,
+          "title": "Ép quyết định thật nhanh",
+          "desc": "Đếm ngược hoặc dọa hủy điểm để bạn mất cảnh giác."
+        }
+      ],
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Sơ đồ khái niệm · không mô tả một vụ việc cụ thể",
+      "images": ["media/vcb-loyalty-scam-alert/illustration-scam-steps.png"],
+      "startFrame": 735,
+      "durationFrames": 849
+    },
+    {
+      "id": "scene-04-protect",
+      "type": "cyber-shield-defense",
+      "title": "Dừng lại. Tự mở ứng dụng.",
+      "subtitle": "Không để tin nhắn quyết định thay bạn.",
+      "kicker": "PHÒNG TRÁNH",
+      "threatLevel": "WARNING",
+      "defenseRules": [
+        {
+          "title": "Tự kiểm tra trong Digibank",
+          "desc": "Đừng mở đường link được gửi trong tin nhắn hoặc email."
+        },
+        {
+          "title": "Giữ kín dữ liệu bảo mật",
+          "desc": "Không đưa số thẻ, CVV, mật khẩu hay OTP cho người khác."
+        },
+        {
+          "title": "Không xác nhận giao dịch theo hướng dẫn lạ",
+          "desc": "Khi cần xác minh, chủ động liên hệ qua kênh chính thức."
+        }
+      ],
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Thao tác an toàn · hình minh họa, không phải ứng dụng thật",
+      "images": ["media/vcb-loyalty-scam-alert/illustration-safe-check.png"],
+      "startFrame": 1584,
+      "durationFrames": 336
+    },
+    {
+      "id": "scene-05-if-clicked",
+      "type": "cyber-anatomy",
+      "title": "Nếu đã lỡ bấm hoặc nhập thông tin",
+      "subtitle": "Làm từng bước, càng sớm càng tốt.",
+      "kicker": "ỨNG PHÓ SỰ CỐ",
+      "threatLevel": "ALERT",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Chỉ mới mở link",
+          "desc": "Đóng trang và không nhập thêm dữ liệu."
+        },
+        {
+          "stepNumber": 2,
+          "title": "Đã nhập thẻ hoặc tài khoản",
+          "desc": "Liên hệ ngân hàng qua kênh chính thức để khóa thẻ, bảo vệ tài khoản."
+        },
+        {
+          "stepNumber": 3,
+          "title": "Đã nhập OTP hoặc có giao dịch lạ",
+          "desc": "Báo ngân hàng ngay; lưu tin nhắn, link, ảnh chụp và trình báo công an nếu nghi bị chiếm đoạt."
+        }
+      ],
+      "startFrame": 1920,
+      "durationFrames": 684
+    },
+    {
+      "id": "scene-06-close",
+      "type": "cyber-hotline",
+      "title": "Tự mở · Tự xác minh · Giữ kín mã",
+      "subtitle": "Một cú nhấp có thể mở cửa cho kẻ gian.",
+      "kicker": "NHỚ ĐỂ BẢO VỆ MỌI NGƯỜI",
+      "threatLevel": "ALERT",
+      "ctaText": "Chia sẻ cảnh báo này với người thân.",
+      "imageLabel": "MINH HỌA AI",
+      "sourceLabel": "Minh họa thao tác kiểm tra qua kênh chủ động",
+      "images": ["media/vcb-loyalty-scam-alert/illustration-safe-check.png"],
+      "startFrame": 2604,
+      "durationFrames": 288
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+1
+00:00:00,000 --> 00:00:02,500
+Tin nhắn báo điểm thưởng sắp hết hạn.
+
+2
+00:00:02,500 --> 00:00:06,000
+Quà có thật, thời hạn có thật; nhưng đường link gửi kèm thì sao?
+
+3
+00:00:06,000 --> 00:00:10,200
+Ngày 13 tháng 10, Vietcombank cảnh báo về tin nhắn mạo danh này.
+
+4
+00:00:10,200 --> 00:00:14,700
+Điểm tích lũy trong năm 2025 sẽ hết hạn vào ngày 31 tháng 10 năm 2026.
+
+5
+00:00:14,700 --> 00:00:20,600
+Thông báo điểm thưởng chỉ xuất hiện trên OTT của VCB Digibank, hoặc email từ miền info.vietcombank.com.vn.
+
+6
+00:00:20,600 --> 00:00:24,500
+Vietcombank khẳng định không gửi SMS hay email kèm đường link.
+
+7
+00:00:24,500 --> 00:00:27,000
+Kịch bản lừa đảo thường có ba bước.
+
+8
+00:00:27,000 --> 00:00:31,400
+Một: mượn thông tin thật, gửi link đổi quà để dụ bạn bấm vào.
+
+9
+00:00:31,400 --> 00:00:36,600
+Hai: trang giả yêu cầu tên chủ thẻ, số thẻ, ngày hết hạn và mã CVV.
+
+10
+00:00:36,600 --> 00:00:41,900
+Nhập thêm mật khẩu, mã OTP, hoặc xác nhận giao dịch? Nguy cơ mất tiền tăng mạnh.
+
+11
+00:00:41,900 --> 00:00:46,500
+Ba: đếm ngược, dọa hủy điểm, ép bạn quyết định thật nhanh.
+
+12
+00:00:46,500 --> 00:00:52,800
+Thông tin trùng khớp không chứng minh đường link là thật; kẻ gian có thể dùng dữ liệu công khai.
+
+13
+00:00:52,800 --> 00:00:57,500
+Muốn kiểm tra, hãy tự mở ứng dụng VCB Digibank. Đừng đi theo link được gửi đến.
+
+14
+00:00:57,500 --> 00:01:04,000
+Không cung cấp số thẻ, CVV, mật khẩu hay OTP; không xác nhận giao dịch theo hướng dẫn của người lạ.
+
+15
+00:01:04,000 --> 00:01:07,800
+Lỡ mở link nhưng chưa nhập dữ liệu? Đóng trang ngay.
+
+16
+00:01:07,800 --> 00:01:15,100
+Đã nhập dữ liệu thẻ hoặc đăng nhập? Liên hệ ngân hàng qua kênh chính thức để khóa thẻ, bảo vệ tài khoản.
+
+17
+00:01:15,100 --> 00:01:20,500
+Đã cung cấp OTP hoặc phát hiện giao dịch lạ? Báo ngân hàng ngay.
+
+18
+00:01:20,500 --> 00:01:26,800
+Lưu tin nhắn, đường link, ảnh chụp; trình báo công an nếu nghi bị chiếm đoạt.
+
+19
+00:01:26,800 --> 00:01:31,900
+Quy tắc nhớ nhanh: tự mở ứng dụng, tự xác minh, giữ kín mã bảo mật.
+
+20
+00:01:31,900 --> 00:01:36,400
+Một cú nhấp có thể mở cửa cho kẻ gian. Chia sẻ cảnh báo này với người thân.

@@ -1,0 +1,85 @@
+{
+  "projectSlug": "cau-ngoi-cho-luong",
+  "topic": "Cầu ngói chợ Lương — dấu ấn hơn 500 năm",
+  "locationCurrent": "xã Hải Anh, tỉnh Ninh Bình, Việt Nam",
+  "template": "vintage-editorial",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "files": {
+    "brief": "input/projects/cau-ngoi-cho-luong/brief.md",
+    "voiceScript": "input/projects/cau-ngoi-cho-luong/voice-script.txt",
+    "srt": "input/projects/cau-ngoi-cho-luong/voice.srt",
+    "audio": "input/projects/cau-ngoi-cho-luong/voice.mp3",
+    "assets": "input/projects/cau-ngoi-cho-luong/assets"
+  },
+  "audioProvided": false,
+  "srtTimingStatus": "DRAFT_ESTIMATED_REPLACE_WITH_AUDIO_ALIGNED_SRT",
+  "scenesRecommended": [
+    {
+      "scene": "cover",
+      "cues": [
+        1,
+        2
+      ],
+      "headline": "Cầu ngói chợ Lương"
+    },
+    {
+      "scene": "timeline",
+      "cues": [
+        3,
+        4
+      ],
+      "headline": "Hơn năm thế kỷ"
+    },
+    {
+      "scene": "photo-story",
+      "cues": [
+        5,
+        6
+      ],
+      "headline": "Thượng gia hạ kiều"
+    },
+    {
+      "scene": "photo-stack",
+      "cues": [
+        7,
+        8
+      ],
+      "headline": "Gỗ lim và đá cổ"
+    },
+    {
+      "scene": "photo-stack",
+      "cues": [
+        9
+      ],
+      "headline": "Gần chùa Lương"
+    },
+    {
+      "scene": "statistic",
+      "cues": [
+        10
+      ],
+      "headline": "Di tích quốc gia — 1990"
+    },
+    {
+      "scene": "ending",
+      "cues": [
+        11,
+        12,
+        13
+      ],
+      "headline": "Một nhịp cầu, nhiều thế kỷ ký ức"
+    }
+  ],
+  "agentRules": [
+    "No TTS generation",
+    "Do not modify original audio or SRT wording",
+    "Use SRT timestamps after real audio alignment",
+    "Research and record sources/licenses for any external assets",
+    "Do not portray synthetic reconstructions as historic photos",
+    "Inspect still frames before final render"
+  ]
+}

@@ -1,6 +1,6 @@
 # Vintage Editorial Documentary — Style Specification v1.0
 
-Tài liệu đặc tả phong cách thiết kế được nghiên cứu và chuẩn hóa trực tiếp từ video tham chiếu `references/sapa-reference.mp4`.
+Tài liệu đặc tả phong cách thiết kế được nghiên cứu và chuẩn hóa trực tiếp từ video tham chiếu `references/vintage-editorial/sapa-reference.mp4`.
 
 ---
 
@@ -126,7 +126,7 @@ Tài liệu đặc tả phong cách thiết kế được nghiên cứu và chu�
 - **Hiển thị:** Chữ nổi trực tiếp trên nền giấy mộc ấm áp, có bóng đổ cực mịn (`0 2px 8px rgba(0,0,0,0.06)`).
 - **Typography:** Sans-serif đậm (`font-weight: 700`, `font-size: 38px`, `line-height: 1.35`).
 - **Cơ chế Highlight Karaoke:**
-  - Từ đang được đọc phát sáng màu **Đỏ San Hô** (`#DE5138`).
+  - Chỉ highlight riêng từ đang đọc màu **Đỏ San Hô** (`#DE5138`) khi project có timestamp từng từ. Với SRT thông thường, hiển thị cả câu theo thời gian cue.
   - Các từ còn lại hiển thị màu xám rêu mờ (`#7E938B`).
   - Chuyển từ nhịp nhàng theo tiến trình thời gian câu thoại (tính theo frame/ms).
 

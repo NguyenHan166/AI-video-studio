@@ -1,6 +1,6 @@
 # Illustrated Paper-Textured — Style Specification v1.0
 
-Tài liệu đặc tả phong cách thiết kế được nghiên cứu, trích xuất và chuẩn hóa trực tiếp từ video tham chiếu `references/vetay-reference.mp4`.
+Tài liệu đặc tả phong cách thiết kế được nghiên cứu, trích xuất và chuẩn hóa trực tiếp từ video tham chiếu `references/illustrated-paper-textured/vetay-reference.mp4`.
 
 ---
 
@@ -14,7 +14,7 @@ Tài liệu đặc tả phong cách thiết kế được nghiên cứu, trích 
 - **Không gian an toàn (Safe Areas):**
   - **Trục ngang:** Lề trái/phải 80px (nội dung hiển thị tối đa 920px, chống tràn viền trên các thiết bị di động).
   - **Trục dọc - Đỉnh (Top safe):** >= 90px (dành cho logo/watermark kênh hoặc kicker chủ đề).
-  - **Trục dọc - Đáy (Bottom safe):** >= 200px (vùng dành cho phụ đề nổi karaoke và thanh điều hướng TikTok/Reels/Shorts).
+  - **Trục dọc - Đáy (Bottom safe):** >= 200px (vùng dành cho phụ đề nổi và thanh điều hướng TikTok/Reels/Shorts).
 
 ---
 
@@ -163,19 +163,16 @@ Khi hiển thị ảnh tư liệu hoặc ảnh minh họa do người dùng cung
 - Vị trí: Cách đáy 140px, nằm trong vùng an toàn tuyệt đối của định dạng video ngắn dọc.
 - Phông chữ: `Plus Jakarta Sans`, đậm (weight 800), kích cỡ 38px - 42px.
 - Cơ chế Active:
-  - Khi từ thoại đang được đọc: đổi ngay sang màu Xanh dương `#3B82F6`.
-  - Các từ chưa/đã đọc: màu xám than `#334155`.
+  - Chỉ đổi riêng từ sang màu Xanh dương `#3B82F6` khi project có timestamp từng từ.
+  - Với SRT thông thường, hiển thị cả câu theo timing của cue; không nội suy karaoke từng từ.
   - Giữ nét chữ sắc cạnh, thanh thoát, không dùng hộp nền che khuất tranh vẽ bên dưới.
 
 ---
 
 ## 8. Kiến trúc kỹ thuật & Độc lập Component
 
-- Mọi component của template `illustrated-paper-textured` được đặt riêng tại:
-  - Theme: [src/theme-illustrated.ts](file:///d:/Apps/AI-Video-Studio/src/theme-illustrated.ts)
-  - Components: [src/scenes-illustrated.tsx](file:///d:/Apps/AI-Video-Studio/src/scenes-illustrated.tsx)
-- Giữ nguyên vẹn toàn bộ [src/scenes.tsx](file:///d:/Apps/AI-Video-Studio/src/scenes.tsx) và [src/theme.ts](file:///d:/Apps/AI-Video-Studio/src/theme.ts) của `vintage-editorial`.
-- [src/video.tsx](file:///d:/Apps/AI-Video-Studio/src/video.tsx) đóng vai trò master router, tự động nhận diện `project.template`:
-  - `'illustrated-paper-textured'`: gọi `IllustratedScene` & `IllustratedCaptionBar`.
-  - `'vintage-editorial'`: gọi `EditorialScene` & `CaptionBar`.
+- Runtime code của template nằm trong `src/templates/illustrated-paper-textured/`.
+- Runtime registry đặt tại `src/templates/registry.tsx`; danh sách ID và scene kinds đặt tại `src/templates/manifest.json`.
+- Template `vintage-editorial` được cô lập trong `src/templates/vintage-editorial/`.
+- Composition dùng chung tại `src/core/VideoComposition.tsx`, lấy scene renderer, màu nền và caption theme từ registry.
 - Mọi nội dung dữ liệu đều được truyền động qua JSON (`src/generated/current-project.json`), hoàn toàn độc lập với câu chuyện gốc và tái sử dụng cho bất kỳ chủ đề video nào.
