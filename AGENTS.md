@@ -14,6 +14,7 @@
 - Prefer editing `src/generated/current-project.json` and reusable scene components, not regenerating the entire codebase.
 - Remotion composition ID: `EditorialVideo`, frame size 1080x1920, 30fps.
 - If audio duration and SRT differ > 0.5s, report mismatch and choose an explicit policy rather than silently time-stretching the voice.
+- The optional `.agents/skills/nns-cut-silence` utility is standalone only, not a normal project-prep or render step. Never run it on `input/projects/`, project voice MP3/WAV files, SRT files, or rendered Remotion videos. Use it only for a separately requested silence-cut derivative from a standalone source copy inside this workspace, with a new output under `output/<slug>/`; review any time-map or subtitle changes before using a derivative as project input.
 - No credentials or secrets should be stored in source files.
 
 ## Project structure

@@ -26,5 +26,6 @@ Mở bằng mâu thuẫn: chương trình điểm và thời hạn có thể là
 
 - Chỉ dùng minh họa do AI tạo trong package này; không dùng ảnh bài báo vì chưa xác định quyền sử dụng.
 - Các hình là minh họa khái niệm, không phải ảnh chụp, bằng chứng, người thật hay giao diện Vietcombank.
-- Không có voice trong package. `voice.srt` là bản lời đọc và mốc thời gian dự kiến; cần căn chỉnh theo file voice thật trước khi render cuối.
-- Không tự tạo hoặc thay đổi giọng đọc.
+- `voice.mp3` do người dùng cung cấp được dùng nguyên bản; không tự tạo, chỉnh sửa hoặc time-stretch voice.
+- SRT kết thúc ở 96,40 giây; MP3 dài 98,90 giây (lệch 2,50 giây). Dùng chính sách `srt-authoritative`: timeline video theo SRT, phần audio sau mốc 96,40 giây nằm ngoài video xuất.
+- Giữ nguyên nội dung và timestamp của `voice.srt` do người dùng cung cấp.

@@ -50,6 +50,8 @@ Before rendering:
 
 Compare audio duration with the final SRT cue end using `ffprobe` or `npm run check`.
 
+The optional nns-cut-silence utility is not part of this workflow. Do not use it on project inputs, voice/SRT files, or rendered Remotion video; it shortens the timeline and can remove cues. See [its standalone-use boundary](../nns-cut-silence/SKILL.md) for the separate scope.
+
 - When the difference is at most 0.5 seconds, keep the SRT-driven composition and report the measured difference if it is useful.
 - When the difference exceeds 0.5 seconds, report both durations and the difference before rendering. This project records `audioSyncPolicy: "srt-authoritative"`: composition duration follows the SRT, the voice is never time-stretched, and any overhang or silence remains visible as a timing issue. Do not silently change this policy.
 - Word-by-word highlighting is allowed only when actual word timing data exists in `wordTimings`. Plain SRT should render as sentence-level captions.

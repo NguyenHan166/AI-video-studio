@@ -2,7 +2,14 @@
   "template": "cyber-security-alert",
   "durationInFrames": 2892,
   "estimatedDurationSeconds": 96.4,
-  "timingStatus": "estimated-until-voice-is-provided",
+  "timingStatus": "voice-present-srt-authoritative",
+  "audio": {
+    "path": "voice.mp3",
+    "durationSeconds": 98.9,
+    "srtEndSeconds": 96.4,
+    "differenceSeconds": 2.5,
+    "syncPolicy": "srt-authoritative"
+  },
   "scenePlan": [
     {
       "id": "scene-01-hook",

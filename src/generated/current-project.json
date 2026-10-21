@@ -7,7 +7,7 @@
   "width": 1080,
   "height": 1920,
   "durationInFrames": 2892,
-  "audioPath": null,
+  "audioPath": "media/vcb-loyalty-scam-alert/voice.mp3",
   "audioSyncPolicy": "srt-authoritative",
   "captions": [
     {
