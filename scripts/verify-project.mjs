@@ -58,8 +58,32 @@ for (let index = 0; index < (project.captions ?? []).length; index += 1) {
   if (!String(caption.text ?? '').trim()) fail(`Caption ${index + 1} không có nội dung.`);
 
   let previousWordEndMs = caption.startMs;
-  for (const [wordIndex, word] of (caption.wordTimings ?? []).entries()) {
-    if (!(word.startMs >= caption.startMs && word.endMs > word.startMs && word.endMs <= caption.endMs)) {
+  if (caption.wordTimings !== undefined && !Array.isArray(caption.wordTimings)) {
+    fail(`Word timings của caption ${index + 1} phải là mảng.`);
+  }
+  const wordTimings = Array.isArray(caption.wordTimings) ? caption.wordTimings : [];
+  if (wordTimings.length) {
+    const expectedTokens = String(caption.text).trim().split(/\s+/);
+    const actualTokens = wordTimings.map((word) =>
+      word && typeof word === 'object' ? word.text : null
+    );
+    if (
+      actualTokens.length !== expectedTokens.length ||
+      actualTokens.some((word, wordIndex) => word !== expectedTokens[wordIndex])
+    ) {
+      fail(`Word timings của caption ${index + 1} không khớp nguyên văn các token trong SRT.`);
+    }
+  }
+  for (const [wordIndex, word] of wordTimings.entries()) {
+    if (!word || typeof word !== 'object') {
+      fail(`Word timing ${wordIndex + 1} của caption ${index + 1} không hợp lệ.`);
+      continue;
+    }
+    if (
+      !Number.isFinite(word.startMs) ||
+      !Number.isFinite(word.endMs) ||
+      !(word.startMs >= caption.startMs && word.endMs > word.startMs && word.endMs <= caption.endMs)
+    ) {
       fail(`Word timing ${wordIndex + 1} vượt ngoài caption ${index + 1}.`);
     }
     if (word.startMs < previousWordEndMs) {

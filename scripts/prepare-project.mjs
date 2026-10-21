@@ -27,7 +27,11 @@ if (args.includes('--help') || args.includes('-h')) {
   console.log(
     [
       'Tạo dữ liệu dự án từ SRT:',
-      '  npm run prepare -- --topic "..." --srt input/voice.srt [--audio input/voice.mp3] [--assets input/assets] [--template vintage-editorial] [--slug ten-video] [--overwrite]',
+      '  npm run prepare -- --topic "..." --srt input/voice.srt [--audio input/voice.mp3] [--assets input/assets] [--word-timings input/word-timings.json] [--template vintage-editorial] [--slug ten-video] [--overwrite]',
+      '',
+      'Word timing là dữ liệu căn từ với audio, không được tự chia đều từ theo thời lượng câu.',
+      'JSON: {"version":1,"cues":[{"cueIndex":1,"text":"xin chào","words":[{"text":"xin","startMs":0,"endMs":180},{"text":"chào","startMs":181,"endMs":450}]}]}',
+      'cueIndex bắt đầu từ 1; word text phải khớp từng token của cue; thời gian tính bằng ms trên timeline video.',
       '',
       'Liệt kê template:',
       '  npm run templates',
@@ -134,6 +138,90 @@ if (!captions.length) throw new Error('SRT không có cue.');
 for (let index = 1; index < captions.length; index += 1) {
   if (captions[index].startMs < captions[index - 1].startMs) {
     throw new Error('Thứ tự SRT không tăng dần.');
+  }
+}
+
+const wordTimingsValue = flag('word-timings');
+if (wordTimingsValue) {
+  const wordTimingsPath = resolveInputPath(wordTimingsValue, 'Word timings');
+  if (!fs.existsSync(wordTimingsPath) || !fs.statSync(wordTimingsPath).isFile()) {
+    throw new Error(`Không tìm thấy file word timings: ${wordTimingsPath}`);
+  }
+
+  let alignment;
+  try {
+    alignment = JSON.parse(fs.readFileSync(wordTimingsPath, 'utf8'));
+  } catch (error) {
+    throw new Error(`File word timings không phải JSON hợp lệ: ${error.message}`);
+  }
+  if (
+    !alignment ||
+    typeof alignment !== 'object' ||
+    alignment.version !== 1 ||
+    !Array.isArray(alignment.cues) ||
+    !alignment.cues.length
+  ) {
+    throw new Error('Word timings cần có version: 1 và mảng cues không rỗng.');
+  }
+
+  const seenCueIndexes = new Set();
+  for (const record of alignment.cues) {
+    if (!record || typeof record !== 'object') {
+      throw new Error('Mỗi phần tử trong cues phải là một object.');
+    }
+    const cueIndex = record.cueIndex;
+    if (!Number.isInteger(cueIndex) || cueIndex < 1 || cueIndex > captions.length) {
+      throw new Error(`cueIndex không hợp lệ: ${cueIndex}`);
+    }
+    if (seenCueIndexes.has(cueIndex)) {
+      throw new Error(`Word timings bị lặp cueIndex ${cueIndex}.`);
+    }
+    seenCueIndexes.add(cueIndex);
+
+    const caption = captions[cueIndex - 1];
+    if (record.text !== caption.text) {
+      throw new Error(`Nội dung word timings của cue ${cueIndex} không khớp nguyên văn SRT.`);
+    }
+    if (!Array.isArray(record.words) || !record.words.length) {
+      throw new Error(`Cue ${cueIndex} cần có mảng words không rỗng.`);
+    }
+
+    const expectedTokens = caption.text.trim().split(/\s+/);
+    const providedTokens = record.words.map((word, wordIndex) => {
+      if (!word || typeof word !== 'object') {
+        throw new Error(`Word timing ${wordIndex + 1} của cue ${cueIndex} không hợp lệ.`);
+      }
+      return word.text;
+    });
+    if (
+      providedTokens.length !== expectedTokens.length ||
+      providedTokens.some((word, index) => word !== expectedTokens[index])
+    ) {
+      throw new Error(`Các token của cue ${cueIndex} phải khớp từng từ và dấu câu trong SRT.`);
+    }
+
+    let previousWordEndMs = caption.startMs;
+    for (const [wordIndex, word] of record.words.entries()) {
+      if (
+        !Number.isFinite(word.startMs) ||
+        !Number.isFinite(word.endMs) ||
+        word.startMs < caption.startMs ||
+        word.endMs <= word.startMs ||
+        word.endMs > caption.endMs
+      ) {
+        throw new Error(`Timestamp từ ${wordIndex + 1} của cue ${cueIndex} nằm ngoài cue hoặc không hợp lệ.`);
+      }
+      if (word.startMs < previousWordEndMs) {
+        throw new Error(`Word timings của cue ${cueIndex} bị chồng hoặc sai thứ tự.`);
+      }
+      previousWordEndMs = word.endMs;
+    }
+
+    caption.wordTimings = record.words.map(({ text, startMs, endMs }) => ({
+      text,
+      startMs,
+      endMs,
+    }));
   }
 }
 
@@ -302,6 +390,11 @@ console.log(`Template: ${template.name} (${templateId})`);
 console.log(
   `Đã tạo storyboard: ${scenes.length} cảnh; ${captions.length} cue SRT; ${(durationInFrames / fps).toFixed(2)}s`
 );
+if (wordTimingsValue) {
+  console.log(
+    `Word highlight: ${captions.filter((caption) => caption.wordTimings?.length).length} cue có dữ liệu căn từ thật.`
+  );
+}
 console.log(`Dữ liệu active: ${path.relative(root, currentProjectPath)}`);
 console.log(`Storyboard: ${path.relative(root, storyboardPath)}`);
 console.log(`Asset manifest: ${path.relative(root, assetManifestPath)}`);

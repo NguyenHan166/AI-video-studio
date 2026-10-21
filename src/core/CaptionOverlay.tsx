@@ -14,6 +14,14 @@ export type CaptionTheme = {
   zIndex: number;
   textShadow?: string;
   activeTextShadow?: string;
+  /** Optional karaoke-style treatment, enabled per template. */
+  activeWordBackground?: string;
+  activeWordIndicatorColor?: string;
+  activeWordIndicatorHeight?: number;
+  wordHorizontalPadding?: number;
+  wordVerticalPadding?: number;
+  wordBorderRadius?: number;
+  activeWordBoxShadow?: string;
   backgroundColor?: string;
   backdropFilter?: string;
   containerPadding?: string;
@@ -74,7 +82,18 @@ export const CaptionOverlay: React.FC<{
                 key={`${word.startMs}-${index}`}
                 style={{
                   display: 'inline-block',
-                  margin: '0 5px',
+                  boxSizing: 'border-box',
+                  verticalAlign: 'baseline',
+                  margin: '1px 2px',
+                  padding: `${theme.wordVerticalPadding ?? 0}px ${theme.wordHorizontalPadding ?? 3}px`,
+                  borderRadius: theme.wordBorderRadius ?? 0,
+                  borderBottom: theme.activeWordIndicatorColor
+                    ? `${theme.activeWordIndicatorHeight ?? 3}px solid ${isActive ? theme.activeWordIndicatorColor : 'transparent'}`
+                    : undefined,
+                  backgroundColor: isActive
+                    ? theme.activeWordBackground ?? 'transparent'
+                    : 'transparent',
+                  boxShadow: isActive ? theme.activeWordBoxShadow : undefined,
                   color: isActive ? theme.activeColor : theme.color,
                   textShadow: isActive
                     ? theme.activeTextShadow ?? theme.textShadow

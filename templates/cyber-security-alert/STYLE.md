@@ -74,7 +74,9 @@ Các giá trị là ước lượng thị giác từ video nén, không phải m
 
 - Phụ đề căn giữa ở vùng thấp phía trên footer, chữ sans đậm màu mực tối, có viền sáng mềm để dễ đọc trên nền ảnh và giấy.
 - Cỡ chữ thay đổi theo độ dài cue; không thu nhỏ quá mức khi câu dài.
-- Chỉ tô từ đang đọc màu đỏ khi caption có `wordTimings` thật. SRT thông thường giữ nguyên cue và thời gian câu; không tự chia từ hoặc giả lập karaoke.
+- Khi caption có `wordTimings` được căn theo audio, từ đang đọc hiện chữ sáng trên nền đỏ gạch, bo góc nhẹ và có gạch chân màu hổ phách. Các từ còn lại giữ màu mực để mắt bám theo câu mà không tạo nhấp nháy hoặc dịch chuyển bố cục.
+- Chỉ bật highlight từng từ khi caption có `wordTimings` thật. SRT thông thường giữ nguyên cue và thời gian câu; không tự chia từ, nội suy thời lượng theo ký tự hoặc giả lập karaoke.
+- Có thể đưa dữ liệu căn từ vào `npm run prepare -- --word-timings <file.json>`. Mỗi cue dùng `cueIndex` (bắt đầu từ 1), `text` khớp nguyên văn SRT, và `words` chứa từng token cùng `startMs`/`endMs` tuyệt đối trên timeline; script từ chối token sai, timestamp ngoài cue hoặc thời gian chồng lấn.
 - Caption timing lấy từ SRT. Không kéo giãn hoặc sửa giọng đọc để khớp trang trí hình ảnh.
 
 ## 6. Thư viện scene của template
