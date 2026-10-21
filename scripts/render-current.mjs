@@ -9,12 +9,14 @@ const target=path.join(root,'output',slug,'video.mp4');
 fs.mkdirSync(path.dirname(target),{recursive:true});
 const cmd=process.platform==='win32'?'npx.cmd':'npx';
 const overwrite=process.argv.includes('--overwrite');
+const passthroughArgs=process.argv.slice(2).filter((arg)=>arg!=='--overwrite');
 if(fs.existsSync(target)&&!overwrite){
   console.error('Video đã tồn tại:',target);
   console.error('Đổi slug hoặc dùng `npm run render -- --overwrite` để thay file này.');
   process.exit(1);
 }
 const args=['remotion','render','src/index.ts','EditorialVideo',target,'--codec=h264'];
+args.push(...passthroughArgs);
 if(overwrite)args.push('--overwrite');
 console.log('Xuất video:',target);
 const run=spawnSync(cmd,args,{cwd:root,stdio:'inherit',shell:process.platform==='win32'});

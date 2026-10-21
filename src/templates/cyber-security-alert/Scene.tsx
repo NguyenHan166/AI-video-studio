@@ -1,4 +1,5 @@
 import React from 'react';
+import { Easing, interpolate, useCurrentFrame } from 'remotion';
 import type { Scene } from '../../core/types';
 import {
   Badge,
@@ -49,8 +50,75 @@ const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </div>
 );
 
+const SupportingStats: React.FC<{ scene: Scene; delay?: number }> = ({ scene, delay = 9 }) => {
+  const stats = scene.supportingStats ?? [];
+  if (!stats.length) return null;
+
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))`,
+        backgroundColor: T.ink,
+        borderLeft: `6px solid ${T.brick}`,
+        boxShadow: `0 10px 26px ${T.shadow}`,
+      }}
+    >
+      {stats.map((stat, idx) => (
+        <Reveal key={`${stat.label}-${idx}`} delay={delay + idx * 5} distance={9}>
+          <div
+            style={{
+              height: '100%',
+              minHeight: 148,
+              boxSizing: 'border-box',
+              padding: '19px 18px 17px',
+              borderRight: idx < stats.length - 1 ? '1px solid rgba(243, 240, 230, 0.22)' : 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gap: 7,
+              minWidth: 0,
+            }}
+          >
+            <div
+              style={{
+                color: T.amber,
+                fontFamily: T.fontBody,
+                fontSize: 14,
+                fontWeight: 900,
+                letterSpacing: 1,
+                lineHeight: 1.25,
+              }}
+            >
+              {stat.label}
+            </div>
+            <div
+              style={{
+                color: T.paperLight,
+                fontFamily: T.fontDisplay,
+                fontSize: stat.value.length > 8 ? 30 : 38,
+                fontWeight: 900,
+                lineHeight: 1.08,
+                letterSpacing: -0.8,
+                overflowWrap: 'anywhere',
+              }}
+            >
+              {stat.value}
+            </div>
+            {stat.note ? (
+              <div style={{ color: T.paperShade, fontFamily: T.fontBody, fontSize: 16, lineHeight: 1.25 }}>
+                {stat.note}
+              </div>
+            ) : null}
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  );
+};
+
 export const CyberHookScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => (
-  <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+  <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
     <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
       <Reveal>
         <Headline
@@ -86,7 +154,7 @@ export const CyberFakeChatScene: React.FC<CyberSceneProps> = ({ scene, index, to
   const link = scene.fakeLink || 'https://example.invalid/link-mo-phong';
 
   return (
-    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
         <Reveal>
           <Headline title={scene.title} kicker={scene.kicker || 'NHẬN DIỆN THỦ ĐOẠN'} badge="MÔ PHỎNG" />
@@ -156,9 +224,10 @@ export const CyberFakeChatScene: React.FC<CyberSceneProps> = ({ scene, index, to
 
 export const CyberAnatomyScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => {
   const steps = scene.steps ?? [];
+  const compact = Boolean(scene.images?.length && steps.length >= 2);
   return (
-    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
+    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: compact ? 22 : 30 }}>
         <Reveal>
           <Headline title={scene.title} kicker={scene.kicker || 'DIỄN TIẾN CẦN BIẾT'} subtitle={scene.subtitle} />
         </Reveal>
@@ -166,18 +235,19 @@ export const CyberAnatomyScene: React.FC<CyberSceneProps> = ({ scene, index, tot
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {steps.map((step, idx) => (
               <Reveal key={`${step.stepNumber}-${idx}`} delay={5 + idx * 5}>
-                <PaperCard tone="alert" style={{ display: 'flex', alignItems: 'flex-start', gap: 20, padding: '18px 22px' }}>
+                <PaperCard tone="alert" style={{ display: 'flex', alignItems: 'flex-start', gap: 18, padding: compact ? '15px 20px' : '18px 22px' }}>
                   <NumberBadge>{String(step.stepNumber).padStart(2, '0')}</NumberBadge>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-                    <DisplayText size={25}>{step.title}</DisplayText>
-                    <DisplayText size={22} color={T.inkSoft}>{step.desc}</DisplayText>
+                    <DisplayText size={compact ? 24 : 25}>{step.title}</DisplayText>
+                    <DisplayText size={compact ? 21 : 22} color={T.inkSoft}>{step.desc}</DisplayText>
                   </div>
                 </PaperCard>
               </Reveal>
             ))}
           </div>
         ) : null}
-        <Postcard scene={scene} height={330} />
+        <SupportingStats scene={scene} delay={13} />
+        <Postcard scene={scene} height={compact ? 300 : 330} />
       </div>
     </SceneFrame>
   );
@@ -186,7 +256,7 @@ export const CyberAnatomyScene: React.FC<CyberSceneProps> = ({ scene, index, tot
 export const CyberRedFlagsScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => {
   const flags = scene.items ?? [];
   return (
-    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
         <Reveal>
           <Headline title={scene.title} kicker={scene.kicker || 'DẤU HIỆU CẦN KIỂM TRA'} />
@@ -229,7 +299,7 @@ export const CyberCompareScene: React.FC<CyberSceneProps> = ({ scene, index, tot
   ];
 
   return (
-    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
         <Reveal>
           <Headline title={scene.title} kicker={scene.kicker || 'ĐỐI CHIẾU TRƯỚC KHI NHẤP'} />
@@ -263,8 +333,22 @@ export const CyberCompareScene: React.FC<CyberSceneProps> = ({ scene, index, tot
   );
 };
 
-export const CyberLossStatScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => (
-  <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+export const CyberLossStatScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => {
+  const frame = useCurrentFrame();
+  const match = scene.statistic?.match(/^([^\d]*)([\d.,]+)(.*)$/);
+  const target = match ? Number(match[2].replace(/[^\d]/g, '')) : 0;
+  const count = Math.round(
+    interpolate(frame, [8, 52], [0, target], {
+      easing: Easing.out(Easing.cubic),
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    }),
+  );
+  const formattedCount = count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const statisticText = match ? `${match[1]}${formattedCount}${match[3]}` : scene.statistic;
+
+  return (
+  <SceneFrame index={index} total={total} sceneDurationFrames={scene.durationFrames} kicker={scene.kicker} threatLevel={scene.threatLevel}>
     <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
       <Reveal>
         <Headline title={scene.title} kicker={scene.kicker || 'SỐ LIỆU CÓ NGUỒN'} />
@@ -285,7 +369,7 @@ export const CyberLossStatScene: React.FC<CyberSceneProps> = ({ scene, index, to
                   overflowWrap: 'anywhere',
                 }}
               >
-                {scene.statistic}
+                {statisticText}
               </div>
               {scene.statisticUnit ? <DisplayText size={31}>{scene.statisticUnit}</DisplayText> : null}
             </div>
@@ -296,15 +380,17 @@ export const CyberLossStatScene: React.FC<CyberSceneProps> = ({ scene, index, to
       ) : (
         <Reveal delay={8}><Note tone="neutral">Chỉ hiển thị số liệu khi dự án cung cấp dữ liệu và nguồn phù hợp.</Note></Reveal>
       )}
+      <SupportingStats scene={scene} delay={16} />
       <Postcard scene={scene} height={390} />
     </div>
   </SceneFrame>
-);
+  );
+};
 
 export const CyberShieldDefenseScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => {
   const rules = scene.defenseRules ?? [];
   return (
-    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 27 }}>
         <Reveal>
           <Headline title={scene.title} kicker={scene.kicker || 'CÁCH TỰ BẢO VỆ'} badge="VIỆC CÓ THỂ LÀM" subtitle={scene.subtitle} />
@@ -333,7 +419,7 @@ export const CyberShieldDefenseScene: React.FC<CyberSceneProps> = ({ scene, inde
 export const CyberHotlineScene: React.FC<CyberSceneProps> = ({ scene, index, total }) => {
   const hasContact = Boolean(scene.hotline || scene.officialWebsite);
   return (
-    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel}>
+    <SceneFrame index={index} total={total} kicker={scene.kicker} threatLevel={scene.threatLevel} sceneDurationFrames={scene.durationFrames}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 31 }}>
         <Reveal>
           <Headline

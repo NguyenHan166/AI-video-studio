@@ -12,6 +12,7 @@ if (!fs.existsSync(projectPath)) {
 const project = JSON.parse(fs.readFileSync(projectPath, 'utf8'));
 const slug = String(project.slug || 'video').replace(/[^a-zA-Z0-9_-]/g, '-');
 const previewDir = path.join(root, 'output', slug, 'previews');
+const passthroughArgs = process.argv.slice(2);
 fs.mkdirSync(previewDir, { recursive: true });
 
 const command = process.platform === 'win32' ? 'npx.cmd' : 'npx';
@@ -27,6 +28,7 @@ for (const scene of project.scenes ?? []) {
     outputPath,
     `--frame=${frame}`,
     '--overwrite',
+    ...passthroughArgs,
   ];
 
   console.log(`Scene ${scene.id}: frame ${frame} -> ${path.relative(root, outputPath)}`);

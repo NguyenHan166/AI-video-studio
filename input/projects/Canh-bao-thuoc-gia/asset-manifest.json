@@ -1,0 +1,105 @@
+{
+  "project": "Canh-bao-thuoc-gia",
+  "source_article": {
+    "title": "Thuốc giả đội lốt “đông y gia truyền”",
+    "publisher": "Tạp chí An ninh mạng Việt Nam",
+    "byline": "Đồng Lê",
+    "displayed_date": "21/10/2026",
+    "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+    "supplied_copy": "input-raw/Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam.html"
+  },
+  "conversion_note": "Sáu ảnh gallery nội dung chính trong bản lưu bài đã được chuyển mã sang PNG; input-raw không bị thay đổi. Các ảnh không liên quan ở sidebar/logo tác giả được loại khỏi gói dựng.",
+  "assets": [
+    {
+      "file": "assets/01-product-packaging.png",
+      "original_file": "input-raw\\Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam_files/40a2eaab-d9ee-4ac5-9d9f-2998e99fbf21_1792228980939-4915246764552282642-4915246764552282642-5fd9696e5bf3788b740.webp",
+      "description": "Ảnh gallery bài; bao bì sản phẩm được gắn mác đông y gia truyền",
+      "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+      "author": "Tạp chí An ninh mạng Việt Nam; người chụp không ghi riêng trong bản HTML lưu",
+      "license": "Chưa xác minh; ảnh được người dùng cung cấp qua bản lưu trang báo, không thấy giấy phép tái sử dụng.",
+      "review_status": "needs-review",
+      "relevant_beats": [
+        "lớp vỏ quảng cáo"
+      ],
+      "notes": "Có chi tiết liên hệ trên bao bì; crop/che trước khi xuất bản."
+    },
+    {
+      "file": "assets/02-production-equipment.png",
+      "original_file": "input-raw\\Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam_files/6e8a54f4-181f-4c5d-b5b1-d13a23f8a139_1792228980938-4915246764552282642-4915246764552282642-8595e58ed9aab9b0ae9.webp",
+      "description": "Ảnh gallery bài; máy móc và thùng hàng",
+      "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+      "author": "Tạp chí An ninh mạng Việt Nam; người chụp không ghi riêng trong bản HTML lưu",
+      "license": "Chưa xác minh; ảnh được người dùng cung cấp qua bản lưu trang báo, không thấy giấy phép tái sử dụng.",
+      "review_status": "needs-review",
+      "relevant_beats": [
+        "sản xuất và đóng gói"
+      ],
+      "notes": "Nhãn thùng có thể nhận diện doanh nghiệp; crop/che để tránh gợi liên hệ không được nguồn xác nhận."
+    },
+    {
+      "file": "assets/03-stock-storage.png",
+      "original_file": "input-raw\\Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam_files/9658cb6d-d94c-44df-9864-c17e71cf70aa_1792228980934-4915246764552282642-4915246764552282642-4aa237c0022a3550db6.webp",
+      "description": "Ảnh gallery bài; kho hàng và thùng sản phẩm",
+      "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+      "author": "Tạp chí An ninh mạng Việt Nam; người chụp không ghi riêng trong bản HTML lưu",
+      "license": "Chưa xác minh; ảnh được người dùng cung cấp qua bản lưu trang báo, không thấy giấy phép tái sử dụng.",
+      "review_status": "needs-review",
+      "relevant_beats": [
+        "quy mô tang vật"
+      ],
+      "notes": "Nhãn/logo thùng hiện rõ; crop/che và không gán nhãn cho chủ thể vi phạm khi chưa xác nhận."
+    },
+    {
+      "file": "assets/04-healer-product-ad.png",
+      "original_file": "input-raw\\Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam_files/4078b060-48e2-405a-9b25-9887e7851475_photo-library-20260829102841-7f67a4ae-6699-4c20-bd2f-bd52f0fc1224-6.jpg",
+      "description": "Ảnh chụp bài quảng cáo sản phẩm mang tên lương y Nguyễn Văn Sáu",
+      "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+      "author": "Tạp chí An ninh mạng Việt Nam; người chụp không ghi riêng trong bản HTML lưu",
+      "license": "Chưa xác minh; ảnh được người dùng cung cấp qua bản lưu trang báo, không thấy giấy phép tái sử dụng.",
+      "review_status": "needs-review",
+      "relevant_beats": [
+        "sản phẩm mang tên lương y"
+      ],
+      "notes": "Hiện số điện thoại, địa chỉ và lời quảng cáo công dụng; cần che thông tin liên hệ và ghi rõ đây là ảnh chụp màn hình trong bài."
+    },
+    {
+      "file": "assets/05-social-groups.png",
+      "original_file": "input-raw\\Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam_files/8b1fbb95-d557-4f0b-a136-5b0a91b01919_du-an-moi.jpg",
+      "description": "Ảnh chụp màn hình kết quả tìm kiếm/hội nhóm bán thuốc đông y",
+      "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+      "author": "Tạp chí An ninh mạng Việt Nam; người chụp không ghi riêng trong bản HTML lưu",
+      "license": "Chưa xác minh; ảnh được người dùng cung cấp qua bản lưu trang báo, không thấy giấy phép tái sử dụng.",
+      "review_status": "needs-review",
+      "relevant_beats": [
+        "chợ thuốc trực tuyến"
+      ],
+      "notes": "Có tên nhóm/tài khoản, ảnh đại diện và số thành viên; làm mờ chi tiết có thể nhận dạng trước khi xuất bản."
+    },
+    {
+      "file": "assets/06-ai-ad-collage.png",
+      "original_file": "input-raw\\Thuốc giả đội lốt “đông y gia truyền” - Tạp chí An ninh mạng Việt Nam_files/15c945a5-ba11-4a41-adba-1dbcfc5cd9a3_anh-man-hinh-2026-10-20-luc-08-15-09.png",
+      "description": "Ảnh chụp màn hình quảng cáo thuốc xoang bằng video/nhân vật AI, theo chú thích bài báo",
+      "source_url": "https://tapchianninhmang.vn/thuoc-gia-doi-lot-dong-y-gia-truyen",
+      "author": "Tạp chí An ninh mạng Việt Nam; người chụp không ghi riêng trong bản HTML lưu",
+      "license": "Chưa xác minh; ảnh được người dùng cung cấp qua bản lưu trang báo, không thấy giấy phép tái sử dụng.",
+      "review_status": "needs-review",
+      "relevant_beats": [
+        "quảng cáo dùng nhân vật AI"
+      ],
+      "notes": "Có gương mặt, handle/tài khoản và lời quảng cáo công dụng; che handle, tránh nhận dạng gương mặt và ghi rõ đây là tư liệu bài báo; không suy diễn người xuất hiện biết hoặc tiếp tay."
+    }
+  ],
+  "excluded_from_curated_assets": [
+    "Logo tác giả/giao diện trang; thumbnail tin sidebar và tin liên quan không thuộc nội dung chính của bài."
+  ],
+  "missing_inputs": [],
+  "template": "cyber-security-alert",
+  "voice": {
+    "audio": "voice.wav",
+    "duration_ms": 142140,
+    "srt": "voice.srt",
+    "caption_count": 48,
+    "timing_source": "Word-level timestamps from local Whisper small (Vietnamese), aligned to the matching script text.",
+    "mismatch_policy": "SRT and audio both end at 142140 ms; keep original audio duration and do not time-stretch."
+  }
+}

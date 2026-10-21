@@ -103,6 +103,15 @@ export type Scene = {
   startFrame: number;
   durationFrames: number;
   images?: string[];
+  imageObjectPosition?: string;
+  imageMasks?: Array<{
+    leftPct: number;
+    topPct: number;
+    widthPct: number;
+    heightPct: number;
+    label?: string;
+    mode?: 'cover' | 'blur';
+  }>;
   imageLabel?: string;
   videos?: string[];
   items?: string[];
@@ -110,6 +119,11 @@ export type Scene = {
   statisticLabel?: string;
   statisticDesc?: string;
   statisticUnit?: string;
+  supportingStats?: Array<{
+    value: string;
+    label: string;
+    note?: string;
+  }>;
   kicker?: string;
   locationTag?: string;
   stamp?: string;

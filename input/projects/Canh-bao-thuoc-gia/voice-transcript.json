@@ -1,0 +1,3106 @@
+{
+  "sourceAudio": "voice.wav",
+  "sourceScript": "script.md",
+  "timingMethod": "Word-level timestamps from local Whisper small (Vietnamese); caption text aligned to the matching script.",
+  "audioDurationMs": 142140,
+  "asrWordCount": 557,
+  "scriptTokenCount": 561,
+  "alignmentEditDistance": 60,
+  "tokens": [
+    {
+      "text": "Trên",
+      "startMs": 140,
+      "endMs": 340
+    },
+    {
+      "text": "mạng,",
+      "startMs": 340,
+      "endMs": 820
+    },
+    {
+      "text": "một",
+      "startMs": 960,
+      "endMs": 1080
+    },
+    {
+      "text": "số",
+      "startMs": 1080,
+      "endMs": 1240
+    },
+    {
+      "text": "quảng",
+      "startMs": 1240,
+      "endMs": 1440
+    },
+    {
+      "text": "cáo",
+      "startMs": 1440,
+      "endMs": 1620
+    },
+    {
+      "text": "thuốc",
+      "startMs": 1620,
+      "endMs": 1880
+    },
+    {
+      "text": "tự",
+      "startMs": 1880,
+      "endMs": 2060
+    },
+    {
+      "text": "nhận",
+      "startMs": 2060,
+      "endMs": 2340
+    },
+    {
+      "text": "“gia",
+      "startMs": 2340,
+      "endMs": 2500
+    },
+    {
+      "text": "truyền",
+      "startMs": 2500,
+      "endMs": 2740
+    },
+    {
+      "text": "ba",
+      "startMs": 2740,
+      "endMs": 2880
+    },
+    {
+      "text": "đời”,",
+      "startMs": 2880,
+      "endMs": 3420
+    },
+    {
+      "text": "cam",
+      "startMs": 3420,
+      "endMs": 3580
+    },
+    {
+      "text": "kết",
+      "startMs": 3580,
+      "endMs": 3760
+    },
+    {
+      "text": "khỏi",
+      "startMs": 3760,
+      "endMs": 3940
+    },
+    {
+      "text": "bệnh,",
+      "startMs": 3940,
+      "endMs": 4420
+    },
+    {
+      "text": "thậm",
+      "startMs": 4420,
+      "endMs": 4600
+    },
+    {
+      "text": "chí",
+      "startMs": 4600,
+      "endMs": 4780
+    },
+    {
+      "text": "mượn",
+      "startMs": 4780,
+      "endMs": 4960
+    },
+    {
+      "text": "hình",
+      "startMs": 4960,
+      "endMs": 5140
+    },
+    {
+      "text": "ảnh",
+      "startMs": 5140,
+      "endMs": 5360
+    },
+    {
+      "text": "người",
+      "startMs": 5360,
+      "endMs": 5500
+    },
+    {
+      "text": "nổi",
+      "startMs": 5500,
+      "endMs": 5740
+    },
+    {
+      "text": "tiếng",
+      "startMs": 5740,
+      "endMs": 6220
+    },
+    {
+      "text": "hoặc",
+      "startMs": 6220,
+      "endMs": 6400
+    },
+    {
+      "text": "nhân",
+      "startMs": 6400,
+      "endMs": 6520
+    },
+    {
+      "text": "vật",
+      "startMs": 6520,
+      "endMs": 6800
+    },
+    {
+      "text": "AI",
+      "startMs": 6800,
+      "endMs": 7060
+    },
+    {
+      "text": "để",
+      "startMs": 7060,
+      "endMs": 7160
+    },
+    {
+      "text": "bán",
+      "startMs": 7160,
+      "endMs": 7440
+    },
+    {
+      "text": "hàng.",
+      "startMs": 7440,
+      "endMs": 7760
+    },
+    {
+      "text": "Nhưng",
+      "startMs": 8140,
+      "endMs": 8320
+    },
+    {
+      "text": "đằng",
+      "startMs": 8320,
+      "endMs": 8520
+    },
+    {
+      "text": "sau",
+      "startMs": 8520,
+      "endMs": 8680
+    },
+    {
+      "text": "lời",
+      "startMs": 8680,
+      "endMs": 8840
+    },
+    {
+      "text": "quảng",
+      "startMs": 8840,
+      "endMs": 9020
+    },
+    {
+      "text": "cáo",
+      "startMs": 9020,
+      "endMs": 9220
+    },
+    {
+      "text": "ấy,",
+      "startMs": 9220,
+      "endMs": 9720
+    },
+    {
+      "text": "một",
+      "startMs": 9840,
+      "endMs": 9960
+    },
+    {
+      "text": "số",
+      "startMs": 9960,
+      "endMs": 10100
+    },
+    {
+      "text": "vụ",
+      "startMs": 10100,
+      "endMs": 10340
+    },
+    {
+      "text": "việc",
+      "startMs": 10340,
+      "endMs": 10500
+    },
+    {
+      "text": "được",
+      "startMs": 10500,
+      "endMs": 10720
+    },
+    {
+      "text": "báo",
+      "startMs": 10720,
+      "endMs": 10940
+    },
+    {
+      "text": "chí",
+      "startMs": 10940,
+      "endMs": 11140
+    },
+    {
+      "text": "phản",
+      "startMs": 11140,
+      "endMs": 11280
+    },
+    {
+      "text": "ánh",
+      "startMs": 11280,
+      "endMs": 11480
+    },
+    {
+      "text": "cho",
+      "startMs": 11480,
+      "endMs": 11620
+    },
+    {
+      "text": "thấy",
+      "startMs": 11620,
+      "endMs": 11800
+    },
+    {
+      "text": "cả",
+      "startMs": 11800,
+      "endMs": 12000
+    },
+    {
+      "text": "chuỗi",
+      "startMs": 12000,
+      "endMs": 12180
+    },
+    {
+      "text": "sản",
+      "startMs": 12180,
+      "endMs": 12340
+    },
+    {
+      "text": "xuất,",
+      "startMs": 12340,
+      "endMs": 12780
+    },
+    {
+      "text": "đóng",
+      "startMs": 12800,
+      "endMs": 13040
+    },
+    {
+      "text": "gói",
+      "startMs": 13040,
+      "endMs": 13260
+    },
+    {
+      "text": "và",
+      "startMs": 13260,
+      "endMs": 13380
+    },
+    {
+      "text": "phân",
+      "startMs": 13380,
+      "endMs": 13580
+    },
+    {
+      "text": "phối.",
+      "startMs": 13580,
+      "endMs": 14000
+    },
+    {
+      "text": "Trong",
+      "startMs": 14860,
+      "endMs": 15000
+    },
+    {
+      "text": "bài",
+      "startMs": 15000,
+      "endMs": 15120
+    },
+    {
+      "text": "viết",
+      "startMs": 15120,
+      "endMs": 15260
+    },
+    {
+      "text": "ngày",
+      "startMs": 15260,
+      "endMs": 15460
+    },
+    {
+      "text": "21",
+      "startMs": 15460,
+      "endMs": 15640
+    },
+    {
+      "text": "tháng",
+      "startMs": 15640,
+      "endMs": 15840
+    },
+    {
+      "text": "10",
+      "startMs": 15840,
+      "endMs": 16020
+    },
+    {
+      "text": "năm",
+      "startMs": 16020,
+      "endMs": 16220
+    },
+    {
+      "text": "2026,",
+      "startMs": 16220,
+      "endMs": 17700
+    },
+    {
+      "text": "Tạp",
+      "startMs": 17720,
+      "endMs": 17920
+    },
+    {
+      "text": "chí",
+      "startMs": 17920,
+      "endMs": 18060
+    },
+    {
+      "text": "An",
+      "startMs": 18060,
+      "endMs": 18140
+    },
+    {
+      "text": "ninh",
+      "startMs": 18140,
+      "endMs": 18280
+    },
+    {
+      "text": "mạng",
+      "startMs": 18280,
+      "endMs": 18440
+    },
+    {
+      "text": "Việt",
+      "startMs": 18440,
+      "endMs": 18700
+    },
+    {
+      "text": "Nam",
+      "startMs": 18700,
+      "endMs": 18920
+    },
+    {
+      "text": "dẫn",
+      "startMs": 18920,
+      "endMs": 19120
+    },
+    {
+      "text": "thông",
+      "startMs": 19120,
+      "endMs": 19340
+    },
+    {
+      "text": "tin",
+      "startMs": 19340,
+      "endMs": 19660
+    },
+    {
+      "text": "ngày",
+      "startMs": 19660,
+      "endMs": 20020
+    },
+    {
+      "text": "18",
+      "startMs": 20020,
+      "endMs": 20180
+    },
+    {
+      "text": "tháng",
+      "startMs": 20180,
+      "endMs": 20460
+    },
+    {
+      "text": "10,",
+      "startMs": 20460,
+      "endMs": 20760
+    },
+    {
+      "text": "Công",
+      "startMs": 20980,
+      "endMs": 21160
+    },
+    {
+      "text": "an",
+      "startMs": 21160,
+      "endMs": 21300
+    },
+    {
+      "text": "tỉnh",
+      "startMs": 21300,
+      "endMs": 21440
+    },
+    {
+      "text": "Nghệ",
+      "startMs": 21440,
+      "endMs": 21640
+    },
+    {
+      "text": "An",
+      "startMs": 21640,
+      "endMs": 21860
+    },
+    {
+      "text": "khởi",
+      "startMs": 21860,
+      "endMs": 22060
+    },
+    {
+      "text": "tố",
+      "startMs": 22060,
+      "endMs": 22320
+    },
+    {
+      "text": "mười",
+      "startMs": 22320,
+      "endMs": 22580
+    },
+    {
+      "text": "bị",
+      "startMs": 22580,
+      "endMs": 22820
+    },
+    {
+      "text": "can",
+      "startMs": 22820,
+      "endMs": 23300
+    },
+    {
+      "text": "trong",
+      "startMs": 23300,
+      "endMs": 23440
+    },
+    {
+      "text": "đường",
+      "startMs": 23440,
+      "endMs": 23660
+    },
+    {
+      "text": "dây",
+      "startMs": 23660,
+      "endMs": 24300
+    },
+    {
+      "text": "do",
+      "startMs": 24300,
+      "endMs": 24460
+    },
+    {
+      "text": "Bùi",
+      "startMs": 24460,
+      "endMs": 24600
+    },
+    {
+      "text": "Văn",
+      "startMs": 24600,
+      "endMs": 24760
+    },
+    {
+      "text": "Trường",
+      "startMs": 24760,
+      "endMs": 24960
+    },
+    {
+      "text": "cầm",
+      "startMs": 24960,
+      "endMs": 25160
+    },
+    {
+      "text": "đầu.",
+      "startMs": 25160,
+      "endMs": 25680
+    },
+    {
+      "text": "Sản",
+      "startMs": 25820,
+      "endMs": 25980
+    },
+    {
+      "text": "phẩm",
+      "startMs": 25980,
+      "endMs": 26120
+    },
+    {
+      "text": "được",
+      "startMs": 26120,
+      "endMs": 26280
+    },
+    {
+      "text": "quảng",
+      "startMs": 26280,
+      "endMs": 26380
+    },
+    {
+      "text": "cáo",
+      "startMs": 26380,
+      "endMs": 26520
+    },
+    {
+      "text": "điều",
+      "startMs": 26520,
+      "endMs": 26640
+    },
+    {
+      "text": "trị",
+      "startMs": 26640,
+      "endMs": 26840
+    },
+    {
+      "text": "viêm",
+      "startMs": 26840,
+      "endMs": 27100
+    },
+    {
+      "text": "xoang,",
+      "startMs": 27100,
+      "endMs": 27460
+    },
+    {
+      "text": "viêm",
+      "startMs": 27500,
+      "endMs": 27700
+    },
+    {
+      "text": "mũi",
+      "startMs": 27700,
+      "endMs": 27900
+    },
+    {
+      "text": "dị",
+      "startMs": 27900,
+      "endMs": 28060
+    },
+    {
+      "text": "ứng,",
+      "startMs": 28060,
+      "endMs": 28480
+    },
+    {
+      "text": "bệnh",
+      "startMs": 28540,
+      "endMs": 28740
+    },
+    {
+      "text": "dạ",
+      "startMs": 28740,
+      "endMs": 28920
+    },
+    {
+      "text": "dày",
+      "startMs": 28920,
+      "endMs": 29120
+    },
+    {
+      "text": "và",
+      "startMs": 29120,
+      "endMs": 29240
+    },
+    {
+      "text": "tiêu",
+      "startMs": 29240,
+      "endMs": 29400
+    },
+    {
+      "text": "u.",
+      "startMs": 29400,
+      "endMs": 29920
+    },
+    {
+      "text": "Theo",
+      "startMs": 30060,
+      "endMs": 30180
+    },
+    {
+      "text": "thông",
+      "startMs": 30180,
+      "endMs": 30360
+    },
+    {
+      "text": "tin",
+      "startMs": 30360,
+      "endMs": 30540
+    },
+    {
+      "text": "điều",
+      "startMs": 30540,
+      "endMs": 30760
+    },
+    {
+      "text": "tra",
+      "startMs": 30760,
+      "endMs": 30940
+    },
+    {
+      "text": "được",
+      "startMs": 30940,
+      "endMs": 31080
+    },
+    {
+      "text": "bài",
+      "startMs": 31080,
+      "endMs": 31200
+    },
+    {
+      "text": "báo",
+      "startMs": 31200,
+      "endMs": 31380
+    },
+    {
+      "text": "dẫn,",
+      "startMs": 31380,
+      "endMs": 31920
+    },
+    {
+      "text": "hỗn",
+      "startMs": 31960,
+      "endMs": 32140
+    },
+    {
+      "text": "hợp",
+      "startMs": 32140,
+      "endMs": 32300
+    },
+    {
+      "text": "dược",
+      "startMs": 32300,
+      "endMs": 32520
+    },
+    {
+      "text": "liệu",
+      "startMs": 32520,
+      "endMs": 32820
+    },
+    {
+      "text": "và",
+      "startMs": 32820,
+      "endMs": 32940
+    },
+    {
+      "text": "thuốc",
+      "startMs": 32940,
+      "endMs": 33120
+    },
+    {
+      "text": "tân",
+      "startMs": 33120,
+      "endMs": 33320
+    },
+    {
+      "text": "dược",
+      "startMs": 33320,
+      "endMs": 33520
+    },
+    {
+      "text": "được",
+      "startMs": 33520,
+      "endMs": 33680
+    },
+    {
+      "text": "sản",
+      "startMs": 33680,
+      "endMs": 33880
+    },
+    {
+      "text": "xuất,",
+      "startMs": 33880,
+      "endMs": 34420
+    },
+    {
+      "text": "đóng",
+      "startMs": 34440,
+      "endMs": 34700
+    },
+    {
+      "text": "gói",
+      "startMs": 34700,
+      "endMs": 34940
+    },
+    {
+      "text": "không",
+      "startMs": 34940,
+      "endMs": 35080
+    },
+    {
+      "text": "tuân",
+      "startMs": 35080,
+      "endMs": 35240
+    },
+    {
+      "text": "thủ",
+      "startMs": 35240,
+      "endMs": 35420
+    },
+    {
+      "text": "quy",
+      "startMs": 35420,
+      "endMs": 35580
+    },
+    {
+      "text": "trình,",
+      "startMs": 35580,
+      "endMs": 36040
+    },
+    {
+      "text": "không",
+      "startMs": 36160,
+      "endMs": 36280
+    },
+    {
+      "text": "định",
+      "startMs": 36280,
+      "endMs": 36440
+    },
+    {
+      "text": "lượng",
+      "startMs": 36440,
+      "endMs": 36660
+    },
+    {
+      "text": "chính",
+      "startMs": 36660,
+      "endMs": 36900
+    },
+    {
+      "text": "xác,",
+      "startMs": 36900,
+      "endMs": 37420
+    },
+    {
+      "text": "nhưng",
+      "startMs": 37420,
+      "endMs": 37580
+    },
+    {
+      "text": "lại",
+      "startMs": 37580,
+      "endMs": 37720
+    },
+    {
+      "text": "quảng",
+      "startMs": 37720,
+      "endMs": 37960
+    },
+    {
+      "text": "cáo",
+      "startMs": 37960,
+      "endMs": 38160
+    },
+    {
+      "text": "là",
+      "startMs": 38160,
+      "endMs": 38300
+    },
+    {
+      "text": "hoàn",
+      "startMs": 38300,
+      "endMs": 38520
+    },
+    {
+      "text": "toàn",
+      "startMs": 38520,
+      "endMs": 38740
+    },
+    {
+      "text": "từ",
+      "startMs": 38740,
+      "endMs": 38880
+    },
+    {
+      "text": "thảo",
+      "startMs": 38880,
+      "endMs": 39080
+    },
+    {
+      "text": "dược,",
+      "startMs": 39080,
+      "endMs": 39520
+    },
+    {
+      "text": "theo",
+      "startMs": 39520,
+      "endMs": 39680
+    },
+    {
+      "text": "công",
+      "startMs": 39680,
+      "endMs": 39760
+    },
+    {
+      "text": "thức",
+      "startMs": 39760,
+      "endMs": 40000
+    },
+    {
+      "text": "gia",
+      "startMs": 40000,
+      "endMs": 40200
+    },
+    {
+      "text": "truyền.",
+      "startMs": 40200,
+      "endMs": 40740
+    },
+    {
+      "text": "Từ",
+      "startMs": 40900,
+      "endMs": 41120
+    },
+    {
+      "text": "tháng",
+      "startMs": 41120,
+      "endMs": 41420
+    },
+    {
+      "text": "Hai",
+      "startMs": 41420,
+      "endMs": 41620
+    },
+    {
+      "text": "đến",
+      "startMs": 41620,
+      "endMs": 41720
+    },
+    {
+      "text": "tháng",
+      "startMs": 41720,
+      "endMs": 42060
+    },
+    {
+      "text": "Sáu",
+      "startMs": 42060,
+      "endMs": 42200
+    },
+    {
+      "text": "năm",
+      "startMs": 42200,
+      "endMs": 42380
+    },
+    {
+      "text": "2026,",
+      "startMs": 42380,
+      "endMs": 43800
+    },
+    {
+      "text": "đường",
+      "startMs": 43980,
+      "endMs": 44280
+    },
+    {
+      "text": "dây",
+      "startMs": 44280,
+      "endMs": 44580
+    },
+    {
+      "text": "bán",
+      "startMs": 44580,
+      "endMs": 44800
+    },
+    {
+      "text": "cho",
+      "startMs": 44800,
+      "endMs": 44920
+    },
+    {
+      "text": "hàng",
+      "startMs": 44920,
+      "endMs": 45060
+    },
+    {
+      "text": "nghìn",
+      "startMs": 45080,
+      "endMs": 45220
+    },
+    {
+      "text": "khách",
+      "startMs": 45220,
+      "endMs": 45440
+    },
+    {
+      "text": "hàng,",
+      "startMs": 45440,
+      "endMs": 46020
+    },
+    {
+      "text": "thu",
+      "startMs": 46020,
+      "endMs": 46200
+    },
+    {
+      "text": "lợi",
+      "startMs": 46200,
+      "endMs": 46440
+    },
+    {
+      "text": "bất",
+      "startMs": 46440,
+      "endMs": 46600
+    },
+    {
+      "text": "chính",
+      "startMs": 46600,
+      "endMs": 46780
+    },
+    {
+      "text": "khoảng",
+      "startMs": 46780,
+      "endMs": 47000
+    },
+    {
+      "text": "năm",
+      "startMs": 47000,
+      "endMs": 47160
+    },
+    {
+      "text": "tỷ",
+      "startMs": 47160,
+      "endMs": 47300
+    },
+    {
+      "text": "đồng.",
+      "startMs": 47300,
+      "endMs": 47860
+    },
+    {
+      "text": "Tang",
+      "startMs": 47980,
+      "endMs": 48120
+    },
+    {
+      "text": "vật",
+      "startMs": 48120,
+      "endMs": 48320
+    },
+    {
+      "text": "gồm",
+      "startMs": 48320,
+      "endMs": 48540
+    },
+    {
+      "text": "khoảng",
+      "startMs": 48540,
+      "endMs": 48880
+    },
+    {
+      "text": "hai",
+      "startMs": 48880,
+      "endMs": 48980
+    },
+    {
+      "text": "mươi",
+      "startMs": 48980,
+      "endMs": 49060
+    },
+    {
+      "text": "nghìn",
+      "startMs": 49060,
+      "endMs": 49200
+    },
+    {
+      "text": "lọ",
+      "startMs": 49200,
+      "endMs": 49400
+    },
+    {
+      "text": "thành",
+      "startMs": 49400,
+      "endMs": 49540
+    },
+    {
+      "text": "phẩm,",
+      "startMs": 49540,
+      "endMs": 49940
+    },
+    {
+      "text": "hơn",
+      "startMs": 50140,
+      "endMs": 50460
+    },
+    {
+      "text": "một",
+      "startMs": 50460,
+      "endMs": 50560
+    },
+    {
+      "text": "trăm",
+      "startMs": 50560,
+      "endMs": 50640
+    },
+    {
+      "text": "ký",
+      "startMs": 50640,
+      "endMs": 50800
+    },
+    {
+      "text": "nguyên",
+      "startMs": 50800,
+      "endMs": 50940
+    },
+    {
+      "text": "liệu,",
+      "startMs": 50940,
+      "endMs": 51420
+    },
+    {
+      "text": "máy",
+      "startMs": 51580,
+      "endMs": 51780
+    },
+    {
+      "text": "móc",
+      "startMs": 51780,
+      "endMs": 52080
+    },
+    {
+      "text": "và",
+      "startMs": 52080,
+      "endMs": 52320
+    },
+    {
+      "text": "tám",
+      "startMs": 52320,
+      "endMs": 52420
+    },
+    {
+      "text": "trăm",
+      "startMs": 52420,
+      "endMs": 52500
+    },
+    {
+      "text": "năm",
+      "startMs": 52500,
+      "endMs": 52580
+    },
+    {
+      "text": "mươi",
+      "startMs": 52580,
+      "endMs": 52860
+    },
+    {
+      "text": "triệu",
+      "startMs": 52860,
+      "endMs": 53020
+    },
+    {
+      "text": "đồng",
+      "startMs": 53020,
+      "endMs": 53160
+    },
+    {
+      "text": "tiền",
+      "startMs": 53160,
+      "endMs": 53300
+    },
+    {
+      "text": "mặt.",
+      "startMs": 53300,
+      "endMs": 53500
+    },
+    {
+      "text": "Ở",
+      "startMs": 54440,
+      "endMs": 54600
+    },
+    {
+      "text": "Phú",
+      "startMs": 54600,
+      "endMs": 54760
+    },
+    {
+      "text": "Thọ,",
+      "startMs": 54760,
+      "endMs": 55220
+    },
+    {
+      "text": "bài",
+      "startMs": 55320,
+      "endMs": 55500
+    },
+    {
+      "text": "báo",
+      "startMs": 55500,
+      "endMs": 55740
+    },
+    {
+      "text": "nêu",
+      "startMs": 55740,
+      "endMs": 56000
+    },
+    {
+      "text": "một",
+      "startMs": 56000,
+      "endMs": 56160
+    },
+    {
+      "text": "nhóm",
+      "startMs": 56160,
+      "endMs": 56460
+    },
+    {
+      "text": "sử",
+      "startMs": 56460,
+      "endMs": 56600
+    },
+    {
+      "text": "dụng",
+      "startMs": 56600,
+      "endMs": 56760
+    },
+    {
+      "text": "hình",
+      "startMs": 56760,
+      "endMs": 56940
+    },
+    {
+      "text": "ảnh,",
+      "startMs": 56940,
+      "endMs": 57480
+    },
+    {
+      "text": "video",
+      "startMs": 57680,
+      "endMs": 57940
+    },
+    {
+      "text": "người",
+      "startMs": 57940,
+      "endMs": 58120
+    },
+    {
+      "text": "nổi",
+      "startMs": 58120,
+      "endMs": 58320
+    },
+    {
+      "text": "tiếng",
+      "startMs": 58320,
+      "endMs": 58520
+    },
+    {
+      "text": "bị",
+      "startMs": 58520,
+      "endMs": 58660
+    },
+    {
+      "text": "chỉnh",
+      "startMs": 58660,
+      "endMs": 58900
+    },
+    {
+      "text": "sửa,",
+      "startMs": 58900,
+      "endMs": 59320
+    },
+    {
+      "text": "cắt",
+      "startMs": 59420,
+      "endMs": 59640
+    },
+    {
+      "text": "ghép",
+      "startMs": 59640,
+      "endMs": 59840
+    },
+    {
+      "text": "và",
+      "startMs": 59840,
+      "endMs": 59960
+    },
+    {
+      "text": "thông",
+      "startMs": 59960,
+      "endMs": 60120
+    },
+    {
+      "text": "tin",
+      "startMs": 60120,
+      "endMs": 60300
+    },
+    {
+      "text": "phóng",
+      "startMs": 60300,
+      "endMs": 60500
+    },
+    {
+      "text": "đại",
+      "startMs": 60500,
+      "endMs": 60720
+    },
+    {
+      "text": "về",
+      "startMs": 60720,
+      "endMs": 60860
+    },
+    {
+      "text": "sản",
+      "startMs": 60860,
+      "endMs": 60980
+    },
+    {
+      "text": "phẩm.",
+      "startMs": 60980,
+      "endMs": 61500
+    },
+    {
+      "text": "Từ",
+      "startMs": 61640,
+      "endMs": 61840
+    },
+    {
+      "text": "tháng",
+      "startMs": 61840,
+      "endMs": 62140
+    },
+    {
+      "text": "Năm",
+      "startMs": 62140,
+      "endMs": 62320
+    },
+    {
+      "text": "đến",
+      "startMs": 62320,
+      "endMs": 62420
+    },
+    {
+      "text": "tháng",
+      "startMs": 62420,
+      "endMs": 62680
+    },
+    {
+      "text": "Bảy",
+      "startMs": 62680,
+      "endMs": 62840
+    },
+    {
+      "text": "năm",
+      "startMs": 62840,
+      "endMs": 63080
+    },
+    {
+      "text": "2026,",
+      "startMs": 63080,
+      "endMs": 64300
+    },
+    {
+      "text": "nhóm",
+      "startMs": 64420,
+      "endMs": 64640
+    },
+    {
+      "text": "này",
+      "startMs": 64640,
+      "endMs": 64800
+    },
+    {
+      "text": "bán",
+      "startMs": 64800,
+      "endMs": 65100
+    },
+    {
+      "text": "5.429",
+      "startMs": 65100,
+      "endMs": 66180
+    },
+    {
+      "text": "đơn",
+      "startMs": 66180,
+      "endMs": 66420
+    },
+    {
+      "text": "hàng,",
+      "startMs": 66420,
+      "endMs": 66700
+    },
+    {
+      "text": "tổng",
+      "startMs": 66960,
+      "endMs": 67180
+    },
+    {
+      "text": "giá",
+      "startMs": 67180,
+      "endMs": 67360
+    },
+    {
+      "text": "trị",
+      "startMs": 67360,
+      "endMs": 67600
+    },
+    {
+      "text": "hàng",
+      "startMs": 67600,
+      "endMs": 67820
+    },
+    {
+      "text": "hơn",
+      "startMs": 67820,
+      "endMs": 68140
+    },
+    {
+      "text": "2,67",
+      "startMs": 68140,
+      "endMs": 68840
+    },
+    {
+      "text": "tỷ",
+      "startMs": 68840,
+      "endMs": 68980
+    },
+    {
+      "text": "đồng.",
+      "startMs": 68980,
+      "endMs": 69580
+    },
+    {
+      "text": "Ngày",
+      "startMs": 69720,
+      "endMs": 69880
+    },
+    {
+      "text": "7",
+      "startMs": 69880,
+      "endMs": 69980
+    },
+    {
+      "text": "tháng",
+      "startMs": 69980,
+      "endMs": 70300
+    },
+    {
+      "text": "8,",
+      "startMs": 70300,
+      "endMs": 70760
+    },
+    {
+      "text": "cơ",
+      "startMs": 70780,
+      "endMs": 70940
+    },
+    {
+      "text": "quan",
+      "startMs": 70940,
+      "endMs": 71060
+    },
+    {
+      "text": "điều",
+      "startMs": 71060,
+      "endMs": 71260
+    },
+    {
+      "text": "tra",
+      "startMs": 71260,
+      "endMs": 71440
+    },
+    {
+      "text": "khởi",
+      "startMs": 71440,
+      "endMs": 71580
+    },
+    {
+      "text": "tố",
+      "startMs": 71580,
+      "endMs": 71740
+    },
+    {
+      "text": "vụ",
+      "startMs": 71740,
+      "endMs": 71920
+    },
+    {
+      "text": "án",
+      "startMs": 71920,
+      "endMs": 72120
+    },
+    {
+      "text": "và",
+      "startMs": 72120,
+      "endMs": 72340
+    },
+    {
+      "text": "21",
+      "startMs": 72340,
+      "endMs": 72700
+    },
+    {
+      "text": "bị",
+      "startMs": 72700,
+      "endMs": 72940
+    },
+    {
+      "text": "can",
+      "startMs": 72940,
+      "endMs": 73160
+    },
+    {
+      "text": "về",
+      "startMs": 73160,
+      "endMs": 73260
+    },
+    {
+      "text": "tội",
+      "startMs": 73260,
+      "endMs": 73480
+    },
+    {
+      "text": "“Lừa",
+      "startMs": 73480,
+      "endMs": 73700
+    },
+    {
+      "text": "dối",
+      "startMs": 73700,
+      "endMs": 73860
+    },
+    {
+      "text": "khách",
+      "startMs": 73860,
+      "endMs": 74100
+    },
+    {
+      "text": "hàng”.",
+      "startMs": 74100,
+      "endMs": 75060
+    },
+    {
+      "text": "Tại",
+      "startMs": 75220,
+      "endMs": 75380
+    },
+    {
+      "text": "Thanh",
+      "startMs": 75380,
+      "endMs": 75560
+    },
+    {
+      "text": "Hóa,",
+      "startMs": 75560,
+      "endMs": 76020
+    },
+    {
+      "text": "theo",
+      "startMs": 76120,
+      "endMs": 76240
+    },
+    {
+      "text": "thông",
+      "startMs": 76240,
+      "endMs": 76400
+    },
+    {
+      "text": "tin",
+      "startMs": 76400,
+      "endMs": 76560
+    },
+    {
+      "text": "công",
+      "startMs": 76560,
+      "endMs": 76700
+    },
+    {
+      "text": "an",
+      "startMs": 76700,
+      "endMs": 76840
+    },
+    {
+      "text": "được",
+      "startMs": 76840,
+      "endMs": 76980
+    },
+    {
+      "text": "bài",
+      "startMs": 76980,
+      "endMs": 77100
+    },
+    {
+      "text": "báo",
+      "startMs": 77100,
+      "endMs": 77280
+    },
+    {
+      "text": "dẫn,",
+      "startMs": 77280,
+      "endMs": 77780
+    },
+    {
+      "text": "những",
+      "startMs": 77860,
+      "endMs": 78040
+    },
+    {
+      "text": "người",
+      "startMs": 78040,
+      "endMs": 78180
+    },
+    {
+      "text": "liên",
+      "startMs": 78180,
+      "endMs": 78420
+    },
+    {
+      "text": "quan",
+      "startMs": 78420,
+      "endMs": 78620
+    },
+    {
+      "text": "không",
+      "startMs": 78620,
+      "endMs": 78720
+    },
+    {
+      "text": "được",
+      "startMs": 78720,
+      "endMs": 78880
+    },
+    {
+      "text": "đào",
+      "startMs": 78880,
+      "endMs": 79040
+    },
+    {
+      "text": "tạo",
+      "startMs": 79040,
+      "endMs": 79340
+    },
+    {
+      "text": "chuyên",
+      "startMs": 79340,
+      "endMs": 79540
+    },
+    {
+      "text": "môn",
+      "startMs": 79540,
+      "endMs": 79760
+    },
+    {
+      "text": "y,",
+      "startMs": 79760,
+      "endMs": 80080
+    },
+    {
+      "text": "dược",
+      "startMs": 80080,
+      "endMs": 80460
+    },
+    {
+      "text": "và",
+      "startMs": 80460,
+      "endMs": 80620
+    },
+    {
+      "text": "không",
+      "startMs": 80620,
+      "endMs": 80760
+    },
+    {
+      "text": "được",
+      "startMs": 80760,
+      "endMs": 80900
+    },
+    {
+      "text": "cấp",
+      "startMs": 80900,
+      "endMs": 81060
+    },
+    {
+      "text": "phép",
+      "startMs": 81060,
+      "endMs": 81280
+    },
+    {
+      "text": "sản",
+      "startMs": 81280,
+      "endMs": 81460
+    },
+    {
+      "text": "xuất",
+      "startMs": 81460,
+      "endMs": 81620
+    },
+    {
+      "text": "thuốc,",
+      "startMs": 81620,
+      "endMs": 82220
+    },
+    {
+      "text": "nhưng",
+      "startMs": 82220,
+      "endMs": 82360
+    },
+    {
+      "text": "vẫn",
+      "startMs": 82360,
+      "endMs": 82500
+    },
+    {
+      "text": "làm",
+      "startMs": 82500,
+      "endMs": 82680
+    },
+    {
+      "text": "sản",
+      "startMs": 82680,
+      "endMs": 82860
+    },
+    {
+      "text": "phẩm",
+      "startMs": 82860,
+      "endMs": 83100
+    },
+    {
+      "text": "mang",
+      "startMs": 83100,
+      "endMs": 83260
+    },
+    {
+      "text": "tên",
+      "startMs": 83260,
+      "endMs": 83440
+    },
+    {
+      "text": "các",
+      "startMs": 83440,
+      "endMs": 83540
+    },
+    {
+      "text": "lương",
+      "startMs": 83540,
+      "endMs": 83780
+    },
+    {
+      "text": "y.",
+      "startMs": 83780,
+      "endMs": 84140
+    },
+    {
+      "text": "Kết",
+      "startMs": 84440,
+      "endMs": 84580
+    },
+    {
+      "text": "luận",
+      "startMs": 84580,
+      "endMs": 84780
+    },
+    {
+      "text": "giám",
+      "startMs": 84780,
+      "endMs": 84920
+    },
+    {
+      "text": "định",
+      "startMs": 84920,
+      "endMs": 85100
+    },
+    {
+      "text": "được",
+      "startMs": 85100,
+      "endMs": 85260
+    },
+    {
+      "text": "bài",
+      "startMs": 85260,
+      "endMs": 85400
+    },
+    {
+      "text": "báo",
+      "startMs": 85400,
+      "endMs": 85640
+    },
+    {
+      "text": "dẫn",
+      "startMs": 85640,
+      "endMs": 85820
+    },
+    {
+      "text": "ghi",
+      "startMs": 85820,
+      "endMs": 85920
+    },
+    {
+      "text": "nhận",
+      "startMs": 85920,
+      "endMs": 86260
+    },
+    {
+      "text": "paracetamol,",
+      "startMs": 86260,
+      "endMs": 87400
+    },
+    {
+      "text": "dexamethasone",
+      "startMs": 87400,
+      "endMs": 88500
+    },
+    {
+      "text": "và",
+      "startMs": 88500,
+      "endMs": 88780
+    },
+    {
+      "text": "chlorpheniramine",
+      "startMs": 88780,
+      "endMs": 89660
+    },
+    {
+      "text": "trong",
+      "startMs": 89660,
+      "endMs": 89800
+    },
+    {
+      "text": "mẫu",
+      "startMs": 89800,
+      "endMs": 89980
+    },
+    {
+      "text": "sản",
+      "startMs": 89980,
+      "endMs": 90140
+    },
+    {
+      "text": "phẩm.",
+      "startMs": 90140,
+      "endMs": 90660
+    },
+    {
+      "text": "Tang",
+      "startMs": 90840,
+      "endMs": 91000
+    },
+    {
+      "text": "vật",
+      "startMs": 91000,
+      "endMs": 91180
+    },
+    {
+      "text": "gồm",
+      "startMs": 91180,
+      "endMs": 91360
+    },
+    {
+      "text": "hơn",
+      "startMs": 91360,
+      "endMs": 91520
+    },
+    {
+      "text": "một",
+      "startMs": 91520,
+      "endMs": 91660
+    },
+    {
+      "text": "tấn",
+      "startMs": 91660,
+      "endMs": 91840
+    },
+    {
+      "text": "nguyên",
+      "startMs": 91840,
+      "endMs": 92020
+    },
+    {
+      "text": "liệu,",
+      "startMs": 92020,
+      "endMs": 92500
+    },
+    {
+      "text": "năm",
+      "startMs": 92500,
+      "endMs": 92700
+    },
+    {
+      "text": "mươi",
+      "startMs": 92740,
+      "endMs": 92900
+    },
+    {
+      "text": "ký",
+      "startMs": 92900,
+      "endMs": 93060
+    },
+    {
+      "text": "bột",
+      "startMs": 93060,
+      "endMs": 93200
+    },
+    {
+      "text": "thuốc",
+      "startMs": 93200,
+      "endMs": 93400
+    },
+    {
+      "text": "tân",
+      "startMs": 93400,
+      "endMs": 93620
+    },
+    {
+      "text": "dược",
+      "startMs": 93620,
+      "endMs": 94080
+    },
+    {
+      "text": "đã",
+      "startMs": 94080,
+      "endMs": 94320
+    },
+    {
+      "text": "xay",
+      "startMs": 94320,
+      "endMs": 94820
+    },
+    {
+      "text": "và",
+      "startMs": 94820,
+      "endMs": 95040
+    },
+    {
+      "text": "hơn",
+      "startMs": 95040,
+      "endMs": 95360
+    },
+    {
+      "text": "một",
+      "startMs": 95360,
+      "endMs": 95460
+    },
+    {
+      "text": "trăm",
+      "startMs": 95460,
+      "endMs": 95540
+    },
+    {
+      "text": "nghìn",
+      "startMs": 95540,
+      "endMs": 95720
+    },
+    {
+      "text": "sản",
+      "startMs": 95720,
+      "endMs": 95880
+    },
+    {
+      "text": "phẩm",
+      "startMs": 95880,
+      "endMs": 96060
+    },
+    {
+      "text": "hoàn",
+      "startMs": 96060,
+      "endMs": 96220
+    },
+    {
+      "text": "thiện.",
+      "startMs": 96220,
+      "endMs": 96840
+    },
+    {
+      "text": "Ngày",
+      "startMs": 96980,
+      "endMs": 97400
+    },
+    {
+      "text": "28",
+      "startMs": 97400,
+      "endMs": 97540
+    },
+    {
+      "text": "tháng",
+      "startMs": 97540,
+      "endMs": 97860
+    },
+    {
+      "text": "8",
+      "startMs": 97860,
+      "endMs": 97980
+    },
+    {
+      "text": "năm",
+      "startMs": 97980,
+      "endMs": 98240
+    },
+    {
+      "text": "2026,",
+      "startMs": 98240,
+      "endMs": 99520
+    },
+    {
+      "text": "cơ",
+      "startMs": 99620,
+      "endMs": 99780
+    },
+    {
+      "text": "quan",
+      "startMs": 99780,
+      "endMs": 99940
+    },
+    {
+      "text": "điều",
+      "startMs": 99940,
+      "endMs": 100160
+    },
+    {
+      "text": "tra",
+      "startMs": 100160,
+      "endMs": 100340
+    },
+    {
+      "text": "khởi",
+      "startMs": 100340,
+      "endMs": 100520
+    },
+    {
+      "text": "tố",
+      "startMs": 100520,
+      "endMs": 100660
+    },
+    {
+      "text": "vụ",
+      "startMs": 100660,
+      "endMs": 100840
+    },
+    {
+      "text": "án",
+      "startMs": 100840,
+      "endMs": 101060
+    },
+    {
+      "text": "và",
+      "startMs": 101060,
+      "endMs": 101260
+    },
+    {
+      "text": "ba",
+      "startMs": 101260,
+      "endMs": 101380
+    },
+    {
+      "text": "bị",
+      "startMs": 101380,
+      "endMs": 101600
+    },
+    {
+      "text": "can",
+      "startMs": 101600,
+      "endMs": 101880
+    },
+    {
+      "text": "về",
+      "startMs": 102180,
+      "endMs": 102300
+    },
+    {
+      "text": "tội",
+      "startMs": 102300,
+      "endMs": 102440
+    },
+    {
+      "text": "“Sản",
+      "startMs": 102440,
+      "endMs": 102640
+    },
+    {
+      "text": "xuất,",
+      "startMs": 102640,
+      "endMs": 103100
+    },
+    {
+      "text": "buôn",
+      "startMs": 103120,
+      "endMs": 103260
+    },
+    {
+      "text": "bán",
+      "startMs": 103260,
+      "endMs": 103440
+    },
+    {
+      "text": "hàng",
+      "startMs": 103440,
+      "endMs": 103640
+    },
+    {
+      "text": "giả",
+      "startMs": 103640,
+      "endMs": 104080
+    },
+    {
+      "text": "là",
+      "startMs": 104080,
+      "endMs": 104240
+    },
+    {
+      "text": "thuốc",
+      "startMs": 104240,
+      "endMs": 104440
+    },
+    {
+      "text": "chữa",
+      "startMs": 104440,
+      "endMs": 104600
+    },
+    {
+      "text": "bệnh”.",
+      "startMs": 104600,
+      "endMs": 105000
+    },
+    {
+      "text": "Những",
+      "startMs": 105760,
+      "endMs": 105920
+    },
+    {
+      "text": "vụ",
+      "startMs": 105920,
+      "endMs": 106080
+    },
+    {
+      "text": "việc",
+      "startMs": 106080,
+      "endMs": 106240
+    },
+    {
+      "text": "này",
+      "startMs": 106240,
+      "endMs": 106400
+    },
+    {
+      "text": "còn",
+      "startMs": 106400,
+      "endMs": 106560
+    },
+    {
+      "text": "có",
+      "startMs": 106560,
+      "endMs": 106680
+    },
+    {
+      "text": "một",
+      "startMs": 106680,
+      "endMs": 106840
+    },
+    {
+      "text": "điểm",
+      "startMs": 106840,
+      "endMs": 107120
+    },
+    {
+      "text": "chung:",
+      "startMs": 107120,
+      "endMs": 107420
+    },
+    {
+      "text": "quảng",
+      "startMs": 107460,
+      "endMs": 107700
+    },
+    {
+      "text": "cáo",
+      "startMs": 107700,
+      "endMs": 107880
+    },
+    {
+      "text": "và",
+      "startMs": 107880,
+      "endMs": 108000
+    },
+    {
+      "text": "phân",
+      "startMs": 108000,
+      "endMs": 108160
+    },
+    {
+      "text": "phối",
+      "startMs": 108160,
+      "endMs": 108340
+    },
+    {
+      "text": "trên",
+      "startMs": 108340,
+      "endMs": 108480
+    },
+    {
+      "text": "mạng.",
+      "startMs": 108480,
+      "endMs": 108940
+    },
+    {
+      "text": "Bài",
+      "startMs": 109080,
+      "endMs": 109240
+    },
+    {
+      "text": "báo",
+      "startMs": 109240,
+      "endMs": 109380
+    },
+    {
+      "text": "mô",
+      "startMs": 109380,
+      "endMs": 109540
+    },
+    {
+      "text": "tả",
+      "startMs": 109540,
+      "endMs": 109740
+    },
+    {
+      "text": "việc",
+      "startMs": 109740,
+      "endMs": 109920
+    },
+    {
+      "text": "móc",
+      "startMs": 109920,
+      "endMs": 110160
+    },
+    {
+      "text": "nối",
+      "startMs": 110160,
+      "endMs": 110440
+    },
+    {
+      "text": "KOL,",
+      "startMs": 110440,
+      "endMs": 111060
+    },
+    {
+      "text": "quản",
+      "startMs": 111060,
+      "endMs": 111240
+    },
+    {
+      "text": "trị",
+      "startMs": 111240,
+      "endMs": 111440
+    },
+    {
+      "text": "viên",
+      "startMs": 111440,
+      "endMs": 111580
+    },
+    {
+      "text": "hội",
+      "startMs": 111580,
+      "endMs": 111780
+    },
+    {
+      "text": "nhóm,",
+      "startMs": 111780,
+      "endMs": 112320
+    },
+    {
+      "text": "dùng",
+      "startMs": 112360,
+      "endMs": 112600
+    },
+    {
+      "text": "livestream,",
+      "startMs": 112600,
+      "endMs": 113380
+    },
+    {
+      "text": "hình",
+      "startMs": 113440,
+      "endMs": 113560
+    },
+    {
+      "text": "ảnh",
+      "startMs": 113560,
+      "endMs": 113740
+    },
+    {
+      "text": "chỉnh",
+      "startMs": 113740,
+      "endMs": 114000
+    },
+    {
+      "text": "sửa,",
+      "startMs": 114000,
+      "endMs": 114080
+    },
+    {
+      "text": "người",
+      "startMs": 114500,
+      "endMs": 114620
+    },
+    {
+      "text": "đóng",
+      "startMs": 114620,
+      "endMs": 114860
+    },
+    {
+      "text": "giả",
+      "startMs": 114860,
+      "endMs": 115040
+    },
+    {
+      "text": "bệnh",
+      "startMs": 115040,
+      "endMs": 115260
+    },
+    {
+      "text": "nhân",
+      "startMs": 115260,
+      "endMs": 115480
+    },
+    {
+      "text": "hoặc",
+      "startMs": 115480,
+      "endMs": 115700
+    },
+    {
+      "text": "nhân",
+      "startMs": 115700,
+      "endMs": 115820
+    },
+    {
+      "text": "vật",
+      "startMs": 115820,
+      "endMs": 116140
+    },
+    {
+      "text": "AI.",
+      "startMs": 116140,
+      "endMs": 116880
+    },
+    {
+      "text": "Nhiều",
+      "startMs": 117000,
+      "endMs": 117160
+    },
+    {
+      "text": "tài",
+      "startMs": 117160,
+      "endMs": 117320
+    },
+    {
+      "text": "khoản",
+      "startMs": 117320,
+      "endMs": 117520
+    },
+    {
+      "text": "có",
+      "startMs": 117520,
+      "endMs": 117640
+    },
+    {
+      "text": "thể",
+      "startMs": 117640,
+      "endMs": 117760
+    },
+    {
+      "text": "được",
+      "startMs": 117760,
+      "endMs": 117920
+    },
+    {
+      "text": "dùng",
+      "startMs": 117920,
+      "endMs": 118120
+    },
+    {
+      "text": "nối",
+      "startMs": 118120,
+      "endMs": 118380
+    },
+    {
+      "text": "tiếp",
+      "startMs": 118380,
+      "endMs": 118840
+    },
+    {
+      "text": "khi",
+      "startMs": 118840,
+      "endMs": 118980
+    },
+    {
+      "text": "một",
+      "startMs": 118980,
+      "endMs": 119160
+    },
+    {
+      "text": "tài",
+      "startMs": 119160,
+      "endMs": 119360
+    },
+    {
+      "text": "khoản",
+      "startMs": 119360,
+      "endMs": 119600
+    },
+    {
+      "text": "bị",
+      "startMs": 119600,
+      "endMs": 119740
+    },
+    {
+      "text": "phát",
+      "startMs": 119740,
+      "endMs": 119940
+    },
+    {
+      "text": "hiện,",
+      "startMs": 119940,
+      "endMs": 120020
+    },
+    {
+      "text": "xử",
+      "startMs": 120480,
+      "endMs": 120720
+    },
+    {
+      "text": "lý.",
+      "startMs": 120720,
+      "endMs": 121360
+    },
+    {
+      "text": "Lượt",
+      "startMs": 121440,
+      "endMs": 121680
+    },
+    {
+      "text": "xem,",
+      "startMs": 121680,
+      "endMs": 122100
+    },
+    {
+      "text": "lời",
+      "startMs": 122160,
+      "endMs": 122300
+    },
+    {
+      "text": "chứng",
+      "startMs": 122300,
+      "endMs": 122500
+    },
+    {
+      "text": "thực",
+      "startMs": 122500,
+      "endMs": 122720
+    },
+    {
+      "text": "và",
+      "startMs": 122720,
+      "endMs": 122840
+    },
+    {
+      "text": "danh",
+      "startMs": 122840,
+      "endMs": 123020
+    },
+    {
+      "text": "xưng",
+      "startMs": 123020,
+      "endMs": 123300
+    },
+    {
+      "text": "“gia",
+      "startMs": 123300,
+      "endMs": 123480
+    },
+    {
+      "text": "truyền”",
+      "startMs": 123480,
+      "endMs": 123780
+    },
+    {
+      "text": "không",
+      "startMs": 123780,
+      "endMs": 123940
+    },
+    {
+      "text": "cho",
+      "startMs": 123940,
+      "endMs": 124100
+    },
+    {
+      "text": "biết",
+      "startMs": 124100,
+      "endMs": 124620
+    },
+    {
+      "text": "đầy",
+      "startMs": 124620,
+      "endMs": 124760
+    },
+    {
+      "text": "đủ",
+      "startMs": 124760,
+      "endMs": 124940
+    },
+    {
+      "text": "nguồn",
+      "startMs": 124940,
+      "endMs": 125140
+    },
+    {
+      "text": "gốc,",
+      "startMs": 125140,
+      "endMs": 125420
+    },
+    {
+      "text": "thành",
+      "startMs": 125420,
+      "endMs": 125620
+    },
+    {
+      "text": "phần",
+      "startMs": 125620,
+      "endMs": 125960
+    },
+    {
+      "text": "hay",
+      "startMs": 125960,
+      "endMs": 126120
+    },
+    {
+      "text": "quy",
+      "startMs": 126120,
+      "endMs": 126220
+    },
+    {
+      "text": "trình",
+      "startMs": 126220,
+      "endMs": 126460
+    },
+    {
+      "text": "sản",
+      "startMs": 126460,
+      "endMs": 126620
+    },
+    {
+      "text": "xuất.",
+      "startMs": 126620,
+      "endMs": 126900
+    },
+    {
+      "text": "Đây",
+      "startMs": 127920,
+      "endMs": 128080
+    },
+    {
+      "text": "là",
+      "startMs": 128080,
+      "endMs": 128200
+    },
+    {
+      "text": "những",
+      "startMs": 128200,
+      "endMs": 128360
+    },
+    {
+      "text": "vụ",
+      "startMs": 128360,
+      "endMs": 128580
+    },
+    {
+      "text": "việc",
+      "startMs": 128580,
+      "endMs": 128720
+    },
+    {
+      "text": "cụ",
+      "startMs": 128720,
+      "endMs": 128920
+    },
+    {
+      "text": "thể,",
+      "startMs": 128920,
+      "endMs": 129360
+    },
+    {
+      "text": "không",
+      "startMs": 129360,
+      "endMs": 129540
+    },
+    {
+      "text": "phải",
+      "startMs": 129540,
+      "endMs": 129660
+    },
+    {
+      "text": "kết",
+      "startMs": 129660,
+      "endMs": 129800
+    },
+    {
+      "text": "luận",
+      "startMs": 129800,
+      "endMs": 130040
+    },
+    {
+      "text": "về",
+      "startMs": 130040,
+      "endMs": 130160
+    },
+    {
+      "text": "toàn",
+      "startMs": 130160,
+      "endMs": 130320
+    },
+    {
+      "text": "bộ",
+      "startMs": 130320,
+      "endMs": 130460
+    },
+    {
+      "text": "thuốc",
+      "startMs": 130460,
+      "endMs": 130640
+    },
+    {
+      "text": "đông",
+      "startMs": 130640,
+      "endMs": 130860
+    },
+    {
+      "text": "y.",
+      "startMs": 130860,
+      "endMs": 131260
+    },
+    {
+      "text": "Nhưng",
+      "startMs": 131480,
+      "endMs": 131640
+    },
+    {
+      "text": "chúng",
+      "startMs": 131640,
+      "endMs": 131780
+    },
+    {
+      "text": "cho",
+      "startMs": 131780,
+      "endMs": 131920
+    },
+    {
+      "text": "thấy",
+      "startMs": 131920,
+      "endMs": 132100
+    },
+    {
+      "text": "khi",
+      "startMs": 132100,
+      "endMs": 132220
+    },
+    {
+      "text": "lòng",
+      "startMs": 132220,
+      "endMs": 132420
+    },
+    {
+      "text": "tin",
+      "startMs": 132420,
+      "endMs": 132620
+    },
+    {
+      "text": "bị",
+      "startMs": 132620,
+      "endMs": 132780
+    },
+    {
+      "text": "biến",
+      "startMs": 132780,
+      "endMs": 132960
+    },
+    {
+      "text": "thành",
+      "startMs": 132960,
+      "endMs": 133100
+    },
+    {
+      "text": "công",
+      "startMs": 133100,
+      "endMs": 133280
+    },
+    {
+      "text": "cụ",
+      "startMs": 133280,
+      "endMs": 133440
+    },
+    {
+      "text": "bán",
+      "startMs": 133440,
+      "endMs": 133720
+    },
+    {
+      "text": "hàng,",
+      "startMs": 133720,
+      "endMs": 133900
+    },
+    {
+      "text": "người",
+      "startMs": 134360,
+      "endMs": 134520
+    },
+    {
+      "text": "bệnh",
+      "startMs": 134520,
+      "endMs": 134760
+    },
+    {
+      "text": "có",
+      "startMs": 134760,
+      "endMs": 134880
+    },
+    {
+      "text": "thể",
+      "startMs": 134880,
+      "endMs": 135020
+    },
+    {
+      "text": "là",
+      "startMs": 135020,
+      "endMs": 135180
+    },
+    {
+      "text": "người",
+      "startMs": 135180,
+      "endMs": 135380
+    },
+    {
+      "text": "chịu",
+      "startMs": 135380,
+      "endMs": 135600
+    },
+    {
+      "text": "rủi",
+      "startMs": 135600,
+      "endMs": 135840
+    },
+    {
+      "text": "ro",
+      "startMs": 135840,
+      "endMs": 136000
+    },
+    {
+      "text": "sau",
+      "startMs": 136000,
+      "endMs": 136180
+    },
+    {
+      "text": "cùng.",
+      "startMs": 136180,
+      "endMs": 136720
+    },
+    {
+      "text": "Câu",
+      "startMs": 136840,
+      "endMs": 137040
+    },
+    {
+      "text": "hỏi",
+      "startMs": 137040,
+      "endMs": 137260
+    },
+    {
+      "text": "không",
+      "startMs": 137260,
+      "endMs": 137480
+    },
+    {
+      "text": "chỉ",
+      "startMs": 137480,
+      "endMs": 137600
+    },
+    {
+      "text": "là",
+      "startMs": 137600,
+      "endMs": 137740
+    },
+    {
+      "text": "ai",
+      "startMs": 137740,
+      "endMs": 137860
+    },
+    {
+      "text": "mua",
+      "startMs": 137860,
+      "endMs": 138020
+    },
+    {
+      "text": "lọ",
+      "startMs": 138020,
+      "endMs": 138180
+    },
+    {
+      "text": "thuốc,",
+      "startMs": 138180,
+      "endMs": 138400
+    },
+    {
+      "text": "mà",
+      "startMs": 138820,
+      "endMs": 138980
+    },
+    {
+      "text": "còn",
+      "startMs": 138980,
+      "endMs": 139120
+    },
+    {
+      "text": "là",
+      "startMs": 139120,
+      "endMs": 139280
+    },
+    {
+      "text": "ai",
+      "startMs": 139280,
+      "endMs": 139460
+    },
+    {
+      "text": "sản",
+      "startMs": 139460,
+      "endMs": 139680
+    },
+    {
+      "text": "xuất,",
+      "startMs": 139680,
+      "endMs": 140020
+    },
+    {
+      "text": "ai",
+      "startMs": 140160,
+      "endMs": 140300
+    },
+    {
+      "text": "quảng",
+      "startMs": 140300,
+      "endMs": 140600
+    },
+    {
+      "text": "cáo",
+      "startMs": 140600,
+      "endMs": 140840
+    },
+    {
+      "text": "và",
+      "startMs": 140840,
+      "endMs": 141040
+    },
+    {
+      "text": "ai",
+      "startMs": 141040,
+      "endMs": 141160
+    },
+    {
+      "text": "đưa",
+      "startMs": 141160,
+      "endMs": 141280
+    },
+    {
+      "text": "nó",
+      "startMs": 141280,
+      "endMs": 141460
+    },
+    {
+      "text": "đến",
+      "startMs": 141460,
+      "endMs": 141580
+    },
+    {
+      "text": "tay",
+      "startMs": 141580,
+      "endMs": 141720
+    },
+    {
+      "text": "người",
+      "startMs": 141720,
+      "endMs": 141880
+    },
+    {
+      "text": "bệnh.",
+      "startMs": 141880,
+      "endMs": 142140
+    }
+  ],
+  "cues": [
+    {
+      "cueIndex": 1,
+      "startMs": 140,
+      "endMs": 3580,
+      "text": "Trên mạng, một số quảng cáo thuốc tự nhận “gia truyền ba đời”, cam"
+    },
+    {
+      "cueIndex": 2,
+      "startMs": 3580,
+      "endMs": 6800,
+      "text": "kết khỏi bệnh, thậm chí mượn hình ảnh người nổi tiếng hoặc nhân vật"
+    },
+    {
+      "cueIndex": 3,
+      "startMs": 6800,
+      "endMs": 7760,
+      "text": "AI để bán hàng."
+    },
+    {
+      "cueIndex": 4,
+      "startMs": 8140,
+      "endMs": 11280,
+      "text": "Nhưng đằng sau lời quảng cáo ấy, một số vụ việc được báo chí phản"
+    },
+    {
+      "cueIndex": 5,
+      "startMs": 11280,
+      "endMs": 14000,
+      "text": "ánh cho thấy cả chuỗi sản xuất, đóng gói và phân phối."
+    },
+    {
+      "cueIndex": 6,
+      "startMs": 14860,
+      "endMs": 18440,
+      "text": "Trong bài viết ngày 21 tháng 10 năm 2026, Tạp chí An ninh mạng"
+    },
+    {
+      "cueIndex": 7,
+      "startMs": 18440,
+      "endMs": 21860,
+      "text": "Việt Nam dẫn thông tin ngày 18 tháng 10, Công an tỉnh Nghệ An"
+    },
+    {
+      "cueIndex": 8,
+      "startMs": 21860,
+      "endMs": 25680,
+      "text": "khởi tố mười bị can trong đường dây do Bùi Văn Trường cầm đầu."
+    },
+    {
+      "cueIndex": 9,
+      "startMs": 25820,
+      "endMs": 28740,
+      "text": "Sản phẩm được quảng cáo điều trị viêm xoang, viêm mũi dị ứng, bệnh"
+    },
+    {
+      "cueIndex": 10,
+      "startMs": 28740,
+      "endMs": 29920,
+      "text": "dạ dày và tiêu u."
+    },
+    {
+      "cueIndex": 11,
+      "startMs": 30060,
+      "endMs": 32940,
+      "text": "Theo thông tin điều tra được bài báo dẫn, hỗn hợp dược liệu và"
+    },
+    {
+      "cueIndex": 12,
+      "startMs": 32940,
+      "endMs": 36040,
+      "text": "thuốc tân dược được sản xuất, đóng gói không tuân thủ quy trình,"
+    },
+    {
+      "cueIndex": 13,
+      "startMs": 36160,
+      "endMs": 39080,
+      "text": "không định lượng chính xác, nhưng lại quảng cáo là hoàn toàn từ thảo"
+    },
+    {
+      "cueIndex": 14,
+      "startMs": 39080,
+      "endMs": 40740,
+      "text": "dược, theo công thức gia truyền."
+    },
+    {
+      "cueIndex": 15,
+      "startMs": 40900,
+      "endMs": 45220,
+      "text": "Từ tháng Hai đến tháng Sáu năm 2026, đường dây bán cho hàng nghìn"
+    },
+    {
+      "cueIndex": 16,
+      "startMs": 45220,
+      "endMs": 47860,
+      "text": "khách hàng, thu lợi bất chính khoảng năm tỷ đồng."
+    },
+    {
+      "cueIndex": 17,
+      "startMs": 47980,
+      "endMs": 50800,
+      "text": "Tang vật gồm khoảng hai mươi nghìn lọ thành phẩm, hơn một trăm ký"
+    },
+    {
+      "cueIndex": 18,
+      "startMs": 50800,
+      "endMs": 53500,
+      "text": "nguyên liệu, máy móc và tám trăm năm mươi triệu đồng tiền mặt."
+    },
+    {
+      "cueIndex": 19,
+      "startMs": 54440,
+      "endMs": 58320,
+      "text": "Ở Phú Thọ, bài báo nêu một nhóm sử dụng hình ảnh, video người nổi"
+    },
+    {
+      "cueIndex": 20,
+      "startMs": 58320,
+      "endMs": 61500,
+      "text": "tiếng bị chỉnh sửa, cắt ghép và thông tin phóng đại về sản phẩm."
+    },
+    {
+      "cueIndex": 21,
+      "startMs": 61640,
+      "endMs": 66700,
+      "text": "Từ tháng Năm đến tháng Bảy năm 2026, nhóm này bán 5.429 đơn hàng,"
+    },
+    {
+      "cueIndex": 22,
+      "startMs": 66960,
+      "endMs": 69580,
+      "text": "tổng giá trị hàng hơn 2,67 tỷ đồng."
+    },
+    {
+      "cueIndex": 23,
+      "startMs": 69720,
+      "endMs": 73480,
+      "text": "Ngày 7 tháng 8, cơ quan điều tra khởi tố vụ án và 21 bị can về tội"
+    },
+    {
+      "cueIndex": 24,
+      "startMs": 73480,
+      "endMs": 75060,
+      "text": "“Lừa dối khách hàng”."
+    },
+    {
+      "cueIndex": 25,
+      "startMs": 75220,
+      "endMs": 78180,
+      "text": "Tại Thanh Hóa, theo thông tin công an được bài báo dẫn, những người"
+    },
+    {
+      "cueIndex": 26,
+      "startMs": 78180,
+      "endMs": 80900,
+      "text": "liên quan không được đào tạo chuyên môn y, dược và không được"
+    },
+    {
+      "cueIndex": 27,
+      "startMs": 80900,
+      "endMs": 84140,
+      "text": "cấp phép sản xuất thuốc, nhưng vẫn làm sản phẩm mang tên các lương y."
+    },
+    {
+      "cueIndex": 28,
+      "startMs": 84440,
+      "endMs": 87400,
+      "text": "Kết luận giám định được bài báo dẫn ghi nhận paracetamol,"
+    },
+    {
+      "cueIndex": 29,
+      "startMs": 87400,
+      "endMs": 90660,
+      "text": "dexamethasone và chlorpheniramine trong mẫu sản phẩm."
+    },
+    {
+      "cueIndex": 30,
+      "startMs": 90840,
+      "endMs": 93620,
+      "text": "Tang vật gồm hơn một tấn nguyên liệu, năm mươi ký bột thuốc tân"
+    },
+    {
+      "cueIndex": 31,
+      "startMs": 93620,
+      "endMs": 96840,
+      "text": "dược đã xay và hơn một trăm nghìn sản phẩm hoàn thiện."
+    },
+    {
+      "cueIndex": 32,
+      "startMs": 96980,
+      "endMs": 101600,
+      "text": "Ngày 28 tháng 8 năm 2026, cơ quan điều tra khởi tố vụ án và ba bị"
+    },
+    {
+      "cueIndex": 33,
+      "startMs": 101600,
+      "endMs": 105000,
+      "text": "can về tội “Sản xuất, buôn bán hàng giả là thuốc chữa bệnh”."
+    },
+    {
+      "cueIndex": 34,
+      "startMs": 105760,
+      "endMs": 108000,
+      "text": "Những vụ việc này còn có một điểm chung: quảng cáo và"
+    },
+    {
+      "cueIndex": 35,
+      "startMs": 108000,
+      "endMs": 108940,
+      "text": "phân phối trên mạng."
+    },
+    {
+      "cueIndex": 36,
+      "startMs": 109080,
+      "endMs": 112600,
+      "text": "Bài báo mô tả việc móc nối KOL, quản trị viên hội nhóm, dùng"
+    },
+    {
+      "cueIndex": 37,
+      "startMs": 112600,
+      "endMs": 115260,
+      "text": "livestream, hình ảnh chỉnh sửa, người đóng giả bệnh"
+    },
+    {
+      "cueIndex": 38,
+      "startMs": 115260,
+      "endMs": 116880,
+      "text": "nhân hoặc nhân vật AI."
+    },
+    {
+      "cueIndex": 39,
+      "startMs": 117000,
+      "endMs": 119940,
+      "text": "Nhiều tài khoản có thể được dùng nối tiếp khi một tài khoản bị phát"
+    },
+    {
+      "cueIndex": 40,
+      "startMs": 119940,
+      "endMs": 121360,
+      "text": "hiện, xử lý."
+    },
+    {
+      "cueIndex": 41,
+      "startMs": 121440,
+      "endMs": 124620,
+      "text": "Lượt xem, lời chứng thực và danh xưng “gia truyền” không cho biết"
+    },
+    {
+      "cueIndex": 42,
+      "startMs": 124620,
+      "endMs": 126900,
+      "text": "đầy đủ nguồn gốc, thành phần hay quy trình sản xuất."
+    },
+    {
+      "cueIndex": 43,
+      "startMs": 127920,
+      "endMs": 130160,
+      "text": "Đây là những vụ việc cụ thể, không phải kết luận về"
+    },
+    {
+      "cueIndex": 44,
+      "startMs": 130160,
+      "endMs": 131260,
+      "text": "toàn bộ thuốc đông y."
+    },
+    {
+      "cueIndex": 45,
+      "startMs": 131480,
+      "endMs": 133900,
+      "text": "Nhưng chúng cho thấy khi lòng tin bị biến thành công cụ bán hàng,"
+    },
+    {
+      "cueIndex": 46,
+      "startMs": 134360,
+      "endMs": 136720,
+      "text": "người bệnh có thể là người chịu rủi ro sau cùng."
+    },
+    {
+      "cueIndex": 47,
+      "startMs": 136840,
+      "endMs": 140300,
+      "text": "Câu hỏi không chỉ là ai mua lọ thuốc, mà còn là ai sản xuất, ai"
+    },
+    {
+      "cueIndex": 48,
+      "startMs": 140300,
+      "endMs": 142140,
+      "text": "quảng cáo và ai đưa nó đến tay người bệnh."
+    }
+  ]
+}

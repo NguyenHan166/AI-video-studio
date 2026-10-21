@@ -1,0 +1,1 @@
+(function(){"use strict";function e(){var n=document.getElementById("content");if(n)for(var a=n.querySelectorAll("a[data-tag-name]"),t=0;t<a.length;t++){var r=a[t],d=(r.getAttribute("data-tag-name")||"").trim();if(d){var o=d.replace(/\s+/g,"%20");r.setAttribute("href","/search?key="+o)}}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e()})();

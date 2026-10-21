@@ -1,0 +1,1212 @@
+window.__MS_DATA__={clientPortlet:[],serverPortletScript:[{portletCode:"clamp-text-js",javascript:`(function () {
+    function getTextTarget(el) {
+        let target = el;
+        while (target.children.length === 1 && target.firstElementChild) {
+            target = target.firstElementChild;
+        }
+        return target;
+    }
+
+    function clampByWordsFromTailwind(el) {
+        const clampClass = [...el.classList].find(c => c.includes('line-clamp-'));
+        const maxLines = clampClass
+            ? parseInt(clampClass.split('line-clamp-')[1], 10)
+            : 3;
+
+        if (!maxLines) return;
+
+        if (el.classList.contains('desc')) {
+            el.style.overflow = 'unset';
+            el.style.display = 'block';
+        }
+
+        const target = getTextTarget(el);
+
+        if (!target.dataset.originalText) {
+            target.dataset.originalText = target.innerText.trim();
+        }
+        const originalText = target.dataset.originalText;
+        const words = originalText.split(/\\s+/);
+
+        target.innerText = originalText;
+
+        const style = getComputedStyle(el);
+        const lineHeight = parseFloat(style.lineHeight);
+        const computedLineHeight = isNaN(lineHeight)
+            ? parseFloat(style.fontSize) * 1.6
+            : lineHeight;
+        const paddingTop = parseFloat(style.paddingTop) || 0;
+        const paddingBottom = parseFloat(style.paddingBottom) || 0;
+        const maxHeight = Math.ceil(computedLineHeight * maxLines) + paddingTop + paddingBottom;
+
+        if (el.scrollHeight <= maxHeight) return;
+
+        let lo = 0, hi = words.length - 1;
+        while (lo < hi) {
+            const mid = (lo + hi + 1) >> 1;
+            target.innerText = words.slice(0, mid + 1).join(' ') + '…';
+            if (el.scrollHeight <= maxHeight) {
+                lo = mid;
+            } else {
+                hi = mid - 1;
+            }
+        }
+
+        target.innerText = lo >= 0
+            ? words.slice(0, lo + 1).join(' ') + '…'
+            : '…';
+    }
+
+    function handleClampText() {
+        document.querySelectorAll('.desc, [class*="line-clamp-"]').forEach(clampByWordsFromTailwind);
+    }
+
+    let resizeTimer;
+    function onResize() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(handleClampText, 150);
+    }
+
+    if (document.readyState === 'complete') {
+        handleClampText();
+    } else {
+        window.addEventListener('load', handleClampText);
+    }
+    window.addEventListener('resize', onResize);
+
+    window.__clampText = handleClampText;
+})();`},{portletCode:"lazy-images",javascript:`(function () {
+    function swapSrc(img) {
+        const width = img.getAttribute('data-width-image');
+        if (!width || !img.src) return;
+
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        const cappedWidth = Math.ceil(viewportWidth / 50) * 50;
+
+        const requested = width === 'original' ? Infinity : parseInt(width, 10);
+        const finalWidth = requested > viewportWidth ? cappedWidth : requested;
+
+        const replacement = '/w' + finalWidth + '/';
+        img.src = img.src.replace(/\\/w50\\//, replacement);
+        img.classList.remove('loading');
+    }
+
+    let observer = null;
+
+    function handleLazyImages() {
+        if (typeof IntersectionObserver === 'undefined') {
+            document.querySelectorAll('img.loading[data-width-image]').forEach(swapSrc);
+            return;
+        }
+
+        if (!observer) {
+            observer = new IntersectionObserver((entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        swapSrc(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            }, { rootMargin: '300px 0px' });
+        }
+
+        document.querySelectorAll('img.loading[data-width-image]').forEach(img => {
+            observer.observe(img);
+        });
+    }
+
+    let resizeTimer;
+    function onResize() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(handleLazyImages, 150);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', handleLazyImages);
+    } else {
+        handleLazyImages();
+    }
+    window.addEventListener('resize', onResize);
+
+    window.__lazyImages = handleLazyImages;
+})();`},{portletCode:"link-prefetch",javascript:`(function () {
+    const prefetchedHrefs = new Set();
+    const observedLinks = new WeakSet();
+    let linkObserver = null;
+
+    const supportsLinkPrefetch = (() => {
+        try {
+            const l = document.createElement('link');
+            return !!(l.relList && l.relList.supports && l.relList.supports('prefetch'));
+        } catch (e) {
+            return false;
+        }
+    })();
+
+    function shouldPrefetchHref(href) {
+        if (!href || prefetchedHrefs.has(href)) return false;
+        let url;
+        try {
+            url = new URL(href, location.href);
+        } catch (e) {
+            return false;
+        }
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
+        if (url.origin !== location.origin) return false;
+        if (url.pathname === location.pathname && url.search === location.search) return false;
+        return true;
+    }
+
+    function schedulePrefetch(href) {
+        if (prefetchedHrefs.has(href)) return;
+        prefetchedHrefs.add(href);
+        const run = () => {
+            if (supportsLinkPrefetch) {
+                const l = document.createElement('link');
+                l.rel = 'prefetch';
+                l.as = 'document';
+                l.href = href;
+                document.head.appendChild(l);
+            } else {
+                fetch(href, { credentials: 'same-origin', priority: 'low' }).catch(() => {});
+            }
+        };
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(run, { timeout: 2000 });
+        } else {
+            setTimeout(run, 0);
+        }
+    }
+
+    function handleLinkPrefetch() {
+        if (typeof IntersectionObserver === 'undefined') return;
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
+
+        if (!linkObserver) {
+            linkObserver = new IntersectionObserver((entries) => {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    const a = entry.target;
+                    linkObserver.unobserve(a);
+                    if (shouldPrefetchHref(a.href)) schedulePrefetch(a.href);
+                }
+            }, { rootMargin: '200px 0px' });
+        }
+
+        document.querySelectorAll('a[href]:not([data-no-prefetch])').forEach(a => {
+            if (observedLinks.has(a)) return;
+            if (!shouldPrefetchHref(a.href)) return;
+            observedLinks.add(a);
+            linkObserver.observe(a);
+        });
+    }
+
+    let resizeTimer;
+    function onResize() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(handleLinkPrefetch, 150);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', handleLinkPrefetch);
+    } else {
+        handleLinkPrefetch();
+    }
+    window.addEventListener('resize', onResize);
+
+    window.__linkPrefetch = handleLinkPrefetch;
+})();`,priority:"idle"},{portletCode:"d_header",javascript:`// Desktop overlay menu – level 1 sidebar switching
+document.addEventListener("click", (event) => {
+    const menuItem = event.target.closest("[data-menu-item]");
+    if (!menuItem) return;
+
+    event.preventDefault();
+    const overlay = menuItem.closest("[data-overlay-id='desktop-main-menu']");
+    if (!overlay) return;
+
+    const targetKey = menuItem.dataset.menuItem;
+    const allItems = overlay.querySelectorAll("[data-menu-item]");
+    const allPanels = overlay.querySelectorAll("[data-menu-panel]");
+
+    allItems.forEach((item) => {
+        const isActive = item.dataset.menuItem === targetKey;
+        item.classList.toggle("is-active", isActive);
+    });
+
+    allPanels.forEach((panel) => {
+        const isTarget = panel.dataset.menuPanel === targetKey;
+        panel.classList.toggle("t:hidden", !isTarget);
+
+        if (isTarget) {
+            panel.classList.remove("is-entering");
+            void panel.offsetWidth;
+            panel.classList.add("is-entering");
+        } else {
+            panel.classList.remove("is-entering");
+        }
+    });
+
+    // Close all open submenus when switching panels
+    overlay.querySelectorAll("[data-menu-panel] .mobile-menu-item.is-open").forEach((item) => {
+        if (!item.classList.contains("desktop-overlay-menu-root")) {
+            item.classList.remove("is-open");
+        }
+    });
+});
+
+// Navigate to href when clicking buttons that have data-href
+document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-href]");
+    if (!button) return;
+
+    const href = button.dataset.href;
+    if (!href || href === "#") return;
+
+    window.location.href = href;
+});
+
+const dayNames = [
+    "Chủ nhật",
+    "Thứ 2",
+    "Thứ 3",
+    "Thứ 4",
+    "Thứ 5",
+    "Thứ 6",
+    "Thứ 7",
+];
+
+function pad2(value) {
+    return String(value).padStart(2, "0");
+}
+
+function formatCurrentTime(date) {
+    const dayName = dayNames[date.getDay()];
+    const day = pad2(date.getDate());
+    const month = pad2(date.getMonth() + 1);
+    const year = date.getFullYear();
+    const hour = pad2(date.getHours());
+    const minute = pad2(date.getMinutes());
+
+    return \`\${dayName}, \${day}/\${month}/\${year}, \${hour}:\${minute}\`;
+}
+
+function renderTodayTime() {
+    const todayElement = document.querySelector(".today");
+    if (!todayElement) return;
+
+    todayElement.textContent = formatCurrentTime(new Date());
+}
+
+function initTodayTime() {
+    renderTodayTime();
+    setInterval(renderTodayTime, 1000);
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTodayTime);
+} else {
+    initTodayTime();
+}`},{portletCode:"detail_actions",javascript:`(function () {
+        var PRINT_LOGO = "https://cdn.tapchianninhmang.vn/static-assets/encode/common/assets/noindeximg/v3/logo.png?v=202610191715";
+        var PRINT_SITE_NAME = "Tạp chí điện tử An ninh mạng Việt Nam";
+        var PRINT_IMG_WIDTH = 700;
+        var PRINT_WEEKDAYS = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+        var PRINT_WEEKDAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+
+        // Khối không đưa vào bản in: script/quảng cáo/tin liên quan chèn giữa bài.
+        // 3 mẫu "tin liên quan" đang dùng lần lượt render ra related-news / related-inline /
+        // related-article-v1, nên bắt chung theo tiền tố class; thẻ <related-article> là dạng
+        // chưa được template render (897 bài dùng), phải chặn cả tên thẻ.
+        var PRINT_DROP_SELECTOR = [
+            "script", "style", "noscript", "ins", "iframe", "object", "embed",
+            "related-article", "related-post", "related-news",
+            "[class*='related-']",
+            ".adsbygoogle", "ads-block", ".article-bottom-actions", ".share-icon-btn"
+        ].join(",");
+
+        function printEscape(value) {
+            return String(value == null ? "" : value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function printFirstText(selectors) {
+            for (var i = 0; i < selectors.length; i++) {
+                var el = document.querySelector(selectors[i]);
+                if (!el) continue;
+                var value = (el.textContent || "").replace(/\\s+/g, " ").trim();
+                if (value) return value;
+            }
+            return "";
+        }
+
+        function printMetaContent(key) {
+            var el = document.querySelector('meta[property="' + key + '"]')
+                || document.querySelector('meta[name="' + key + '"]');
+            return el ? (el.getAttribute("content") || "").trim() : "";
+        }
+
+        function printPad2(value) {
+            return value < 10 ? "0" + value : "" + value;
+        }
+
+        function printPublishedText() {
+            var iso = printMetaContent("article:published_time") || printMetaContent("article:modified_time");
+            var date = iso ? new Date(iso) : null;
+
+            if (date && !isNaN(date.getTime())) {
+                try {
+                    var parts = {};
+                    new Intl.DateTimeFormat("en-GB", {
+                        timeZone: "Asia/Ho_Chi_Minh",
+                        weekday: "short", day: "2-digit", month: "2-digit", year: "numeric",
+                        hour: "2-digit", minute: "2-digit", hour12: false
+                    }).formatToParts(date).forEach(function (part) {
+                        parts[part.type] = part.value;
+                    });
+
+                    if (parts.day && parts.month && parts.year) {
+                        var weekday = PRINT_WEEKDAYS[PRINT_WEEKDAY_INDEX[parts.weekday]] || "";
+                        var hour = parts.hour === "24" ? "00" : parts.hour;
+                        return (weekday ? weekday + " " : "") + parts.day + "/" + parts.month + "/" + parts.year
+                            + " - " + hour + ":" + parts.minute;
+                    }
+                } catch (error) {
+                    // Intl không nhận timeZone: rơi xuống giờ máy người đọc
+                }
+
+                return PRINT_WEEKDAYS[date.getDay()] + " " + printPad2(date.getDate()) + "/"
+                    + printPad2(date.getMonth() + 1) + "/" + date.getFullYear()
+                    + " - " + printPad2(date.getHours()) + ":" + printPad2(date.getMinutes());
+            }
+
+            return printFirstText([".article-date", "time.article-time", ".article-time"]);
+        }
+
+        function printResolveUrl(value) {
+            if (!value) return "";
+            try {
+                return new URL(value, window.location.href).href;
+            } catch (error) {
+                return value;
+            }
+        }
+
+        // Bản in rộng 680px: hạ ảnh CDN về w700 thay vì tải lại w2000
+        function printImageUrl(url) {
+            if (!url || url.indexOf("cdn.tapchianninhmang.vn") === -1) return url;
+            if (!/\\.(jpe?g|png|webp|avif|gif)(\\?|$)/i.test(url)) return url;
+            return url.replace(/\\/(?:w\\d+|original)\\/images\\//, "/w" + PRINT_IMG_WIDTH + "/images/");
+        }
+
+        function printArticleContent() {
+            // #content khớp cả 2 bộ layout: detail_content (là chính nó) và detail_center_content (bọc ngoài)
+            var source = document.getElementById("content")
+                || document.querySelector("[data-portlet='detail_content']")
+                || document.querySelector("[data-portlet='detail_center_content']")
+                || document.querySelector("[data-portlet='content_emagazine']")
+                || document.querySelector("[data-portlet='gcg-content']")
+                || document.querySelector(".article-prose");
+            if (!source) return "";
+
+            var clone = source.cloneNode(true);
+
+            Array.prototype.forEach.call(clone.querySelectorAll(PRINT_DROP_SELECTOR), function (node) {
+                if (node.parentNode) node.parentNode.removeChild(node);
+            });
+
+            Array.prototype.forEach.call(clone.querySelectorAll("img"), function (img) {
+                // ảnh lazy còn nằm ở /w50/: lấy nguồn thật trước khi đổi kích thước
+                var raw = img.getAttribute("data-src") || img.getAttribute("data-original") || img.getAttribute("src") || "";
+                var url = printImageUrl(printResolveUrl(raw));
+
+                ["data-src", "data-original", "data-width-image", "loading", "srcset", "sizes"].forEach(function (attr) {
+                    img.removeAttribute(attr);
+                });
+                img.classList.remove("loading");
+
+                if (url) {
+                    img.setAttribute("src", url);
+                } else if (img.parentNode) {
+                    img.parentNode.removeChild(img);
+                }
+            });
+
+            Array.prototype.forEach.call(clone.querySelectorAll("a[href]"), function (link) {
+                link.setAttribute("href", printResolveUrl(link.getAttribute("href")));
+            });
+
+            return clone.innerHTML;
+        }
+
+        function printPayload() {
+            var canonical = document.querySelector('link[rel="canonical"]');
+            return {
+                title: printFirstText([".header-title h1", "h1.title-info", "h1.title", "h1"])
+                    || printMetaContent("og:title"),
+                subTitle: printFirstText([".header-title h2.title"]),
+                sapo: printFirstText([".header-title .desc-info", ".header-title .article-sapo", "p.desc-info", "p.article-sapo"])
+                    || printMetaContent("og:description"),
+                author: printFirstText([".header-title .author-name", ".author-name"]),
+                published: printPublishedText(),
+                url: (canonical && canonical.getAttribute("href")) || printMetaContent("og:url") || window.location.href,
+                content: printArticleContent()
+            };
+        }
+
+        function printStyles() {
+            return [
+                "*{box-sizing:border-box}",
+                "body{margin:0;padding:24px 16px;background:#fff;color:#000;",
+                "font-family:Roboto,Arial,Helvetica,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}",
+                "body *{font-size:18px;line-height:22px}",
+                "body p{margin:0 0 20px}",
+                ".main-print{line-height:200%;display:flex;align-items:flex-start;justify-content:center}",
+                ".main-print .wrap{width:100%;max-width:680px}",
+                ".main-print .wrap img,.main-print .wrap video{width:100%;height:auto}",
+                ".main-print .wrap figure{margin:0 0 20px;padding:0}",
+                ".main-print .wrap img.print-logo{width:200px;height:auto}",
+                ".main-print .wrap .xlogo{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}",
+                ".main-print .wrap .xlogo .sfull{flex:1}",
+                ".news-publisheddate{color:#444;margin-top:6px}",
+                ".author{margin:0 0 8px}",
+                ".news-subtitle{font-size:18px;line-height:24px;font-weight:400;font-style:italic;color:#444;margin:0 0 6px}",
+                ".news-title{font-size:22px;line-height:26px;margin:8px 0 12px}",
+                "h2.news-sapo{font-weight:normal;font-style:italic;margin:0 0 20px}",
+                ".news-content h2,.news-content h3,.news-content h4{font-size:19px;line-height:24px;font-weight:700;margin:0 0 12px}",
+                "figure > figcaption{font-style:italic;font-size:14px;display:flex;justify-content:center;text-align:center}",
+                "figure > figcaption p{margin:0;font-size:14px;line-height:20px}",
+                "figure.restrict-mobile{display:none}",
+                // bảng dán từ Word hay kèm align=left + width 100% -> ép về khối để không vỡ cột in
+                ".news-content table{float:none!important;width:100%!important;max-width:100%;border-collapse:collapse;margin:0 0 20px}",
+                ".news-content td,.news-content th{border:1px solid #ddd;padding:6px;vertical-align:top}",
+                ".news-content blockquote{margin:0 0 20px;padding:0 0 0 16px;border-left:3px solid #ccc}",
+                ".source-url{word-break:break-word}",
+                ".source-url a{color:#0a58ca}",
+                ".btn-indigo{display:inline-block;padding:6px 14px;border-radius:4px;background:#1a4fa0;color:#fff;",
+                "text-decoration:none;white-space:nowrap}",
+                ".doprint{display:none}",
+                "@media print{body{padding:0}.noprint{display:none}.doprint{display:block}",
+                ".main-print .wrap{max-width:100%}a{color:#000;text-decoration:none}}"
+            ].join("");
+        }
+
+        function printAutoScript() {
+            return [
+                "<scr" + "ipt>(function(){",
+                "function go(){try{window.focus();window.print();}catch(e){}}",
+                "var imgs=Array.prototype.slice.call(document.images);",
+                "var pending=0;var fired=false;",
+                "function done(){pending--;if(pending<=0&&!fired){fired=true;setTimeout(go,150);}}",
+                "imgs.forEach(function(img){if(!img.complete){pending++;",
+                "img.addEventListener('load',done);img.addEventListener('error',done);}});",
+                "if(pending===0){fired=true;setTimeout(go,150);}",
+                "setTimeout(function(){if(!fired){fired=true;go();}},6000);",
+                "})();</scr" + "ipt>"
+            ].join("");
+        }
+
+        function printDocumentHtml(data, autoPrint) {
+            var published = printEscape(data.published);
+            var docTitle = printEscape((data.title || PRINT_SITE_NAME) + " | " + PRINT_SITE_NAME);
+
+            var html = [
+                "<!DOCTYPE html><html lang=\\"vi\\"><head><meta charset=\\"UTF-8\\">",
+                "<meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\">",
+                "<title>", docTitle, "</title>",
+                "<style>", printStyles(), "</style>",
+                "<meta name=\\"robots\\" content=\\"noindex,nofollow\\">",
+                "</head><body class=\\"main-print\\"><div class=\\"wrap\\">",
+                "<div class=\\"xlogo\\"><div class=\\"sfull\\">",
+                "<img alt=\\"", printEscape(PRINT_SITE_NAME), "\\" class=\\"print-logo\\" src=\\"", printEscape(PRINT_LOGO), "\\" width=\\"200\\">",
+                published ? "<div class=\\"fr news-publisheddate noprint\\">" + published + "</div>" : "",
+                "</div>",
+                published ? "<div class=\\"fr news-publisheddate doprint\\">" + published + "</div>" : "",
+                "<div class=\\"noprint\\"><a class=\\"btn-indigo\\" href=\\"javascript:window.print();void(0)\\">In bài này (Ctrl+P)</a></div>",
+                "</div>",
+                data.author ? "<div class=\\"author\\">Tác giả: " + printEscape(data.author) + "</div>" : "",
+                data.subTitle ? "<h3 class=\\"clearfix news-subtitle\\">" + printEscape(data.subTitle) + "</h3>" : "",
+                "<h1 class=\\"clearfix news-title\\">", printEscape(data.title), "</h1>",
+                data.sapo ? "<h2 class=\\"clearfix news-sapo\\">" + printEscape(data.sapo) + "</h2>" : "",
+                "<div class=\\"clearfix news-content\\">", data.content, "</div>",
+                "<p class=\\"source-url\\">Link nội dung: <a class=\\"source-url\\" href=\\"", printEscape(data.url), "\\">",
+                printEscape(data.url), "</a></p>",
+                "</div>",
+                autoPrint ? printAutoScript() : "",
+                "</body></html>"
+            ].join("");
+
+            return html;
+        }
+
+        // Popup bị chặn: in qua iframe ẩn để vẫn ra đúng bản in
+        function printViaIframe(data) {
+            var frame = document.createElement("iframe");
+            frame.setAttribute("aria-hidden", "true");
+            frame.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;";
+            document.body.appendChild(frame);
+
+            var doc = frame.contentWindow.document;
+            doc.open();
+            doc.write(printDocumentHtml(data, false));
+            doc.close();
+
+            var fired = false;
+            var cleanupTimer = null;
+
+            function fire() {
+                if (fired) return;
+                fired = true;
+                try {
+                    frame.contentWindow.focus();
+                    frame.contentWindow.print();
+                } catch (error) {
+                    // trình duyệt chặn in từ iframe: bỏ qua, tab in đã là đường chính
+                }
+                cleanupTimer = setTimeout(function () {
+                    if (frame.parentNode) frame.parentNode.removeChild(frame);
+                }, 60000);
+            }
+
+            var images = Array.prototype.slice.call(doc.images);
+            var pending = 0;
+            images.forEach(function (img) {
+                if (img.complete) return;
+                pending++;
+                img.addEventListener("load", function () { if (--pending <= 0) fire(); });
+                img.addEventListener("error", function () { if (--pending <= 0) fire(); });
+            });
+            if (pending === 0) setTimeout(fire, 150);
+            setTimeout(fire, 6000);
+            return cleanupTimer;
+        }
+
+        function openPrintView() {
+            var data = printPayload();
+            if (!data.content && !data.title) {
+                window.print();
+                return;
+            }
+
+            var win = null;
+            try {
+                win = window.open("", "_blank");
+            } catch (error) {
+                win = null;
+            }
+
+            if (!win) {
+                printViaIframe(data);
+                return;
+            }
+
+            win.document.open();
+            win.document.write(printDocumentHtml(data, true));
+            win.document.close();
+        }
+
+        function initArticleActions() {
+            const fbShareBtn = document.getElementById("fbShareBtn");
+            const printBtn = document.getElementById("printBtn");
+
+            if (fbShareBtn && fbShareBtn.dataset.bound !== "true") {
+                fbShareBtn.dataset.bound = "true";
+                fbShareBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    const currentUrl = window.location.href;
+                    const shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(currentUrl);
+                    const popup = window.open(
+                        shareUrl,
+                        "fb-share-dialog",
+                        "width=640,height=560,menubar=no,toolbar=no,status=no"
+                    );
+
+                    if (!popup || popup.closed || typeof popup.closed === "undefined") {
+                        window.location.href = shareUrl;
+                    }
+                });
+            }
+
+            if (printBtn && printBtn.dataset.bound !== "true") {
+                printBtn.dataset.bound = "true";
+                printBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    openPrintView();
+                });
+            }
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initArticleActions, { once: true });
+            return;
+        }
+
+        initArticleActions();
+    })();`,priority:"visible"},{portletCode:"detail_related",javascript:`const publicApiUrlEl = document.getElementById('page_info');
+const cdnUrlEl = document.getElementById('page_info');
+const articleIdEl = document.getElementById('page_info');
+
+const publicApiUrl = publicApiUrlEl ? publicApiUrlEl.dataset.publicApiUrl : '';
+const cdnUrl = cdnUrlEl ? cdnUrlEl.dataset.cdnUrl : '';
+const articleId = articleIdEl ? articleIdEl.dataset.articleId : '';
+const defaultAvatar = articleIdEl ? (articleIdEl.dataset.defaultAvatar || '') : '';
+
+
+function JoinUrl(...args) {
+    return args.map((part, index) => {
+        if (index === 0) {
+            return part.trim().replace(/\\/+$/, '');
+        } else {
+            return part.trim().replace(/^\\/+|\\/+$/g, '');
+        }
+    }).filter(part => part.length > 0).join('/');
+}
+
+function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function formatDate(isoString) {
+    const d = new Date(isoString);
+    if (isNaN(d.getTime())) return '';
+    const dd = String(d.getDate()).padStart(2, '0');
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const yyyy = d.getFullYear();
+    return \`\${dd}/\${mm}/\${yyyy}\`;
+}
+
+function truncateDesc(str, maxLen = 150) {
+    if (!str) return '';
+    const clean = str.trim();
+    if (clean.length <= maxLen) return clean;
+    const trimmed = clean.slice(0, maxLen);
+    const lastSpace = trimmed.lastIndexOf(' ');
+    return (lastSpace > 0 ? trimmed.slice(0, lastSpace) : trimmed) + '…';
+}
+
+function buildArticleHref(slug) {
+    if (!slug) return '#';
+    return slug.startsWith('/') ? slug : '/' + slug;
+}
+
+function resolveArticleImage(article) {
+    const rawImage = (article && article.avatar1_url) || defaultAvatar;
+    if (!rawImage) return '';
+    if (/^https?:\\/\\//i.test(rawImage)) return rawImage;
+    return JoinUrl(cdnUrl, 'noindex', 'w400', rawImage);
+}
+
+function renderSuggestedItem(article) {
+    const href = buildArticleHref(article.slug);
+    const imageUrl = resolveArticleImage(article);
+    const date = formatDate(article.publish_date);
+    const dateHtml = date
+        ? \`<time class="article-date t:mt-2"><i class="material-symbols--calendar-month-rounded"></i> \${date}</time>\`
+        : '';
+    const title = escapeHtml(article.title);
+    const fullDesc = escapeHtml(article.desc);
+    const shortDesc = escapeHtml(truncateDesc(article.desc, 150));
+
+    return \`
+    <div class="suggested-item">
+        <div class="t:flow-root">
+            <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                <a href="\${href}">
+                    <img src="\${imageUrl}" alt="\${title}" data-width-image="400" class="" loading="lazy" decoding="async">
+                </a>
+            </figure>
+            <h4 class="title l2 t:mt-0!">
+                <a href="\${href}" class="">
+                    \${title}
+                </a>
+            </h4>
+            \${dateHtml}
+            <p class="desc" style="overflow: unset; display: block;" data-original-text="\${fullDesc}">
+                \${shortDesc}
+            </p>
+        </div>
+    </div>\`;
+}
+
+/* ------------------------------------------------------------------
+   "Tin bài khác" — tải thêm (15 bài/lượt, 5 lượt tự động — đồng bộ với mọi trang danh sách)
+   - Cuộn tới cuối danh sách: tự động tải thêm tối đa 5 lần
+   - Từ lần thứ 6 trở đi: người dùng phải bấm nút "Xem thêm"
+   - Hết 5 lượt tự động thì nạp sẵn thêm 1 lô NHƯNG chưa render — bấm nút là hiện tức thì
+------------------------------------------------------------------ */
+const SUGGESTED_LIMIT = 15;
+const SUGGESTED_AUTO_ROUNDS = 5;
+/* Số thẻ khung xương hiển thị trong lúc chờ MỖI lượt tải (lượt đầu do server render sẵn) */
+const SUGGESTED_SKELETON_COUNT = 3;
+/* API có thể trả về một trang toàn bài trùng/thiếu slug → thử tối đa vài trang cho mỗi lượt tải */
+const SUGGESTED_MAX_ATTEMPTS = 3;
+
+const suggestedState = {
+    page: 0,
+    totalPages: null,
+    autoRounds: 0,
+    loading: false,
+    done: false,
+    seen: Object.create(null)
+};
+
+let suggestedObserver = null;
+
+function suggestedNode(id) {
+    return document.getElementById(id);
+}
+
+/* ---- Khung xương (skeleton) ---------------------------------------------
+   Markup chỉ được khai báo MỘT chỗ: trong content của portlet (server render
+   sẵn 3 thẻ). Ở đây ta ghi nhớ lại outerHTML của thẻ đó trước khi gỡ, rồi tái
+   dùng cho các lượt "tải thêm". Không tìm thấy skeleton (trang cache bản cũ)
+   thì mọi thứ vẫn chạy bình thường, chỉ là không có khung xương. */
+let suggestedSkelHtml = '';
+
+function captureSuggestedSkeleton() {
+    if (suggestedSkelHtml) return;
+    const container = suggestedNode('suggested-list');
+    const node = container && container.querySelector('[data-suggested-skeleton]');
+    if (node) suggestedSkelHtml = node.outerHTML;
+}
+
+function removeSuggestedSkeleton() {
+    const container = suggestedNode('suggested-list');
+    if (!container) return;
+    captureSuggestedSkeleton();
+    const nodes = container.querySelectorAll('[data-suggested-skeleton]');
+    for (let i = 0; i < nodes.length; i++) {
+        if (nodes[i].parentNode) nodes[i].parentNode.removeChild(nodes[i]);
+    }
+}
+
+function showSuggestedSkeleton() {
+    const container = suggestedNode('suggested-list');
+    /* đã có skeleton (lượt đầu: bản server render) → giữ nguyên */
+    if (!container || container.querySelector('[data-suggested-skeleton]')) return;
+    captureSuggestedSkeleton();
+    if (!suggestedSkelHtml) return;
+    let html = '';
+    for (let i = 0; i < SUGGESTED_SKELETON_COUNT; i++) html += suggestedSkelHtml;
+    container.insertAdjacentHTML('beforeend', html);
+}
+
+/* ---- Hiện dần khi CUỘN TỚI ------------------------------------------------
+   Bài được nạp trước ~1200px; nếu fade ngay lúc chèn thì animation chạy xong khi
+   thẻ còn ngoài màn hình. Vì vậy chèn ở opacity 0 rồi mới fade khi lọt tầm nhìn.
+   HIỆU NĂNG: dùng CHUNG một IntersectionObserver cho mọi thẻ (không phải mỗi thẻ
+   một cái), unobserve ngay sau khi hiện, không gắn listener scroll, không đặt
+   will-change (tránh giữ layer thừa), và chỉ đổi opacity. */
+let suggestedRevealObserver = null;
+
+function observeSuggestedItems(container) {
+    const items = container.querySelectorAll('.suggested-item:not(.is-pending):not(.is-in)');
+    if (!items.length) return;
+
+    if (typeof IntersectionObserver !== 'function') {
+        /* không hỗ trợ → hiện ngay, tuyệt đối không để bài kẹt ở opacity 0 */
+        for (let i = 0; i < items.length; i++) items[i].classList.add('is-in');
+        return;
+    }
+
+    if (!suggestedRevealObserver) {
+        suggestedRevealObserver = new IntersectionObserver(entries => {
+            for (let i = 0; i < entries.length; i++) {
+                if (!entries[i].isIntersecting) continue;
+                const el = entries[i].target;
+                el.classList.remove('is-pending');
+                el.classList.add('is-in');
+                suggestedRevealObserver.unobserve(el);
+            }
+        });
+    }
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].classList.add('is-pending');
+        suggestedRevealObserver.observe(items[i]);
+    }
+}
+
+function setSuggestedLoading(isLoading) {
+    suggestedState.loading = isLoading;
+
+    const btn = suggestedNode('suggested-more-btn');
+    if (btn) {
+        btn.disabled = isLoading;
+        btn.classList.toggle('is-loading', isLoading);
+    }
+
+    const container = suggestedNode('suggested-list');
+    if (container) container.setAttribute('aria-busy', isLoading ? 'true' : 'false');
+
+    if (isLoading) showSuggestedSkeleton();
+    else removeSuggestedSkeleton();
+}
+
+function stopSuggestedObserver() {
+    if (!suggestedObserver) return;
+    suggestedObserver.disconnect();
+    suggestedObserver = null;
+}
+
+function showSuggestedButton() {
+    if (suggestedState.done) return;
+    stopSuggestedObserver();
+    const wrap = suggestedNode('suggested-more');
+    if (wrap) wrap.hidden = false;
+}
+
+/* Het bai: neu dang NAP TRUOC ma bo dem con hang thi HOAN dong lai — phai de nguoi
+   dung bam xem not so bai da tai ve, xong moi dong (xem manualLoadSuggested). */
+function finishSuggested(silent) {
+    if (silent && suggestedBuffer && suggestedBuffer.length) {
+        suggestedPendingEnd = true;
+        return;
+    }
+    endSuggestedList();
+}
+
+function endSuggestedList() {
+    suggestedState.done = true;
+    stopSuggestedObserver();
+    const wrap = suggestedNode('suggested-more');
+    if (wrap) wrap.hidden = true;
+    const sentinel = suggestedNode('suggested-sentinel');
+    if (sentinel && sentinel.parentNode) sentinel.parentNode.removeChild(sentinel);
+}
+
+/* ---- Bo dem nap truoc — BAT BIEN: LUON san dung 1 lo -----------------------
+   Sau MOI lan render (ke ca luot tu dong) lai nap san 1 lo NHUNG chua chen vao
+   DOM, nen den luc can lo ke thi data da nam san -> render ngay, khong cho mang.
+   CAI BAY: endSuggestedList() an nut va go sentinel. Neu lo nap truoc gap 'done'
+   ma bo dem con bai thi phai HOAN viec dong lai (suggestedPendingEnd), khong thi
+   nguoi dung mat luon so bai da tai ve. */
+let suggestedBuffer = null;
+let suggestedPrefetching = null;
+let suggestedPendingEnd = false;
+
+/* Tu bo qua neu: da co lo trong dem, dang co lo bay, da het bai, da hoan dong.
+   KHONG dat co 'loading' (dat thi no tu chan chinh duong bam nut). */
+function prefetchSuggested() {
+    if (suggestedPrefetching || (suggestedBuffer && suggestedBuffer.length) ||
+        suggestedState.done || suggestedPendingEnd) return;
+    startSuggestedFetch();
+}
+
+function renderSuggestedBuffer() {
+    const container = suggestedNode('suggested-list');
+    const batch = suggestedBuffer;
+    suggestedBuffer = null;
+    if (!container || !batch || !batch.length) return 0;
+    removeSuggestedSkeleton();
+    container.insertAdjacentHTML('beforeend', batch.map(renderSuggestedItem).join(''));
+    observeSuggestedItems(container);
+    return batch.length;
+}
+
+/* ---- MOT KHE DUY NHAT cho moi request -------------------------------------
+   Goi lai luc dang co lo bay thi tra ve CHINH promise do (khong mo request thu
+   hai). MOI duong lay bai deu di qua day nen khong bao gio hai response cung
+   cong vao suggestedState.page. */
+function startSuggestedFetch() {
+    if (!suggestedPrefetching) {
+        suggestedPrefetching = loadSuggestedPage(true).then(function (status) {
+            suggestedPrefetching = null;
+            return status;
+        }, function (err) {
+            suggestedPrefetching = null;
+            console.error('Failed to load suggested articles:', err);
+            return 'error';
+        });
+    }
+    return suggestedPrefetching;
+}
+
+/* Lay MOT lo: co san trong dem -> tra ngay; dang co lo bay -> CHO chinh lo do;
+   khong co gi -> fetch moi. Tra 'ok' khi bo dem da co bai san sang render. */
+async function takeSuggestedBatch() {
+    if (suggestedBuffer && suggestedBuffer.length) return 'ok';
+    if (suggestedState.done) return 'skip';
+    const status = await startSuggestedFetch();
+    if (suggestedBuffer && suggestedBuffer.length) return 'ok';
+    return status;
+}
+
+/* Lay lo roi render — co 'loading' bao TRON ca hai buoc de hai trigger dong thoi
+   khong cung vao duoc. Render xong la nap ngay lo ke (bat bien: luon san 1 lo). */
+async function consumeSuggestedBatch() {
+    if (suggestedState.loading || suggestedState.done) return 'skip';
+    const instant = !!(suggestedBuffer && suggestedBuffer.length);
+    /* co san trong dem -> render ngay, khong bat skeleton (khong chop) */
+    if (instant) suggestedState.loading = true;
+    else setSuggestedLoading(true);
+    let status;
+    try {
+        status = await takeSuggestedBatch();
+        if (suggestedBuffer && suggestedBuffer.length) {
+            renderSuggestedBuffer();
+            status = 'ok';
+        }
+    } finally {
+        if (instant) suggestedState.loading = false;
+        else setSuggestedLoading(false);
+    }
+    if (suggestedPendingEnd) {
+        endSuggestedList();
+        return status === 'ok' ? 'ok' : 'done';
+    }
+    if (status === 'ok') prefetchSuggested();
+    return status;
+}
+
+async function manualLoadSuggested() {
+    /* Bam nut: TUYET DOI khong re-arm observer (bay so 6) — chi lay lo qua takeBatch. */
+    const status = await consumeSuggestedBatch();
+    if (status === 'error') showSuggestedButton();
+}
+
+/* Trả về: 'ok' | 'done' | 'error' | 'skip'. silent = nap truoc, khong chen vao DOM. */
+async function loadSuggestedPage(silent) {
+    /* silent (nap truoc) chi di qua khe startSuggestedFetch nen khong can co
+       'loading' — ma co 'loading' gio bao TRON ca takeSuggestedBatch + render. */
+    if (suggestedState.done) return 'skip';
+    if (!silent && suggestedState.loading) return 'skip';
+
+    const container = suggestedNode('suggested-list');
+    if (!container) return 'skip';
+
+    if (!silent) setSuggestedLoading(true);
+    try {
+        for (let attempt = 0; attempt < SUGGESTED_MAX_ATTEMPTS; attempt++) {
+            const nextPage = suggestedState.page + 1;
+            if (suggestedState.totalPages !== null && nextPage > suggestedState.totalPages) {
+                finishSuggested(silent);
+                return 'done';
+            }
+
+            const endpoint = JoinUrl(publicApiUrl, 'v1/article', articleId, 'suggestion') +
+                '?page=' + nextPage + '&limit=' + SUGGESTED_LIMIT;
+
+            const res = await fetch(endpoint);
+            if (!res.ok) throw new Error(\`HTTP \${res.status}\`);
+
+            const json = await res.json();
+            if (!json || !json.success || !Array.isArray(json.data)) {
+                finishSuggested(silent);
+                return 'done';
+            }
+
+            suggestedState.page = nextPage;
+            if (json.meta && Number.isFinite(json.meta.totalPages)) {
+                suggestedState.totalPages = json.meta.totalPages;
+            }
+
+            /* data có thể lẫn phần tử rác (số, chuỗi, null) → chỉ giữ bài có slug */
+            const items = json.data.filter(item =>
+                item && typeof item === 'object' && !Array.isArray(item) && item.slug
+            );
+            const fresh = items.filter(item => {
+                const key = String(item.id != null ? item.id : item.slug);
+                if (suggestedState.seen[key]) return false;
+                suggestedState.seen[key] = true;
+                return true;
+            });
+
+            if (fresh.length) {
+                if (silent) {
+                    /* NAP TRUOC: giu lai trong bo dem, CHUA chen vao DOM */
+                    suggestedBuffer = (suggestedBuffer || []).concat(fresh);
+                } else {
+                    /* gỡ khung xương TRƯỚC khi chèn để bài thật nằm đúng cuối danh sách */
+                    removeSuggestedSkeleton();
+                    container.insertAdjacentHTML('beforeend', fresh.map(renderSuggestedItem).join(''));
+                    /* cùng một nhịp đồng bộ với lúc chèn → không có nháy hình */
+                    observeSuggestedItems(container);
+                }
+            }
+
+            const outOfPages = suggestedState.totalPages !== null &&
+                suggestedState.page >= suggestedState.totalPages;
+            const emptyWithoutMeta = suggestedState.totalPages === null && items.length === 0;
+            if (outOfPages || emptyWithoutMeta) {
+                finishSuggested(silent);
+                return 'done';
+            }
+            if (fresh.length) return 'ok';
+            /* trang này không có bài mới nào → thử tiếp trang kế */
+        }
+        return 'ok';
+    } catch (err) {
+        console.error('Failed to load suggested articles:', err);
+        return 'error';
+    } finally {
+        if (!silent) setSuggestedLoading(false);
+    }
+}
+
+function rearmSuggestedObserver() {
+    /* observe lại để IntersectionObserver bắn tiếp khi sentinel vẫn nằm trong khung nhìn */
+    if (!suggestedObserver || suggestedState.done) return;
+    const sentinel = suggestedNode('suggested-sentinel');
+    if (!sentinel) return;
+    suggestedObserver.unobserve(sentinel);
+    suggestedObserver.observe(sentinel);
+}
+
+async function autoLoadSuggested() {
+    if (suggestedState.loading || suggestedState.done) return;
+
+    suggestedState.autoRounds += 1;
+    /* di QUA takeSuggestedBatch: dang co lo bay thi CHO no, khong fetch song song */
+    const status = await consumeSuggestedBatch();
+    if (status === 'done' || status === 'skip') return;
+    if (status === 'error') {
+        showSuggestedButton();
+        return;
+    }
+
+    /* lo ke da duoc consumeSuggestedBatch nap truoc ngay sau khi render */
+    if (suggestedState.autoRounds >= SUGGESTED_AUTO_ROUNDS) showSuggestedButton();
+    else rearmSuggestedObserver();
+}
+
+function startSuggestedObserver() {
+    const sentinel = suggestedNode('suggested-sentinel');
+    if (!sentinel || typeof IntersectionObserver !== 'function') return false;
+
+    /* Nạp TRƯỚC khi người đọc cuộn tới: 1200px ≈ 1–1,5 màn hình chạy trước.
+       API suggestion đo được 0,2–0,4s nên tới nơi là bài đã nằm sẵn đó.
+       (200px cũ = bắn đúng lúc tới nơi → luôn phải chờ trọn một vòng mạng.) */
+    suggestedObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) autoLoadSuggested();
+    }, { rootMargin: '1200px 0px' });
+    suggestedObserver.observe(sentinel);
+    return true;
+}
+
+async function loadSuggestedArticles() {
+    const container = suggestedNode('suggested-list');
+    if (!container) return;
+
+    /* KHÔNG xóa nội dung sẵn có: đó là khung xương do server render, giữ tới khi có bài thật */
+
+    const btn = suggestedNode('suggested-more-btn');
+    if (btn) btn.addEventListener('click', () => { manualLoadSuggested(); });
+
+    /* Lo dau: khoi nam duoi day bai nhung van tu render luc tai trang, nen day
+       LA lan render dau tien — nap truoc bat dau ngay sau no (trong consume). */
+    const status = await consumeSuggestedBatch();
+    if (status !== 'ok') {
+        const wrap = suggestedNode('suggested-more');
+        if (wrap) wrap.hidden = true;
+        return;
+    }
+
+    if (SUGGESTED_AUTO_ROUNDS > 0 && startSuggestedObserver()) return;
+
+    /* trình duyệt không hỗ trợ IntersectionObserver → dùng nút ngay từ đầu */
+    showSuggestedButton();
+}
+
+loadSuggestedArticles();`,priority:"visible"},{portletCode:"footer",javascript:`(function () {
+            const root = document.querySelector('[data-cmnoti]');
+            if (!root) return;
+
+            const DESKTOP_KEY = 'cmnoti-dismissed-at'; // timestamp of last dismissal
+            const MOBILE_KEY = 'cmnoti-opened';         // mobile: opened-once flag
+            const RESET_MS = 10 * 60 * 1000;            // desktop: re-open 10 min after a dismissal
+            const isMobile = () => window.matchMedia('(max-width: 767.98px)').matches;
+
+            const ls = {
+                get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { } },
+                del: (k) => { try { localStorage.removeItem(k); } catch (e) { } },
+            };
+
+            let reopenTimer = null;
+
+            function expand() {
+                clearTimeout(reopenTimer);
+                root.classList.remove('is-collapsed');
+                if (isMobile()) ls.set(MOBILE_KEY, '1');
+                else ls.del(DESKTOP_KEY);
+            }
+
+            function collapse() {
+                root.classList.add('is-collapsed');
+                root.classList.remove('is-chat');
+                if (!isMobile()) {
+                    ls.set(DESKTOP_KEY, String(Date.now()));
+                    scheduleReopen();
+                }
+            }
+
+            // Desktop only: auto re-open once the 10-minute window since the last
+            // dismissal elapses — even if the user never navigates to another page.
+            function scheduleReopen() {
+                clearTimeout(reopenTimer);
+                const at = parseInt(ls.get(DESKTOP_KEY) || '', 10);
+                if (isNaN(at)) return;
+                const remaining = at + RESET_MS - Date.now();
+                if (remaining <= 0) { expand(); return; }
+                reopenTimer = setTimeout(() => {
+                    if (root.classList.contains('is-collapsed')) expand();
+                }, remaining);
+            }
+
+            // ── initial state (markup defaults to .is-collapsed) ──
+            if (isMobile()) {
+                // Mobile: default collapsed (icon); auto-open once on the very first visit.
+                if (ls.get(MOBILE_KEY) !== '1') setTimeout(expand, 600);
+            } else {
+                // Desktop: shown by default. A dismissal persists across pages for 10
+                // minutes (saved in localStorage); after that the state resets and the
+                // popup opens again.
+                const at = parseInt(ls.get(DESKTOP_KEY) || '', 10);
+                const dismissed = !isNaN(at) && (Date.now() - at) < RESET_MS;
+                if (dismissed) scheduleReopen();                 // stay collapsed, arm reopen timer
+                else { root.classList.remove('is-collapsed'); ls.del(DESKTOP_KEY); }
+            }
+
+            // Delegated so the close button and the backdrop (mobile) collapse,
+            // and the shield FAB re-opens.
+            // "Trợ lý AI": swap the menu card for the chat panel. The iframe src is
+            // only set on the FIRST open so the chatbox never loads for visitors
+            // who don't use it (this footer is on every page).
+            function openChat() {
+                const frame = root.querySelector('[data-cmnoti-chat-frame]');
+                if (frame && !frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
+                clearTimeout(reopenTimer);
+                root.classList.add('is-chat');
+                root.classList.remove('is-collapsed');
+            }
+
+            root.addEventListener('click', (e) => {
+                if (e.target.closest('[data-cmnoti-ai-open]')) openChat();
+                else if (e.target.closest('[data-cmnoti-chat-back]')) root.classList.remove('is-chat');
+                else if (e.target.closest('[data-cmnoti-close]')) collapse();
+                else if (e.target.closest('[data-cmnoti-open]')) expand();
+            });
+        })();`,priority:"idle"},{portletCode:"resize_detail_page_images",javascript:`// function resizeDetailPageImages() {
+//     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+//     const newWidth = Math.max(Math.ceil((viewportWidth + 1) / 50) * 50, 1000);
+//     const images = document.querySelectorAll('#content img');
+//     images.forEach((img) => {
+//         const src = img.getAttribute('src');
+//         if (src && src.includes('/original/images/')) {
+//             img.setAttribute('src', src.replace('/original/', '/w' + newWidth + '/'));
+//         }
+//     });
+// }
+
+// resizeDetailPageImages()`}],quoteTemplateScripts:null,shadowTemplateList:[],pageParams:{article_id:22072,category_id:296,department_id:7,major_category_id:296,path:"/thuoc-gia-doi-lot-dong-y-gia-truyen",workflows_public_id:7},layoutName:"Bài viết - Căn giữa (1 cột)",serverErrors:null,notFoundPortletList:null}

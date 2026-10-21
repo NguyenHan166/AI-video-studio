@@ -15,10 +15,21 @@ export const SceneFrame: React.FC<{
   children: React.ReactNode;
   index: number;
   total: number;
+  sceneDurationFrames: number;
   kicker?: string;
   threatLevel?: string;
-}> = ({ children, index, total, kicker, threatLevel }) => {
-  const progress = total <= 1 ? 1 : (index + 1) / total;
+}> = ({ children, index, total, sceneDurationFrames, kicker, threatLevel }) => {
+  const frame = useCurrentFrame();
+  const segmentProgress = interpolate(frame, [0, Math.max(1, sceneDurationFrames)], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const progress = total <= 1 ? 1 : (index + segmentProgress) / total;
+  const wipeFrames = index === 0 ? 9 : 15;
+  const wipeProgress = interpolate(frame, [0, wipeFrames], [0, 100], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
   const page = String(index + 1).padStart(2, '0');
   const pages = String(total).padStart(2, '0');
 
@@ -84,12 +95,27 @@ export const SceneFrame: React.FC<{
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ width: 10, height: 10, backgroundColor: T.brick, display: 'inline-block' }} />
-          <span>AN TOÀN SỐ</span>
+          <span>HỒ SƠ THỜI SỰ</span>
         </div>
         <div style={{ color: T.inkSoft, fontSize: 15, fontWeight: 700, letterSpacing: 1.1 }}>
-          NHẬN BIẾT · KIỂM CHỨNG · BẢO VỆ
+          TƯ LIỆU BÀI BÁO · 21/10/2026
         </div>
       </header>
+
+      <div
+        style={{
+          position: 'absolute',
+          top: 99,
+          left: 62,
+          right: 62,
+          height: 3,
+          zIndex: 6,
+          backgroundColor: T.rule,
+          pointerEvents: 'none',
+        }}
+      >
+        <div style={{ width: `${progress * 100}%`, height: '100%', backgroundColor: T.brick }} />
+      </div>
 
       <div
         style={{
@@ -109,7 +135,7 @@ export const SceneFrame: React.FC<{
           textTransform: 'uppercase',
         }}
       >
-        <span>AN NINH SỐ · CẨM NANG CẢNH GIÁC</span>
+        <span>PHÓNG SỰ TƯ LIỆU · THUỐC GIẢ TRÊN MẠNG</span>
         <span style={{ color: threatLevel ? T.brick : T.inkSoft }}>
           {threatLevel || `${page} / ${pages}`}
         </span>
@@ -179,9 +205,33 @@ export const SceneFrame: React.FC<{
           textTransform: 'uppercase',
         }}
       >
-        <span>THÔNG TIN · KỸ NĂNG · CỘNG ĐỒNG</span>
-        <span style={{ color: T.brick }}>AN TOÀN TRÊN MẠNG</span>
+        <span>TƯ LIỆU THEO BÀI BÁO · 21/10/2026</span>
+        <span style={{ color: T.brick }}>AN TOÀN SỐ</span>
       </footer>
+
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 30,
+          pointerEvents: 'none',
+          backgroundColor: T.paper,
+          clipPath: `inset(0 0 0 ${wipeProgress}%)`,
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: `${wipeProgress}%`,
+            width: 3,
+            backgroundColor: T.amber,
+            boxShadow: `0 0 18px ${T.amber}`,
+          }}
+        />
+      </div>
     </AbsoluteFill>
   );
 };
@@ -328,7 +378,21 @@ export const PaperCard: React.FC<{
 
 export const Postcard: React.FC<{ scene: Scene; height?: number }> = ({ scene, height = 430 }) => {
   const image = scene.images?.[0];
+  const frame = useCurrentFrame();
   if (!image) return null;
+  const motionProgress = interpolate(frame, [0, Math.max(1, scene.durationFrames)], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const scale = interpolate(motionProgress, [0, 1], [1.018, 1.052]);
+  const scanPosition = interpolate(frame, [0, 36], [0, 100], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const scanOpacity = interpolate(frame, [0, 4, 27, 39], [0, 0.26, 0.16, 0], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
 
   return (
     <Reveal delay={10} distance={10}>
@@ -351,7 +415,68 @@ export const Postcard: React.FC<{ scene: Scene; height?: number }> = ({ scene, h
         >
           <Img
             src={staticFile(image)}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: scene.imageObjectPosition || '50% 50%',
+              transform: `scale(${scale})`,
+              transformOrigin: 'center center',
+              display: 'block',
+            }}
+          />
+          {scene.imageMasks?.map((mask, maskIndex) => (
+            <div
+              key={`${scene.id}-image-mask-${maskIndex}`}
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                left: `${mask.leftPct}%`,
+                top: `${mask.topPct}%`,
+                width: `${mask.widthPct}%`,
+                height: `${mask.heightPct}%`,
+                boxSizing: 'border-box',
+                backgroundColor:
+                  mask.mode === 'blur' ? 'rgba(243, 240, 230, 0.14)' : 'rgba(243, 240, 230, 0.96)',
+                backdropFilter: mask.mode === 'blur' ? 'blur(12px)' : 'blur(16px)',
+                borderTop: mask.mode === 'blur' ? 'none' : `1px solid ${T.rule}`,
+                borderBottom: mask.mode === 'blur' ? 'none' : `1px solid ${T.rule}`,
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'flex-end',
+                padding: 7,
+                pointerEvents: 'none',
+              }}
+            >
+              {mask.label ? (
+                <span
+                  style={{
+                    color: T.inkFaint,
+                    fontFamily: T.fontBody,
+                    fontSize: 11,
+                    fontWeight: 900,
+                    letterSpacing: 0.8,
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {mask.label}
+                </span>
+              ) : null}
+            </div>
+          ))}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: `${scanPosition}%`,
+              left: 0,
+              right: 0,
+              height: 2,
+              opacity: scanOpacity,
+              background: `linear-gradient(90deg, transparent 0%, ${T.amber} 18%, ${T.paperLight} 50%, ${T.amber} 82%, transparent 100%)`,
+              boxShadow: `0 0 12px ${T.amber}`,
+              pointerEvents: 'none',
+            }}
           />
           <div
             style={{
